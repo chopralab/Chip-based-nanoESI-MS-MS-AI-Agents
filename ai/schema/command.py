@@ -1,15 +1,16 @@
-from langchain.pydantic_v1 import BaseModel, root_validator, Field
+# from langchain.pydantic_v1 import BaseModel, root_validator, Field
+from pydantic import BaseModel as BaseModelV2, Field
 from typing import Dict, Type, Any, Union
 import json
 from uuid import UUID
 
-from sciborg.ai.schema.parameter import(
+from sciborg_dev.ai.schema.parameter import(
     ParameterSchemaV1,
     ParameterModelSchemaV1,
 )
-from sciborg.core.command.base import BaseInfoCommand
+from sciborg_dev.core.command.base import BaseInfoCommand
 
-class LibraryCommandSchemaV1(BaseModel):
+class LibraryCommandSchemaV1(BaseModelV2):
 
     # Command Model attributes
     name: str
@@ -28,7 +29,7 @@ class LibraryCommandSchemaV1(BaseModel):
         """
     )
     
-class BaseRunCommandSchemaV1(BaseModel):
+class BaseRunCommandSchemaV1(BaseModelV2):
     name: str
     microservice: str
     uuid: UUID

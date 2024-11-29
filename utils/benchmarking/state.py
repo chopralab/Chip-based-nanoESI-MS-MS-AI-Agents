@@ -1,5 +1,5 @@
 from typing import Any, Callable, Type, List, Dict
-from sciborg.utils.benchmarking.base import BaseAgentBenchmarker
+from sciborg_dev.utils.benchmarking.base import BaseAgentBenchmarker
 
 from pydantic import BaseModel, ValidationError, PrivateAttr
 import json

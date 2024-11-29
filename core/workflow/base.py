@@ -8,7 +8,7 @@ from typing import (
     SupportsIndex,
     Iterator,
 )
-from sciborg.core.command.base import (
+from sciborg_dev.core.command.base import (
     BaseCommand,
     BaseInfoCommand, 
     BaseRunCommand, 

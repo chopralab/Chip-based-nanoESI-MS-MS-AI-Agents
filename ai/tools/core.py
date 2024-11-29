@@ -4,11 +4,12 @@ from pydantic import ValidationError as ValidationErrorV2 # Our infrastructure u
 import re
 
 from langchain.tools import BaseTool
-from langchain.pydantic_v1 import root_validator
-from langchain.pydantic_v1 import ValidationError as ValidationErrorV1
+# from langchain.pydantic_v1 import root_validator
+from pydantic import model_validator
+# from langchain.pydantic_v1 import ValidationError as ValidationErrorV1
 from langchain_core.tools import create_schema_from_function, ToolException
 
-from sciborg.core.command.base import BaseDriverCommand
+from sciborg_dev.core.command.base import BaseDriverCommand
 
 class LinqxTool(BaseTool):
     '''
@@ -18,10 +19,11 @@ class LinqxTool(BaseTool):
     description: str = "undefined"
     linqx_command:  BaseDriverCommand
     handle_tool_error: bool | str | Callable[[ToolException], str] | None = True
-    errors_caught: Tuple[Type[Exception]] = (TypeError, ValueError, KeyError, ValidationErrorV1, ValidationErrorV2)
+    errors_caught: Tuple[Type[Exception]] = (TypeError, ValueError, KeyError, ValidationErrorV2)
 
     #TODO convert to pydantic V2 when the version of Langchain is updated
-    @root_validator
+    # @root_validator
+    @model_validator(mode='before')
     def validate_tool(cls, values: Dict[str, Any]):
         '''
         Dynamically sets name, description, and args_schema based on the provided LINQX command

@@ -1,9 +1,9 @@
 from pydantic import BaseModel, ConfigDict, Field, validate_call, field_validator, InstanceOf
 from typing import List, Any, Dict
 
-from sciborg.core.library.base import BaseDriverCommandLibrary
-from sciborg.core.command.base import BaseRunCommand, BaseDriverCommand
-from sciborg.core.workflow.base import BaseDriverWorkflow, BaseRunWorkflow
+from sciborg_dev.core.library.base import BaseDriverCommandLibrary
+from sciborg_dev.core.command.base import BaseRunCommand, BaseDriverCommand
+from sciborg_dev.core.workflow.base import BaseDriverWorkflow, BaseRunWorkflow
 
 class BaseCommandInterpreter(BaseModel):
     '''

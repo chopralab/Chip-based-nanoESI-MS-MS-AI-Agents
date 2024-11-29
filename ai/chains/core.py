@@ -5,19 +5,21 @@ from typing import Any, Dict, Type, List
 
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
-from langchain.pydantic_v1 import BaseModel as BaseModel, Field
+# from langchain.pydantic_v1 import BaseModel as BaseModel, Field
+from pydantic import BaseModel as BaseModelV2, Field
 from langchain.memory import ConversationBufferWindowMemory
 
 from langchain_core.output_parsers import JsonOutputParser
 from langchain_core.language_models import BaseLanguageModel
-from langchain_core.runnables import Runnable, RunnableConfig, chain
+from langchain_core.runnables import Runnable, RunnableConfig, chain, RunnableSequence
+
 from langchain_core.memory import BaseMemory
 
 from langchain_openai import ChatOpenAI
 
-from sciborg.ai.schema.parameter import ParameterSchemaV1
-from sciborg.ai.schema.command import LibraryCommandSchemaV1
-from sciborg.ai.schema.workflow import RunWorkflowSchemaV1
+from sciborg_dev.ai.schema.parameter import ParameterSchemaV1
+from sciborg_dev.ai.schema.command import LibraryCommandSchemaV1
+from sciborg_dev.ai.schema.workflow import RunWorkflowSchemaV1
 
 class LinqxLLMChain(LLMChain):
     '''
@@ -60,7 +62,7 @@ class LinqxLLMChain(LLMChain):
         )
     ```
     '''
-    linqx_object: Type[BaseModel]
+    linqx_object: Type[BaseModelV2]
     prompt: PromptTemplate = PromptTemplate(
         template='Answer the users query.\n{query}',
         input_variables=['query']
@@ -122,9 +124,9 @@ class LinqxLLMChain(LLMChain):
         return super().invoke(input, config, **kwargs)
 
 def create_json_parser(
-    pydantic_object: BaseModel, 
+    pydantic_object: BaseModelV2, 
     llm: BaseLanguageModel = ChatOpenAI(temperature=0)
-) -> LLMChain:
+) -> RunnableSequence:
     '''
     Creates an LLM based JSON parser for a pydantic schema using Langchains internal
     JSON output parser and LLM chain.
@@ -137,7 +139,7 @@ def create_json_parser(
     
     Returns
     ```
-    return LLMChain # An LLM chain which when invoked, returns python dictionaries which conform to that schema
+    return RunnableSequence # A pipeline that parses user queries into a JSON format conforming to the schema
     ```
     '''
     parser = JsonOutputParser(pydantic_object=pydantic_object)
@@ -146,11 +148,7 @@ def create_json_parser(
         input_variables=["query"],
         partial_variables={"format_instructions": parser.get_format_instructions()},
     )
-    return LLMChain(
-        llm=llm,
-        prompt=prompt,
-        output_parser=parser
-    )
+    return prompt | llm | parser
 
 def create_linqx_parameter_parser(llm: BaseLanguageModel | None = None) -> LLMChain:
     if llm is not None:

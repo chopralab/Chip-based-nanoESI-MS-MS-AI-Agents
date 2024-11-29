@@ -1,5 +1,11 @@
 # SciBORG
 
+In the version update branch we use a venv to maintain the new list of packages till the time the entire shift is done. The new list of packages is in the new_requirements.txt file. The new venv is created using the following command:
+```shell
+python3.10 -m venv env
+source env/bin/activate
+```
+
 <img src="images/SciBORG Logo.png" alt="SciBORG Banner Image" width="" height="150">
 
 SciBORG is an innovative framework designed for building agents that can rapidly automate scientific discovery. It’s built to be modular, extensible, and easy to integrate with new components and agents, making it suitable for diverse research domains. 

@@ -14,7 +14,7 @@ from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_core.language_models import BaseLanguageModel
 from langchain.agents import AgentExecutor
 
-from sciborg.ai.tools.pubchem_tools import get_sids_from_cid, get_cids_from_sid, get_synonym, get_description, get_assay_description, get_assay_id_from_smiles, get_assay_name_from_aid, get_compound_property_table
+from sciborg_dev.ai.tools.pubchem_tools import get_sids_from_cid, get_cids_from_sid, get_synonym, get_description, get_assay_description, get_assay_id_from_smiles, get_assay_name_from_aid, get_compound_property_table
 
 def pubchem_agent(
         question: str,

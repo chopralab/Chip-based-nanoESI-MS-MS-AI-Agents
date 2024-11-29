@@ -1,4 +1,4 @@
-from sciborg.utils.benchmarking.base import BaseAgentBenchmarker
+from sciborg_dev.utils.benchmarking.base import BaseAgentBenchmarker
 from typing import Dict, Type, Any, List
 from pydantic import BaseModel, PrivateAttr
 import re

@@ -4,11 +4,11 @@ from types import ModuleType, FunctionType
 from pydantic import BaseModel as BaseModelV2
 import json
 from langchain_core.language_models import BaseLanguageModel
-from langchain.pydantic_v1 import BaseModel as BaseModelV1
+# from langchain.pydantic_v1 import BaseModel as BaseModelV1
 from uuid import UUID, uuid4
-from sciborg.core.command.base import BaseDriverCommand, BaseInfoCommand
-from sciborg.core.library.base import BaseDriverMicroservice
-from sciborg.ai.chains.core import create_linqx_command_parser
+from sciborg_dev.core.command.base import BaseDriverCommand, BaseInfoCommand
+from sciborg_dev.core.library.base import BaseDriverMicroservice
+from sciborg_dev.ai.chains.core import create_linqx_command_parser
 
 def function_to_driver_command(
     func: FunctionType,
@@ -52,7 +52,10 @@ def function_to_driver_command(
 
     print(output)
     # Build info command from this
-    info_command = BaseInfoCommand(**output['text'])
+    # info_command = BaseInfoCommand(**output['text'])
+    print(type(output))
+    # print(**output)
+    info_command = BaseInfoCommand(**output)
 
     # Create and return driver command
     return BaseDriverCommand(
@@ -128,7 +131,7 @@ def object_to_microservice(
     if isinstance(object, BaseModelV2):
         raise NotImplementedError("Version of Langchain used does not support Pydantic V2 schema, this will be updated!")
     
-    if isinstance(object, BaseModelV1):
+    if isinstance(object, BaseModelV2):
         pass
 
     # If the microservice is none, set to object class name

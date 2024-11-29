@@ -16,7 +16,8 @@ from langchain.tools.file_management import (
 )
 from langchain.tools.file_management.write import WriteFileInput
 from langchain.callbacks.manager import CallbackManagerForToolRun
-from langchain.pydantic_v1 import BaseModel, PositiveInt, Field
+# from langchain.pydantic_v1 import BaseModel, PositiveInt, Field
+from pydantic import BaseModel as BaseModelV2, Field, PositiveInt
 from langchain_community.agent_toolkits.base import BaseToolkit
 from langchain_community.tools import BaseTool
 
@@ -28,15 +29,15 @@ import sys, os
 import json
 
 # Import LINQX infrastructure objects
-from sciborg.models.parameter.base import ParameterModel
-from sciborg.models.parameter.base import ValueType
-from sciborg.models.scheduler.base import BaseScheduleTemplate
-from sciborg.models.command.base import BaseDriverCommand
+from sciborg_dev.models.parameter.base import ParameterModel
+from sciborg_dev.models.parameter.base import ValueType
+from sciborg_dev.models.scheduler.base import BaseScheduleTemplate
+from sciborg_dev.models.command.base import BaseDriverCommand
 
 # Import internal V1 schema
-from sciborg.llm_copilots.schema.parameter import ParameterSchemaV1
-from sciborg.llm_copilots.schema.scheduler import ScheduleSchemaV1
-from sciborg.llm_copilots.schema.apptainer import (
+from sciborg_dev.llm_copilots.schema.parameter import ParameterSchemaV1
+from sciborg_dev.llm_copilots.schema.scheduler import ScheduleSchemaV1
+from sciborg_dev.llm_copilots.schema.apptainer import (
     ApptainerFilenameAppTemplateV1,
     ApptainerFilenameListTemplateV1,
     ApptainerFilenameTemplateV1,
@@ -249,7 +250,7 @@ class JSONWriteFileInput(WriteFileInput):
     text: str | Dict = Field(..., description='text to write to file')
 
 class JSONWriteFileTool(WriteFileTool):
-    args_schema: Type[BaseModel] = JSONWriteFileInput
+    args_schema: Type[BaseModelV2] = JSONWriteFileInput
     description: str = "Write JSON formatted file to disk"
 
     def _run(

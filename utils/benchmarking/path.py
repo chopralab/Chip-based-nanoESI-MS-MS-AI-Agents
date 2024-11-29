@@ -1,5 +1,5 @@
 from typing import Iterable, Tuple, List, Dict, Any, Type
-from sciborg.utils.benchmarking.base import BaseAgentBenchmarker
+from sciborg_dev.utils.benchmarking.base import BaseAgentBenchmarker
 
 from pydantic import BaseModel, InstanceOf, ValidationError, PrivateAttr
 

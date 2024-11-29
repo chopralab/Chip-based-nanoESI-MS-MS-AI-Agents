@@ -16,7 +16,7 @@ from typing import (
     Callable,
 )
 from types import ModuleType
-from sciborg.core.parameter.base import Parameter, ParameterModel, ValueType
+from sciborg_dev.core.parameter.base import Parameter, ParameterModel, ValueType
 import inspect
 from importlib import import_module
 from uuid import UUID

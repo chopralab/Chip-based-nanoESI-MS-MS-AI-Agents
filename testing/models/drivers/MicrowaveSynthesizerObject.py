@@ -3,15 +3,16 @@ Module for a virtual microwave synthesizer.
 '''
 import random
 from uuid import uuid4
-from langchain.pydantic_v1 import BaseModel, Field, BaseConfig
+# from langchain.pydantic_v1 import BaseModel, Field, BaseConfig
+from pydantic import BaseModel as BaseModelV2, Field, ConfigDict
 from typing import Literal
 
-class MicrowaveSynthesizer(BaseModel):
+class MicrowaveSynthesizer(BaseModelV2):
     '''
     Object which controls a microwave synthesizer
     '''
     # Config for Pydantic V1
-    class Config(BaseConfig):
+    class Config(ConfigDict):
         validate_assignment = True
 
     # Attributes (used in psuedo FSA state tracking)

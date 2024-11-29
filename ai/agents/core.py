@@ -10,29 +10,29 @@ from langchain.agents import AgentExecutor, create_structured_chat_agent
 from langchain.prompts import ChatPromptTemplate, PromptTemplate, BasePromptTemplate
 from langchain.tools import StructuredTool
 from langchain.tools.human import HumanInputRun
-from langchain.pydantic_v1 import BaseModel as BaseModelV1
+# from langchain.pydantic_v1 import BaseModel as BaseModelV1
 from langchain.memory import ConversationBufferWindowMemory, ConversationSummaryMemory, CombinedMemory
 
 from langchain_openai import ChatOpenAI
 from langchain.agents import tool
 
-from sciborg.core.library.base import BaseDriverMicroservice
-from sciborg.core.command.base import BaseDriverCommand
-from sciborg.ai.memory.internal_logging import CustomActionLogSummaryMemory, FSAMemory
-from sciborg.ai.memory.embedding import EmbeddingSummaryMemory
-from sciborg.ai.prompts.agent import (
+from sciborg_dev.core.library.base import BaseDriverMicroservice
+from sciborg_dev.core.command.base import BaseDriverCommand
+from sciborg_dev.ai.memory.internal_logging import CustomActionLogSummaryMemory, FSAMemory
+from sciborg_dev.ai.memory.embedding import EmbeddingSummaryMemory
+from sciborg_dev.ai.prompts.agent import (
     HUMAN_TOOL_INSTRUCTIONS,
     ASSUME_DEFAULTS_INSTRUCTIONS,
     BASE_LINQX_CHAT_PROMPT_TEMPLATE,
     RAG_AS_A_TOOL_INSTRUCTIONS
 )
-from sciborg.ai.tools.core import LinqxTool
-from sciborg.ai.agents.rag_agent import rag_agent
-from sciborg.ai.agents.pubchem_agent import pubchem_agent
+from sciborg_dev.ai.tools.core import LinqxTool
+from sciborg_dev.ai.agents.rag_agent import rag_agent
+from sciborg_dev.ai.agents.pubchem_agent import pubchem_agent
 
 def command_to_tool(
     command: BaseDriverCommand,
-    schema: type[BaseModelV1] = None
+    schema: type[BaseModelV2] = None
 ) -> StructuredTool:
     '''
     Helper function to convert BaseDriverCommand to a Langchain tool
@@ -61,8 +61,8 @@ def create_linqx_chat_agent(
         agent_description: str | None = None,
         agent_as_a_tool: AgentExecutor | None = None,
         agent_as_a_fsa: bool = False,
-        fsa_object: Type[BaseModelV1] | None = None,
-        start_state: BaseModelV1 | None = None,
+        fsa_object: Type[BaseModelV2] | None = None,
+        start_state: BaseModelV2 | None = None,
         use_linqx_tools: bool = True,
         handle_tool_error: bool = True,
         verbose: bool = False,

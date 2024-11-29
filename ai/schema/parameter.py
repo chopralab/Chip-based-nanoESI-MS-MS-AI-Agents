@@ -1,9 +1,10 @@
-from langchain.pydantic_v1 import BaseModel, PositiveInt, root_validator, Field
+# from langchain.pydantic_v1 import BaseModel, PositiveInt, root_validator, Field
+from pydantic import BaseModel as BaseModelV2, Field, PositiveInt
 from typing import Literal, List, Dict, Any
 
-from sciborg.core.parameter.base import ParameterModel, ValueType
+from sciborg_dev.core.parameter.base import ParameterModel, ValueType
 
-class ParameterModelSchemaV1(BaseModel):
+class ParameterModelSchemaV1(BaseModelV2):
     # Parameter model attributes
     name: str = Field(description='The name of the parameter')
     data_type: Literal["str", "int", "float"] = Field(description='The data type of the parameter')
@@ -18,7 +19,7 @@ class ParameterModelSchemaV1(BaseModel):
     var_name: str = Field(default='', description='The name of the varaible which the parameter will be read from, do not assign if from_var is false')
     desc: str = Field(default='', description='A short description of the parameter')
 
-class ParameterSchemaV1(BaseModel):
+class ParameterSchemaV1(BaseModelV2):
     value: ValueType = ""
     # desc: str = ""
     from_var: bool = False

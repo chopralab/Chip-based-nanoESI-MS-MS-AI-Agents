@@ -4,13 +4,14 @@ from langchain.prompts import BasePromptTemplate, PromptTemplate
 from langchain.chains import LLMChain
 from langchain_core.messages import BaseMessage, SystemMessage, get_buffer_string
 from langchain_core.output_parsers import JsonOutputParser
-from langchain_core.pydantic_v1 import BaseModel, root_validator
+# from langchain_core.pydantic_v1 import BaseModel, root_validator
 from langchain_core.language_models import BaseLanguageModel
+from pydantic import BaseModel, model_validator
 
 from typing import Dict, Any, List, Type
 import json
 
-from sciborg.ai.prompts.memory import ACTION_SUMMARY_PROMPT, ACTION_LOG_FSA_TEMPLATE
+from sciborg_dev.ai.prompts.memory import ACTION_SUMMARY_PROMPT, ACTION_LOG_FSA_TEMPLATE
 
 class CustomSummariserMixin(SummarizerMixin):
     """Mixin for summarizer."""
@@ -93,7 +94,8 @@ class FSAMixin(SummarizerMixin):
     output_parser: JsonOutputParser | None = None
     prompt: BasePromptTemplate | None = None
     
-    @root_validator()
+    # @model_validator()
+    @model_validator(mode='before')
     def validate_fsa_mixin(cls, values: Dict):
         # print(values)
         values['output_parser'] = JsonOutputParser(pydantic_object=values['fsa_object'])

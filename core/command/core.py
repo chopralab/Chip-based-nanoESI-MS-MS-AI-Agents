@@ -8,8 +8,8 @@ from typing import (
     Optional,
     Callable,
 )
-from sciborg.core.parameter.base import Parameter
-from sciborg.core.command.base import BaseDriverCommand
+from sciborg_dev.core.parameter.base import Parameter
+from sciborg_dev.core.command.base import BaseDriverCommand
 
 class InteractiveParameterDriverCommand(BaseDriverCommand):
     '''

@@ -7,7 +7,7 @@ from typing import List
 from typing import Dict
 
 import requests
-from sciborg.ai.tools.constants import PUBCHEM, OUTPUT_FORMAT, PROPERTIES
+from sciborg_dev.ai.tools.constants import PUBCHEM, OUTPUT_FORMAT, PROPERTIES
 import pprint
 
 def _convert_to_string(l_ids) -> dict:

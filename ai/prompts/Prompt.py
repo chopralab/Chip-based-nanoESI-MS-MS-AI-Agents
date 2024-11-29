@@ -1,6 +1,6 @@
 from langchain.agents import StructuredChatAgent
 
-from sciborg.ai.tools.Tools import (
+from sciborg_dev.ai.tools.Tools import (
     template_builder_tools,
     request_builder_tools,
     microservice_selector_tools,

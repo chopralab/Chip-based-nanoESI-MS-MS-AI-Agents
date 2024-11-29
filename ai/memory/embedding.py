@@ -3,7 +3,7 @@ from langchain.memory.chat_memory import BaseChatMemory
 from langchain.prompts import BasePromptTemplate, PromptTemplate
 from langchain.chains import LLMChain
 from typing import Dict, Any, List, Type
-from sciborg.ai.prompts.memory import EMBEDDING_SUMMARY_PROMPT
+from sciborg_dev.ai.prompts.memory import EMBEDDING_SUMMARY_PROMPT
 
 class EmbeddingSummaryMemory(ConversationSummaryMemory):
     '''
