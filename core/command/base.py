@@ -220,6 +220,8 @@ class BaseInfoCommand(BaseCommand):
     def validate_info_command(self):
         if not self.has_return:
             self.return_signature = None
+        return self
+    #TODO: change this in all the validators (add return)
 
     def to_run_command(
             self,
@@ -261,6 +263,7 @@ class BaseInfoCommand(BaseCommand):
             for key in save_vars.keys(): 
                 if key not in self.return_signature.keys(): 
                     raise KeyError(f"Key: '{key}' is not a valid return key, expected one of: {self.return_signature.keys()}")
+            return self
 
         if any(key not in self.parameters.keys() for key in var_names.keys()):
             raise KeyError(
@@ -430,6 +433,7 @@ class BaseDriverCommand(BaseCommand):
         #     raise ValueError("If has return is True, the return signature must not be an empty dictionary.")
         if not self.has_return:
             self.return_signature = None
+        return self
 
     def _init_private_attributes():
         pass
