@@ -176,7 +176,9 @@ def create_linqx_chat_agent(
         
         tools.append(call_RAG_agent)
 
+    #TODO: we do not want to continue doing this. Need to have a better way to build multi agent architectures
     if agent_as_a_tool is not None:
+
         @tool
         def call_provided_Agent(question: str) -> str:
             f"""{agent_description}"""

@@ -1,3 +1,4 @@
+from tqdm import tqdm
 from importlib import import_module
 from inspect import getmembers, isfunction, isclass, ismethod, signature, getdoc, getmodule, getsource
 from types import ModuleType, FunctionType
@@ -76,8 +77,8 @@ def module_to_microservice(
     uuid: str | UUID | None = None,
     llm: BaseLanguageModel | None = None,
 ) -> BaseDriverMicroservice:
-    '''
-    Converts a python module into a BaseDriverMicroservice
+    """
+    Converts a Python module into a BaseDriverMicroservice.
 
     Parameters
     ```
@@ -86,32 +87,35 @@ def module_to_microservice(
     microservice: str | None # The name of the microservice (defaults to module name)
     uuid: str | UUID | None # The UUID of the microservice
     ```
-    '''
-    # Import the module if needed
+    """
     if isinstance(module, str):
         module = import_module(module, package)
 
-    # If no name is provided, get the name of the module (minus pathing)
     if microservice is None:
         microservice = module.__name__.split('.')[-1]
-    
-    # If there is no UUID assigned, assign one
+
     if uuid is None:
         uuid = uuid4()
     elif isinstance(uuid, str):
         uuid = UUID(uuid)
 
-    # Create the driver command set from all functions in the module
-    # NOTE we cannot use just isfunction because it gets imports as well
-    driver_command_set = {
-        name : function_to_driver_command(func, microservice, uuid, llm)
-        for name, func in getmembers(
+    # Get all functions in the module and process them with a progress bar
+    functions = [
+        (name, func) for name, func in getmembers(
             module,
             lambda o: isfunction(o) and getmodule(o) == module and not o.__name__.startswith('_')
         )
-    }
+    ]
 
-    # Return the microservice
+    driver_command_set = {}
+    with tqdm(total=len(functions), desc="Processing functions", unit="function") as pbar:
+        for name, func in functions:
+            try:
+                driver_command_set[name] = function_to_driver_command(func, microservice, uuid, llm)
+            except Exception as e:
+                print(f"Error processing function {name}: {e}")
+            pbar.update(1)
+
     return BaseDriverMicroservice(
         name=microservice,
         uuid=uuid,

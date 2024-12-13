@@ -46,10 +46,7 @@ def create_workflow_planner_chain(
     )
 
     # Define LLM chain
-    return LLMChain(
-        llm=llm,
-        prompt=prompt_template,
-    )
+    return prompt_template | llm
 
 def create_workflow_constructor_chain(
     library: BaseCommandLibrary,

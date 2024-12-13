@@ -6,7 +6,7 @@ python3.10 -m venv env
 source env/bin/activate
 ```
 
-<img src="images/SciBORG Logo.png" alt="SciBORG Banner Image" width="" height="150">
+<img src="images/logo.png" alt="SciBORG Banner Image" width="" height="150">
 
 SciBORG is an innovative framework designed for building agents that can rapidly automate scientific discovery. It’s built to be modular, extensible, and easy to integrate with new components and agents, making it suitable for diverse research domains. 
 
