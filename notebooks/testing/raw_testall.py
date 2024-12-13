@@ -55,7 +55,7 @@ except ImportError as e:
 file_path = '/home/parikh92/sciborg_dev/ai/agents/driver_pubchem.json'
 
 try:
-    pubchem_command_microservice = module_to_microservice_new(PubChemCaller)
+    pubchem_command_microservice = module_to_microservice(PubChemCaller)
     with open(file_path, 'w') as outfile:
         outfile.write(pubchem_command_microservice.model_dump_json(indent=2))
     log_status("PubChem microservice built and saved successfully.")
