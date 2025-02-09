@@ -1,5 +1,7 @@
 PUBCHEM = "https://pubchem.ncbi.nlm.nih.gov/rest/pug"
 
+CACTUS = "https://cactus.nci.nih.gov/chemical/structure"
+
 OUTPUT_FORMAT = 'JSON'
 
 PROPERTIES = ['MolecularFormula', 'MolecularWeight', 'CanonicalSMILES', 'IsomericSMILES', 'InChI', 'InChIKey', 'IUPACName', 'Title', 'XLogP', \
