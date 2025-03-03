@@ -51,7 +51,7 @@ def create_linqx_chat_agent(
         microservice: BaseDriverMicroservice,
         llm: BaseLanguageModel = ChatOpenAI(temperature=0),
         prompt_template: str = BASE_LINQX_CHAT_PROMPT_TEMPLATE,
-        use_memory: Literal['chat', 'action', 'both'] | None = None,
+        use_memory: Literal['chat', 'action', 'embedding', 'all'] | None = None,
         memory: BaseMemory | None = None,
         intermediate_memory_buffer: str = "",
         past_action_log: str = "",
@@ -114,34 +114,37 @@ def create_linqx_chat_agent(
         'microservice_description': microservice.desc,
     }
 
-    if rag_vectordb_path:
-        input_variables.append('rag_log')
 
+    #TODO: do we assign the loaded buffers here? 
     # Add memory if needed to prompt
-    if use_memory == 'both':
+    if use_memory == 'all':
         # If we are using memory, this will be provide by agent executor
         input_variables.append('chat_history') 
         input_variables.append('past_action_log')
+        input_variables.append('embedding_log')
     elif use_memory == 'chat':
         input_variables.append('chat_history')
         partial_variables['past_action_log'] = past_action_log
     elif use_memory == 'action':
          input_variables.append('past_action_log')
          partial_variables['chat_history'] = ""
+    elif use_memory == 'embedding' and rag_vectordb_path:
+        input_variables.append('embedding_log')
     else:
         # Else use can provide a custom log if needed
         partial_variables['chat_history'] = ""
         partial_variables['past_action_log'] = past_action_log
 
-    # Add additional instructions
+    # Adding instructions
+    TOTAL_INSTRUCTIONS = ""
     if human_interaction:
-        partial_variables['additional_instructions'] = HUMAN_TOOL_INSTRUCTIONS
-    elif assume_defaults:
-        partial_variables['additional_instructions'] = ASSUME_DEFAULTS_INSTRUCTIONS
-    elif rag_vectordb_path:
-        partial_variables['additional_instructions'] = RAG_AS_A_TOOL_INSTRUCTIONS
-    else:
-        partial_variables['additional_instructions'] = ""
+        TOTAL_INSTRUCTIONS += HUMAN_TOOL_INSTRUCTIONS
+    if assume_defaults:
+        TOTAL_INSTRUCTIONS += ASSUME_DEFAULTS_INSTRUCTIONS
+    if rag_vectordb_path:
+        TOTAL_INSTRUCTIONS += RAG_AS_A_TOOL_INSTRUCTIONS
+    
+    partial_variables['additional_instructions'] = TOTAL_INSTRUCTIONS
 
     # Build prompt from template
     prompt = PromptTemplate(
@@ -181,7 +184,7 @@ def create_linqx_chat_agent(
 
         @tool
         def call_provided_Agent(question: str) -> str:
-            f"""{agent_description}"""
+            "This is the function that will call the provided agent as a tool."
             output = agent_as_a_tool.invoke({"input": question})
             return output['output']
         tools.append(call_provided_Agent)

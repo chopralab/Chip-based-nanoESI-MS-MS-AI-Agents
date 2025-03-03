@@ -5,13 +5,13 @@ Don't just use default values for tool inputs, look at the chat history to see i
 """
 
 ASSUME_DEFAULTS_INSTRUCTIONS = """
-DO NOT use any default values for tool inputs, look at the chat history to see if any values were provided previosuly.
+DO NOT use any default values for tool inputs, look at the chat history to see if any values were provided previosuly. It is important to refer to memory or chat history to avoid redundant conversations and to provide the most accurate information to the human.
 
 If not provide your final answer as you cannot continue without additional information and state what information you need to continue, include a summary of what actions you have already taken, and any observations from those actions.
 """
 
 RAG_AS_A_TOOL_INSTRUCTIONS = """
-You main responsibility is to provide the information that is requested by the human. You have access to the relevant information that is stored in the documents. You can use the call_RAG_chain tool to query the information from the documents. To use this tool you need to frame a question that is clear and concise and then use the call_RAG_chain tool to get the information from the documents.
+You main responsibility is to provide the information that is requested by the human. You have to check if the requested information is not already present in your memory as it could be obtained from a previous conversation. If not present, You have access to the relevant information that is stored in the documents. You can use the provided information retrieval (RAG) tool to query the information from the documents. To use this tool you need to frame a question that is clear and concise and then use the tool to get the information from the documents.
 
 If the information is not available in the documents, you can respond to the human by giving a general response from your domain of knowledge but remember to specify that this information is not from the documents and hence may or may not be accurate.
 """

@@ -31,7 +31,7 @@ class CustomSummariserMixin(SummarizerMixin):
             ai_prefix=self.ai_prefix,
         )
 
-        chain = LLMChain(llm=self.llm, prompt=self.prompt)
+        chain = LLMChain(llm=self.llm, prompt=self.prompt) #this will be deprecated soon
         return chain.predict(summary=existing_summary, new_lines=new_lines)
 
 class CustomActionLogSummaryMemory(ConversationSummaryMemory, CustomSummariserMixin):
