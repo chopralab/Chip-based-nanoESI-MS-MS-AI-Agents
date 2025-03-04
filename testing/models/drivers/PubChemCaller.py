@@ -71,7 +71,7 @@ from typing import Dict
 import pandas as pd
 import json
 import requests
-from ASPIRE_LINQX.ai.tools.constants import PUBCHEM, OUTPUT_FORMAT, PROPERTIES, CACTUS
+from sciborg_dev.ai.tools.constants import PUBCHEM, OUTPUT_FORMAT, PROPERTIES, CACTUS
 import pprint
 
 #? Should I shift these two helper functions somwhere else and import them here?
