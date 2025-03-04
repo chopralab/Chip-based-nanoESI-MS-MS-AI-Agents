@@ -42,7 +42,6 @@ class SciborgAgent:
         use_memory: Literal['chat', 'action', 'embedding', 'all'] | None = None,
         memory: BaseMemory | None = None,
         intermediate_memory_buffer: str = "",
-        past_action_log: str = "",
         human_interaction: bool = False,
         assume_defaults: bool = False,
         rag_vectordb_path: str | None = None,
@@ -74,8 +73,8 @@ class SciborgAgent:
 
         #do the internal initializations
         self.tools = self._build_tools(use_linqx_tools, handle_tool_error, agent_as_a_tool, agent_description)
-        self.memory = self._initialize_memory(intermediate_memory_buffer, past_action_log, agent_as_a_fsa, fsa_object, start_state)
-        self.prompt = self._build_prompt(prompt_template , rag_vectordb_path, past_action_log)
+        self.memory = self._initialize_memory(intermediate_memory_buffer, agent_as_a_fsa, fsa_object, start_state)
+        self.prompt = self._build_prompt(prompt_template , rag_vectordb_path)
         self.agent_executor = self._create_agent_executor()
         
         
@@ -107,7 +106,7 @@ class SciborgAgent:
             tools.append(call_provided_Agent)
         return tools
 
-    def _initialize_memory(self, intermediate_memory_buffer, past_action_log, agent_as_a_fsa, fsa_object, start_state):
+    def _initialize_memory(self, intermediate_memory_buffer, agent_as_a_fsa, fsa_object, start_state):
         action_tool_names = [tool.name for tool in self.tools]
         use_memory = self.use_memory
         memories = []
@@ -446,3 +445,8 @@ class SciborgAgent:
 #TODO: We need to change the base prompt instructions to refer to memory when required, even after chan
 #TODO: this is not working for the fsa memory and we need to see if the code done for the core.py file matches the core2.py file
 #TODO: Even after changing the prompt the agent does not first check the memory for the previous context (Why is this?)
+
+#TODO: we need to change the way we save the json file with memory, can we do optimal save using the keys for the memory insted of the types
+#we also need the ability to add in the memory instead of replacing everything with JSON file content. Duiring an agent to agent handoff we will need first agent to
+# - save memory to json file and then use that json file to make a new agent (kind of done with the current code)
+# - we can dynamically handoff the memory without saving to a file. second agent will pickup the memories of the first one and add it to its own
