@@ -28,7 +28,7 @@ from sciborg_dev.ai.prompts.agent import (
 )
 from sciborg_dev.ai.tools.core import LinqxTool
 from sciborg_dev.ai.agents.rag_agent import rag_agent
-from sciborg_dev.ai.agents.pubchem_agent import pubchem_agent
+# from sciborg_dev.ai.agents.pubchem_agent import pubchem_agent #we build this from the drive file
 
 def command_to_tool(
     command: BaseDriverCommand,
