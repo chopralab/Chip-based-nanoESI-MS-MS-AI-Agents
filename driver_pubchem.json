@@ -1,0 +1,365 @@
+{
+  "name": "PubChemCaller",
+  "uuid": "2ed33d80-96d2-45cf-adbf-28a2b2de0fdb",
+  "desc": "Module for Pubchem API caller.",
+  "commands": {
+    "get_assay_description": {
+      "name": "get_assay_description",
+      "microservice": "PubChemCaller",
+      "uuid": "2ed33d80-96d2-45cf-adbf-28a2b2de0fdb",
+      "desc": "A short description of the command",
+      "parameters": {
+        "aid": {
+          "name": "aid",
+          "data_type": "int",
+          "precision": -1,
+          "upper_limit": null,
+          "lower_limit": null,
+          "allowed_values": [],
+          "is_optional": false,
+          "is_list": false,
+          "default": null,
+          "from_var": false,
+          "var_name": "",
+          "desc": "A short description of the parameter"
+        }
+      },
+      "fn": "get_assay_description",
+      "module": "ASPIRE_LINQX.testing.models.drivers.PubChemCaller",
+      "package": "ASPIRE_LINQX.testing.models.drivers",
+      "has_return": true,
+      "return_signature": {
+        "dict": "a dictionary of description, protocol and comment for the given assay ID"
+      }
+    },
+    "get_assay_id_from_smiles": {
+      "name": "get_assay_id_from_smiles",
+      "microservice": "PubChemCaller",
+      "uuid": "2ed33d80-96d2-45cf-adbf-28a2b2de0fdb",
+      "desc": "Function purpose\nGives you the assay ID (aid) for a single smiles string of a compound. \nIf the user specifies that the item is a substance, then ask the user to enter SMILES for a compound",
+      "parameters": {
+        "smiles": {
+          "name": "smiles",
+          "data_type": "str",
+          "precision": -1,
+          "upper_limit": null,
+          "lower_limit": null,
+          "allowed_values": [],
+          "is_optional": false,
+          "is_list": false,
+          "default": "None",
+          "from_var": false,
+          "var_name": "",
+          "desc": "smiles string of a compound"
+        }
+      },
+      "fn": "get_assay_id_from_smiles",
+      "module": "ASPIRE_LINQX.testing.models.drivers.PubChemCaller",
+      "package": "ASPIRE_LINQX.testing.models.drivers",
+      "has_return": true,
+      "return_signature": {
+        "str": "assay ID for the given smiles string"
+      }
+    },
+    "get_assay_name_from_aid": {
+      "name": "get_assay_name_from_aid",
+      "microservice": "PubChemCaller",
+      "uuid": "2ed33d80-96d2-45cf-adbf-28a2b2de0fdb",
+      "desc": "A short description of the command",
+      "parameters": {
+        "aid": {
+          "name": "aid",
+          "data_type": "str",
+          "precision": -1,
+          "upper_limit": null,
+          "lower_limit": null,
+          "allowed_values": [],
+          "is_optional": false,
+          "is_list": false,
+          "default": "None",
+          "from_var": false,
+          "var_name": "",
+          "desc": "A short description of the parameter"
+        }
+      },
+      "fn": "get_assay_name_from_aid",
+      "module": "ASPIRE_LINQX.testing.models.drivers.PubChemCaller",
+      "package": "ASPIRE_LINQX.testing.models.drivers",
+      "has_return": true,
+      "return_signature": {
+        "str": "a dictionary of names for each assay ID"
+      }
+    },
+    "get_cids_from_sid": {
+      "name": "get_cids_from_sid",
+      "microservice": "PubChemCaller",
+      "uuid": "2ed33d80-96d2-45cf-adbf-28a2b2de0fdb",
+      "desc": "Function purpose get CID (Compound IDs) for a given SID (Substance ID)",
+      "parameters": {
+        "inp": {
+          "name": "inp",
+          "data_type": "str",
+          "precision": -1,
+          "upper_limit": null,
+          "lower_limit": null,
+          "allowed_values": [],
+          "is_optional": false,
+          "is_list": false,
+          "default": "None",
+          "from_var": false,
+          "var_name": "",
+          "desc": "a string representation of a list of SIDs"
+        },
+        "inp_type": {
+          "name": "inp_type",
+          "data_type": "str",
+          "precision": -1,
+          "upper_limit": null,
+          "lower_limit": null,
+          "allowed_values": [],
+          "is_optional": true,
+          "is_list": false,
+          "default": "substance",
+          "from_var": false,
+          "var_name": "",
+          "desc": "'compound' if inp is a list of CIDs or 'substance' if inp is a list of SIDs"
+        }
+      },
+      "fn": "get_cids_from_sid",
+      "module": "ASPIRE_LINQX.testing.models.drivers.PubChemCaller",
+      "package": "ASPIRE_LINQX.testing.models.drivers",
+      "has_return": true,
+      "return_signature": {
+        "dict": "a dictionary of CIDs for each SID"
+      }
+    },
+    "get_compound_property_table": {
+      "name": "get_compound_property_table",
+      "microservice": "PubChemCaller",
+      "uuid": "2ed33d80-96d2-45cf-adbf-28a2b2de0fdb",
+      "desc": "A short description of the command",
+      "parameters": {
+        "inp": {
+          "name": "inp",
+          "data_type": "str",
+          "precision": -1,
+          "upper_limit": null,
+          "lower_limit": null,
+          "allowed_values": [],
+          "is_optional": false,
+          "is_list": false,
+          "default": "None",
+          "from_var": false,
+          "var_name": "",
+          "desc": ""
+        },
+        "inp_format": {
+          "name": "inp_format",
+          "data_type": "str",
+          "precision": -1,
+          "upper_limit": null,
+          "lower_limit": null,
+          "allowed_values": [],
+          "is_optional": false,
+          "is_list": false,
+          "default": "None",
+          "from_var": false,
+          "var_name": "",
+          "desc": ""
+        },
+        "inp_type": {
+          "name": "inp_type",
+          "data_type": "str",
+          "precision": -1,
+          "upper_limit": null,
+          "lower_limit": null,
+          "allowed_values": [],
+          "is_optional": false,
+          "is_list": false,
+          "default": "None",
+          "from_var": false,
+          "var_name": "",
+          "desc": ""
+        },
+        "property_list": {
+          "name": "property_list",
+          "data_type": "str",
+          "precision": -1,
+          "upper_limit": null,
+          "lower_limit": null,
+          "allowed_values": [],
+          "is_optional": false,
+          "is_list": false,
+          "default": "None",
+          "from_var": false,
+          "var_name": "",
+          "desc": ""
+        }
+      },
+      "fn": "get_compound_property_table",
+      "module": "ASPIRE_LINQX.testing.models.drivers.PubChemCaller",
+      "package": "ASPIRE_LINQX.testing.models.drivers",
+      "has_return": true,
+      "return_signature": {
+        "str | int": "A return signature in JSON format of the command\n        Key - name of the return varaible\n        Value - description of the return varaible\n        "
+      }
+    },
+    "get_description": {
+      "name": "get_description",
+      "microservice": "PubChemCaller",
+      "uuid": "2ed33d80-96d2-45cf-adbf-28a2b2de0fdb",
+      "desc": "A short description of the command",
+      "parameters": {
+        "inp": {
+          "name": "inp",
+          "data_type": "str",
+          "precision": -1,
+          "upper_limit": null,
+          "lower_limit": null,
+          "allowed_values": [],
+          "is_optional": false,
+          "is_list": false,
+          "default": "None",
+          "from_var": false,
+          "var_name": "",
+          "desc": "string representation of a list of identifiers"
+        },
+        "inp_format": {
+          "name": "inp_format",
+          "data_type": "str",
+          "precision": -1,
+          "upper_limit": null,
+          "lower_limit": null,
+          "allowed_values": [],
+          "is_optional": false,
+          "is_list": false,
+          "default": "None",
+          "from_var": false,
+          "var_name": "",
+          "desc": "string of either of name, sid, cid, smiles"
+        },
+        "inp_type": {
+          "name": "inp_type",
+          "data_type": "str",
+          "precision": -1,
+          "upper_limit": null,
+          "lower_limit": null,
+          "allowed_values": [],
+          "is_optional": false,
+          "is_list": false,
+          "default": "None",
+          "from_var": false,
+          "var_name": "",
+          "desc": "'compound' if inp_format is cid, name or smiles of compound or 'substance' if inp_format is sid, name, smiles of substance"
+        }
+      },
+      "fn": "get_description",
+      "module": "ASPIRE_LINQX.testing.models.drivers.PubChemCaller",
+      "package": "ASPIRE_LINQX.testing.models.drivers",
+      "has_return": true,
+      "return_signature": {
+        "dict": "a dictionary of descriptions for each identifier"
+      }
+    },
+    "get_sids_from_cid": {
+      "name": "get_sids_from_cid",
+      "microservice": "PubChemCaller",
+      "uuid": "2ed33d80-96d2-45cf-adbf-28a2b2de0fdb",
+      "desc": "Function purpose get SIDs (Substance IDs) for a given CID (Compound ID)",
+      "parameters": {
+        "inp": {
+          "name": "inp",
+          "data_type": "str",
+          "precision": -1,
+          "upper_limit": null,
+          "lower_limit": null,
+          "allowed_values": [],
+          "is_optional": false,
+          "is_list": false,
+          "default": "None",
+          "from_var": false,
+          "var_name": "",
+          "desc": "string representation of a list of CIDs"
+        },
+        "inp_type": {
+          "name": "inp_type",
+          "data_type": "str",
+          "precision": -1,
+          "upper_limit": null,
+          "lower_limit": null,
+          "allowed_values": [],
+          "is_optional": true,
+          "is_list": false,
+          "default": "compound",
+          "from_var": false,
+          "var_name": "",
+          "desc": "'compound' if inp is a list of CIDs or 'substance' if inp is a list of SIDs"
+        }
+      },
+      "fn": "get_sids_from_cid",
+      "module": "ASPIRE_LINQX.testing.models.drivers.PubChemCaller",
+      "package": "ASPIRE_LINQX.testing.models.drivers",
+      "has_return": true,
+      "return_signature": {
+        "dict": "a dictionary of SIDs for each CID"
+      }
+    },
+    "get_synonym": {
+      "name": "get_synonym",
+      "microservice": "PubChemCaller",
+      "uuid": "2ed33d80-96d2-45cf-adbf-28a2b2de0fdb",
+      "desc": "Get Synonym of a substance or compound.",
+      "parameters": {
+        "inp": {
+          "name": "inp",
+          "data_type": "str",
+          "precision": -1,
+          "upper_limit": null,
+          "lower_limit": null,
+          "allowed_values": [],
+          "is_optional": false,
+          "is_list": false,
+          "default": "None",
+          "from_var": false,
+          "var_name": "",
+          "desc": "string representation of a list of identifiers"
+        },
+        "inp_format": {
+          "name": "inp_format",
+          "data_type": "str",
+          "precision": -1,
+          "upper_limit": null,
+          "lower_limit": null,
+          "allowed_values": [],
+          "is_optional": false,
+          "is_list": false,
+          "default": "None",
+          "from_var": false,
+          "var_name": "",
+          "desc": "string which can be either of name, sid, cid, smiles"
+        },
+        "inp_type": {
+          "name": "inp_type",
+          "data_type": "str",
+          "precision": -1,
+          "upper_limit": null,
+          "lower_limit": null,
+          "allowed_values": [],
+          "is_optional": false,
+          "is_list": false,
+          "default": "None",
+          "from_var": false,
+          "var_name": "",
+          "desc": "'compound' if inp_format is cid, name or smiles of compound or 'substance' if inp_format is sid, name, smiles of substance"
+        }
+      },
+      "fn": "get_synonym",
+      "module": "ASPIRE_LINQX.testing.models.drivers.PubChemCaller",
+      "package": "ASPIRE_LINQX.testing.models.drivers",
+      "has_return": true,
+      "return_signature": {
+        "dict": "a dictionary of synonyms for each identifier"
+      }
+    }
+  }
+}

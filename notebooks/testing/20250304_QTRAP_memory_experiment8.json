@@ -1,0 +1,67 @@
+{
+    "ConversationBufferWindowMemory": {
+        "memory_key": "chat_history",
+        "input_key": "input",
+        "output_key": "output",
+        "messages": [
+            {
+                "message_type": "human",
+                "content": "What is the mass range for a SCIEX 4000 QTRAP ?"
+            },
+            {
+                "message_type": "ai",
+                "content": "The mass range for a SCIEX 4000 QTRAP is 3-2800 Da. This information was found in the document \"papers/SOP/2024_4000 User Guide.pdf\" on page 1."
+            },
+            {
+                "message_type": "human",
+                "content": "I noticed on my SCIEX 4000 QTRAP i am not seeing any m/z values above 2400 Da. Make a note for others that if they have compounds with an m/z value above 2400 Da, they should use a different instrument until this issue is resolved."
+            },
+            {
+                "message_type": "ai",
+                "content": "Thank you for sharing this important information. We will make a note that the SCIEX 4000 QTRAP is currently not able to detect compounds with an m/z value above 2400 Da. Users are advised to use different instruments for compounds with m/z values above this range until the issue is resolved."
+            },
+            {
+                "message_type": "human",
+                "content": "On my SCIEX 4000 QTRAP i have two compounds i want to analyze. One has an m/z value of 1000 Da and the other has an m/z value of 2625 Da. Will the instrument be able to analyze both compounds?"
+            },
+            {
+                "message_type": "ai",
+                "content": "Based on the information shared previously, the SCIEX 4000 QTRAP is currently not able to detect compounds with an m/z value above 2400 Da. Therefore, it should be able to analyze the compound with an m/z value of 1000 Da, but not the one with an m/z value of 2625 Da. Users are advised to use a different instrument for compounds with m/z values above 2400 Da until the issue is resolved."
+            }
+        ]
+    },
+    "CustomActionLogSummaryMemory": {
+        "memory_key": "past_action_log",
+        "input_key": "input",
+        "output_key": "intermediate_steps",
+        "buffer": "The human asked about the mass range for a SCIEX 4000 QTRAP. I didn't have this information, so I used the RAG agent to search for the answer in the available documents. The mass range for a SCIEX 4000 QTRAP is 3-2800 Da. This information was found in the document \"papers/SOP/2024_4000 User Guide.pdf\" on page 1. However, the human has observed that on their SCIEX 4000 QTRAP, they are not seeing any m/z values above 2400 Da. Therefore, a note should be made for others that if they have compounds with an m/z value above 2400 Da, they should use a different instrument until this issue is resolved. The human then asked if their SCIEX 4000 QTRAP could analyze two compounds, one with an m/z value of 1000 Da and the other with an m/z value of 2625 Da. I was unable to provide an answer.",
+        "filtered_tool_list": [
+            "get_assay_description_from_AID",
+            "get_assay_name_from_aid",
+            "get_assay_results_for_compund",
+            "get_cid_from_name",
+            "get_compound_property_table",
+            "get_description",
+            "get_smiles_from_name",
+            "get_synonym",
+            "call_RAG_agent"
+        ]
+    },
+    "EmbeddingSummaryMemory": {
+        "memory_key": "rag_log",
+        "input_key": "input",
+        "output_key": "intermediate_steps",
+        "buffer": "The AI agent previously used the call_RAG_agent tool to determine the mass range for a SCIEX 4000 QTRAP, which is 3-2800 Da. It referred to the document \"papers/SOP/2024_4000 User Guide.pdf\" on page 1 to obtain this information.\n\nIn the new conversation, the AI did not provide a response to the question about whether the SCIEX 4000 QTRAP can analyze compounds with m/z values of 1000 Da and 2625 Da.",
+        "filtered_tool_list": [
+            "get_assay_description_from_AID",
+            "get_assay_name_from_aid",
+            "get_assay_results_for_compund",
+            "get_cid_from_name",
+            "get_compound_property_table",
+            "get_description",
+            "get_smiles_from_name",
+            "get_synonym",
+            "call_RAG_agent"
+        ]
+    }
+}
