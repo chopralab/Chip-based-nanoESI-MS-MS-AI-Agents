@@ -1,0 +1,10 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "agent": "./src/react_agent/graph.py:graph",
+    "worklist": "./src/react_agent/qtrap_agent_worklist.py:graph",
+    "qtrap_agent_2": "./src/react_agent/qtrap_agents_2.py:graph"
+
+  },
+  "env": ".env"
+}
