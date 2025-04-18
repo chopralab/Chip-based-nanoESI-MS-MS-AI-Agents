@@ -4,7 +4,8 @@
     "agent": "./src/react_agent/graph.py:graph",
     "agent_worklist": "./src/react_agent/Q_worklist.py:graph",
     "agent_parse": "./src/react_agent/Q_parse.py:graph",
-    "agent_parse_v2": "./src/react_agent/Q_parse_v2.py:graph"
+    "agent_convert": "./src/react_agent/Q_convert.py:graph",
+    "agent_QC": "./src/react_agent/Q_QC.py:graph"
 
   },
   "env": ".env"

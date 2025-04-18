@@ -2,6 +2,7 @@ import asyncio
 import logging
 import os
 import shutil
+import json
 import traceback
 from typing import Any, Dict, List, Literal, Optional, TypedDict
 
@@ -17,12 +18,7 @@ from react_agent.tools import TOOLS
 # Base directory and logging
 # -----------------------------------------------------------------------------
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-
-# Hardcoded directories
-INPUT_DIR = '/home/sanjay/QTRAP_memory/sciborg_dev/UI_2/react-agent/data/worklists/input'
-OUTPUT_DIR = '/home/sanjay/QTRAP_memory/sciborg_dev/UI_2/react-agent/data/worklists/generated'
-WINDOWS_OUTPUT_DIR = '/mnt/c/Users/iyer95/OneDrive - purdue.edu/Desktop/MSConvert/worklist_generated'
-
+# User-specified log directory
 LOG_DIR = '/home/sanjay/QTRAP_memory/sciborg_dev/UI_2/react-agent/data/worklists/logs'
 os.makedirs(LOG_DIR, exist_ok=True)
 LOG_FILE = os.path.join(LOG_DIR, 'worklist_agent.log')
@@ -30,12 +26,14 @@ LOG_FILE = os.path.join(LOG_DIR, 'worklist_agent.log')
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
+# Console handler for INFO+
 console_handler = logging.StreamHandler()
 console_handler.setLevel(logging.INFO)
 console_formatter = logging.Formatter('%(asctime)s [%(levelname)s] %(name)s: %(message)s')
 console_handler.setFormatter(console_formatter)
 logger.addHandler(console_handler)
 
+# File handler for DEBUG+
 file_handler = logging.FileHandler(LOG_FILE, mode='w')
 file_handler.setLevel(logging.DEBUG)
 file_formatter = logging.Formatter('%(asctime)s [%(levelname)s] %(name)s: %(message)s')
@@ -45,9 +43,12 @@ logger.addHandler(file_handler)
 logger.info(f"Logging initialized. Writing to {LOG_FILE}")
 
 # ----------------------------------------------------------------------------
-# WorklistGenerator class
+# Inlined WorklistGenerator
 # ----------------------------------------------------------------------------
 class WorklistGenerator:
+    """
+    Generates a tab-delimited worklist from an input CSV.
+    """
     def __init__(self, input_file: str, output_file: str):
         self.input_file = input_file
         self.output_file = output_file
@@ -89,21 +90,35 @@ class WorklistGenerator:
         for col, val in self.default_values.items():
             df_out[col] = val
 
+        logger.debug(f"Writing output to: {self.output_file}")
         with open(self.output_file, 'w') as f:
             f.write('% header=' + '\t'.join(self.column_headers) + '\n')
             df_out.to_csv(f, sep='\t', index=False, header=False)
 
-        logger.info(f"Generated worklist at: {self.output_file}")
+        if os.path.isfile(self.output_file):
+            logger.info(f"Generated worklist at: {self.output_file}")
+        else:
+            logger.error(f"Failed to generate {self.output_file}")
         return df_out
 
 # ----------------------------------------------------------------------------
 # Copy function
 # ----------------------------------------------------------------------------
-def copy_to_windows(local_path: str) -> None:
-    os.makedirs(WINDOWS_OUTPUT_DIR, exist_ok=True)
-    dest_path = os.path.join(WINDOWS_OUTPUT_DIR, os.path.basename(local_path))
-    shutil.copy2(local_path, dest_path)
-    logger.info(f"Copied worklist to Windows at: {dest_path}")
+def copy_client_to_windows(local_path: str, dest_dir: str) -> None:
+    abs_src = os.path.abspath(local_path)
+    logger.debug(f"Copy source: {abs_src}")
+    if not os.path.isfile(abs_src):
+        logger.error(f"Missing source file for copy: {abs_src}")
+        raise FileNotFoundError(abs_src)
+
+    os.makedirs(dest_dir, exist_ok=True)
+    abs_dest = os.path.join(dest_dir, os.path.basename(abs_src))
+    logger.debug(f"Copy dest: {abs_dest}")
+    shutil.copy2(abs_src, abs_dest)
+    if os.path.isfile(abs_dest):
+        logger.info(f"Copied to Windows: {abs_dest}")
+    else:
+        logger.error(f"Copy failed; missing at dest: {abs_dest}")
 
 # ----------------------------------------------------------------------------
 # State and Node
@@ -116,35 +131,43 @@ class WorklistState(TypedDict):
     agent_state: Dict[str, Any]
 
 async def generate_worklist_node(state: WorklistState, config: RunnableConfig) -> WorklistState:
-    input_filename = state['input_file']
-    output_filename = state['output_file']
+    in_file = state['input_file']
+    out_file = state['output_file']
 
-    input_path = os.path.join(INPUT_DIR, input_filename)
-    output_path = os.path.join(OUTPUT_DIR, output_filename)
+    # Resolve to absolute paths
+    if not os.path.isabs(in_file):
+        in_file = os.path.join(SCRIPT_DIR, in_file)
+    if not os.path.isabs(out_file):
+        out_file = os.path.join(SCRIPT_DIR, out_file)
 
-    # Fix blocking mkdir operation
-    await asyncio.to_thread(os.makedirs, OUTPUT_DIR, exist_ok=True)
+    gen_dir = os.path.dirname(out_file)
+    os.makedirs(gen_dir, exist_ok=True)
+    logger.info(f"Ensured generate directory: {gen_dir}")
 
     try:
-        df = await asyncio.to_thread(WorklistGenerator(input_path, output_path).generate_worklist)
-        await asyncio.to_thread(copy_to_windows, output_path)
-        message_content = f"Success: Generated {len(df)} rows at {output_path} and copied to Windows."
+        df = await asyncio.to_thread(WorklistGenerator(in_file, out_file).generate_worklist)
     except Exception as e:
         tb = traceback.format_exc()
-        logger.error(f"Error: {e}\n{tb}")
-        message_content = f"Failed: {e}"
-        df = None
+        logger.error(f"Generation error: {e}\n{tb}")
+        return {**state, 'worklist_df': None,
+                'messages': state['messages'] + [AIMessage(content=f"Gen failed: {e}")]}
 
-    return {
-        **state,
-        'worklist_df': df,
-        'messages': state['messages'] + [AIMessage(content=message_content)]
-    }
+    logger.info(f"Worklist exists in WSL at: {out_file}")
+
+    win_dir = '/mnt/c/Users/iyer95/OneDrive - purdue.edu/Desktop/MSConvert/worklist_generated'
+    try:
+        await asyncio.to_thread(copy_client_to_windows, out_file, win_dir)
+        copy_msg = f"Copied to Windows dir: {win_dir}"
+    except Exception as e:
+        tb = traceback.format_exc()
+        logger.error(f"Copy error: {e}\n{tb}")
+        copy_msg = f"Copy failed: {e}"
+
+    content = f"Success: {len(df)} rows to {out_file}. {copy_msg}"
+    return {**state, 'worklist_df': df,
+            'messages': state['messages'] + [AIMessage(content=content)]}
 
 
-# ----------------------------------------------------------------------------
-# Routing
-# ----------------------------------------------------------------------------
 def route_model_output(state: WorklistState) -> Literal['__end__','tools']:
     last = next((m for m in reversed(state['messages']) if isinstance(m, AIMessage)), None)
     return 'tools' if getattr(last, 'tool_calls', None) else '__end__'
