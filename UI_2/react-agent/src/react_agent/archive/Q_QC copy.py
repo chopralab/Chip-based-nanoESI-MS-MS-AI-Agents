@@ -18,30 +18,42 @@ from langgraph.prebuilt import ToolNode
 DATE_STR = datetime.now().strftime("%Y%m%d")
 
 # ----------------------------------------------------------------------------
-# Directory Configuration
+# Directory Configuration for QC Text Output
 # ----------------------------------------------------------------------------
-TEXT_BASE_DIR = Path("/home/sanjay/QTRAP_memory/sciborg_dev/UI_2/react-agent/src/react_agent/data/text")
-TEXT_TARGET_DIR = TEXT_BASE_DIR / DATE_STR
+QC_TEXT_BASE_DIR = Path(
+    "/home/sanjay/QTRAP_memory/sciborg_dev/UI_2/react-agent/src/react_agent/data/qc/text"
+)
+QC_TEXT_TARGET_DIR = QC_TEXT_BASE_DIR / DATE_STR
 
-LOG_DIR = Path("/home/sanjay/QTRAP_memory/sciborg_dev/UI_2/react-agent/src/react_agent/data/logs/convert")
+# ----------------------------------------------------------------------------
+# Logging Configuration for QC Conversion
+# ----------------------------------------------------------------------------
+LOG_BASE_DIR = Path(
+    "/home/sanjay/QTRAP_memory/sciborg_dev/UI_2/react-agent/src/react_agent/data/logs/qc"
+)
+LOG_DIR = LOG_BASE_DIR / DATE_STR
 LOG_DIR.mkdir(parents=True, exist_ok=True)
 LOG_FILE = LOG_DIR / f"convert_{DATE_STR}.log"
 
 # ----------------------------------------------------------------------------
-# Logging Configuration
+# Logger Setup
 # ----------------------------------------------------------------------------
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
 console_handler = logging.StreamHandler()
 console_handler.setLevel(logging.INFO)
-console_formatter = logging.Formatter('%(asctime)s [%(levelname)s] %(name)s: %(message)s')
+console_formatter = logging.Formatter(
+    '%(asctime)s [%(levelname)s] %(name)s: %(message)s'
+)
 console_handler.setFormatter(console_formatter)
 logger.addHandler(console_handler)
 
 file_handler = logging.FileHandler(LOG_FILE, mode='w')
 file_handler.setLevel(logging.DEBUG)
-file_formatter = logging.Formatter('%(asctime)s [%(levelname)s] %(name)s: %(message)s')
+file_formatter = logging.Formatter(
+    '%(asctime)s [%(levelname)s] %(name)s: %(message)s'
+)
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
 
@@ -54,15 +66,17 @@ SCRIPT_DIR = Path(__file__).parent.resolve()
 WINDOWS_MSCONVERT_DIR = r"C:\Users\iyer95\OneDrive - purdue.edu\Desktop\MSConvert"
 WSL_MOUNT_DIR = Path("/mnt/c/Users/iyer95/OneDrive - purdue.edu/Desktop/MSConvert")
 WSL_SOURCE_DIR = WSL_MOUNT_DIR / "converted_files"
-WSL_TARGET_DIR = TEXT_TARGET_DIR
+WSL_TARGET_DIR = QC_TEXT_TARGET_DIR
 
 # ----------------------------------------------------------------------------
 # Convert Class
 # ----------------------------------------------------------------------------
 class Convert:
     async def setup_directories(self):
-        # Create the dated text output directory
-        await asyncio.to_thread(lambda: WSL_TARGET_DIR.mkdir(parents=True, exist_ok=True))
+        # Create the dated QC text output directory
+        await asyncio.to_thread(
+            lambda: WSL_TARGET_DIR.mkdir(parents=True, exist_ok=True)
+        )
 
     async def run_conversion(self) -> None:
         batch_wsl = WSL_MOUNT_DIR / "convert_files.bat"
@@ -124,7 +138,10 @@ async def convert_node(state: ConvertState, config: RunnableConfig) -> ConvertSt
 # Routing
 # ----------------------------------------------------------------------------
 def route_model_output(state: ConvertState) -> Literal['__end__','tools']:
-    last = next((m for m in reversed(state['messages']) if isinstance(m, AIMessage)), None)
+    last = next(
+        (m for m in reversed(state['messages']) if isinstance(m, AIMessage)),
+        None
+    )
     return 'tools' if getattr(last, 'tool_calls', None) else '__end__'
 
 # ----------------------------------------------------------------------------

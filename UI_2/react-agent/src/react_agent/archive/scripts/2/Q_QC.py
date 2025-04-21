@@ -5,7 +5,6 @@ import subprocess
 import traceback
 from typing import Any, Dict, List, Literal, Optional, TypedDict
 from pathlib import Path
-from datetime import datetime
 
 from langchain_core.messages import AIMessage, BaseMessage
 from langchain_core.runnables import RunnableConfig
@@ -13,23 +12,18 @@ from langgraph.graph import StateGraph
 from langgraph.prebuilt import ToolNode
 
 # ----------------------------------------------------------------------------
-# Date Configuration
+# Directory Configuration and Logging
 # ----------------------------------------------------------------------------
-DATE_STR = datetime.now().strftime("%Y%m%d")
+SCRIPT_DIR = Path(__file__).parent.resolve()
 
-# ----------------------------------------------------------------------------
-# Directory Configuration
-# ----------------------------------------------------------------------------
-TEXT_BASE_DIR = Path("/home/sanjay/QTRAP_memory/sciborg_dev/UI_2/react-agent/src/react_agent/data/text")
-TEXT_TARGET_DIR = TEXT_BASE_DIR / DATE_STR
+WINDOWS_MSCONVERT_DIR = r"C:\Users\iyer95\OneDrive - purdue.edu\Desktop\MSConvert"
+WSL_MOUNT_DIR = Path("/mnt/c/Users/iyer95/OneDrive - purdue.edu/Desktop/MSConvert")
+WSL_SOURCE_DIR = WSL_MOUNT_DIR / "converted_files"
+WSL_TARGET_DIR = SCRIPT_DIR / "convert" / "converted_files"
 
-LOG_DIR = Path("/home/sanjay/QTRAP_memory/sciborg_dev/UI_2/react-agent/src/react_agent/data/logs/convert")
-LOG_DIR.mkdir(parents=True, exist_ok=True)
-LOG_FILE = LOG_DIR / f"convert_{DATE_STR}.log"
+LOG_DIR = SCRIPT_DIR / "convert" / "logs"
+LOG_FILE = LOG_DIR / "convert_agent.log"
 
-# ----------------------------------------------------------------------------
-# Logging Configuration
-# ----------------------------------------------------------------------------
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
@@ -39,6 +33,7 @@ console_formatter = logging.Formatter('%(asctime)s [%(levelname)s] %(name)s: %(m
 console_handler.setFormatter(console_formatter)
 logger.addHandler(console_handler)
 
+LOG_DIR.mkdir(parents=True, exist_ok=True)
 file_handler = logging.FileHandler(LOG_FILE, mode='w')
 file_handler.setLevel(logging.DEBUG)
 file_formatter = logging.Formatter('%(asctime)s [%(levelname)s] %(name)s: %(message)s')
@@ -48,21 +43,11 @@ logger.addHandler(file_handler)
 logger.info(f"Logging initialized. Writing to {LOG_FILE}")
 
 # ----------------------------------------------------------------------------
-# Conversion Directory Configuration (Windows and WSL)
-# ----------------------------------------------------------------------------
-SCRIPT_DIR = Path(__file__).parent.resolve()
-WINDOWS_MSCONVERT_DIR = r"C:\Users\iyer95\OneDrive - purdue.edu\Desktop\MSConvert"
-WSL_MOUNT_DIR = Path("/mnt/c/Users/iyer95/OneDrive - purdue.edu/Desktop/MSConvert")
-WSL_SOURCE_DIR = WSL_MOUNT_DIR / "converted_files"
-WSL_TARGET_DIR = TEXT_TARGET_DIR
-
-# ----------------------------------------------------------------------------
 # Convert Class
 # ----------------------------------------------------------------------------
 class Convert:
     async def setup_directories(self):
-        # Create the dated text output directory
-        await asyncio.to_thread(lambda: WSL_TARGET_DIR.mkdir(parents=True, exist_ok=True))
+        await asyncio.to_thread(WSL_TARGET_DIR.mkdir, parents=True, exist_ok=True)
 
     async def run_conversion(self) -> None:
         batch_wsl = WSL_MOUNT_DIR / "convert_files.bat"

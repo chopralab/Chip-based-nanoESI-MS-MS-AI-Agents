@@ -2,7 +2,7 @@ import asyncio
 import logging
 import os
 import re
-from typing import Any, Dict, List, Literal, Optional, Tuple, TypedDict
+from typing import Any, Dict, List, Literal, Optional, TypedDict, Tuple
 
 import pandas as pd
 from langchain_core.messages import AIMessage, BaseMessage
@@ -13,44 +13,20 @@ from langgraph.prebuilt import ToolNode
 from react_agent.tools import TOOLS
 
 # -----------------------------------------------------------------------
-# Hard‑coded directories based on input date folder
+# Hard‑coded directories
 # -----------------------------------------------------------------------
-# Input directory (hardcoded date subfolder)
-INPUT_DIR = "/home/sanjay/QTRAP_memory/sciborg_dev/UI_2/react-agent/src/react_agent/data/text/20250421"
-# Derive date folder name
-DATE_FOLDER = os.path.basename(INPUT_DIR)
-
-# Output base directory
-OUTPUT_BASE_DIR = "/home/sanjay/QTRAP_memory/sciborg_dev/UI_2/react-agent/src/react_agent/data/csv"
-# Create dated subfolder for CSV outputs
-OUTPUT_DIR = os.path.join(OUTPUT_BASE_DIR, DATE_FOLDER)
+INPUT_DIR  = "/home/sanjay/QTRAP_memory/sciborg_dev/UI_2/react-agent/data/convert/converted"
+OUTPUT_DIR = "/home/sanjay/QTRAP_memory/sciborg_dev/UI_2/react-agent/data/parsed"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-# Logs base directory
-LOG_BASE_DIR = "/home/sanjay/QTRAP_memory/sciborg_dev/UI_2/react-agent/src/react_agent/data/logs/parse"
-# Create dated subfolder for logs
-LOG_DIR = os.path.join(LOG_BASE_DIR, DATE_FOLDER)
-os.makedirs(LOG_DIR, exist_ok=True)
-# Log file path without parentheses
-LOG_FILE = os.path.join(LOG_DIR, f"parse_{DATE_FOLDER}.log")
-
 # -----------------------------------------------------------------------
-# Logger configuration
+# Logger
 # -----------------------------------------------------------------------
-formatter = logging.Formatter("%(asctime)s %(levelname)-8s %(message)s")
-
-console_handler = logging.StreamHandler()
-console_handler.setLevel(logging.INFO)
-console_handler.setFormatter(formatter)
-
-file_handler = logging.FileHandler(LOG_FILE)
-file_handler.setLevel(logging.INFO)
-file_handler.setFormatter(formatter)
-
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(levelname)-8s %(message)s"
+)
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
-logger.addHandler(console_handler)
-logger.addHandler(file_handler)
 
 # -----------------------------------------------------------------------
 # TypedDict state
@@ -58,9 +34,6 @@ logger.addHandler(file_handler)
 class QTRAPState(TypedDict):
     messages: List[BaseMessage]
     parsing_result: Optional[str]
-    window_size: int
-    threshold_factor: float
-    top_group_count: int
     agent_state: Dict[str, Any]
 
 # -----------------------------------------------------------------------
@@ -269,7 +242,7 @@ async def parse_all_chromatograms_node(state: QTRAPState, config: RunnableConfig
 
         in_path  = os.path.join(INPUT_DIR, fn)
         base     = os.path.splitext(fn)[0]
-        out_path = os.path.join(OUTPUT_DIR, f"{DATE_FOLDER}_{base}.csv")
+        out_path = os.path.join(OUTPUT_DIR, f"{base}.csv")
 
         parser = QTRAP_Parse(
             in_path,
