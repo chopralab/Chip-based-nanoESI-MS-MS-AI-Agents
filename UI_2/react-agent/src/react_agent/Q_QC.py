@@ -333,7 +333,7 @@ def qc_results(date_str: str = DATE_STR) -> None:
                 
                 # Create a dictionary with the file data and rounded numeric values
                 file_data = {
-                    'QC_Result': 'fail' if tic_rsd_topgroup > 25 else 'pass',
+                    'QC_Result': 'fail' if pd.isna(tic_rsd_topgroup) or tic_rsd_topgroup > 25 else 'pass',
                     'Filename': actual_filename,
                     'TIC_RSD_TopGroupWindow': tic_rsd_topgroup,
                     'TIC_RSD_WindowBest': round(first_row['TIC_RSD_WindowBest'], 2),
@@ -392,11 +392,12 @@ def qc_results(date_str: str = DATE_STR) -> None:
 
 def qc_validated_move(date_str: str = DATE_STR) -> None:
     """
-    Move text files that pass QC validation to the production directory.
+    Move text files based on QC validation results:
+    - Pass: move to production directory
+    - Fail: move to QC fail worklist directory
     
-    This function reads the QC results file, identifies files that passed QC,
-    and moves their corresponding text files from the QC text directory to 
-    the production text directory.
+    This function reads the QC results file, identifies files that passed or failed QC,
+    and moves their corresponding text files to the appropriate directories.
     
     Args:
         date_str: Date string in YYYYMMDD format (defaults to current date)
@@ -405,10 +406,16 @@ def qc_validated_move(date_str: str = DATE_STR) -> None:
     qc_results_dir = Path("/home/sanjay/QTRAP_memory/sciborg_dev/UI_2/react-agent/src/react_agent/data/qc/results") / date_str
     qc_text_dir = Path("/home/sanjay/QTRAP_memory/sciborg_dev/UI_2/react-agent/src/react_agent/data/qc/text") / date_str
     
-    # Set up target directory
+    # Set up target directories
+    # For passed files
     prod_text_base_dir = Path("/home/sanjay/QTRAP_memory/sciborg_dev/UI_2/react-agent/src/react_agent/data/text")
     prod_text_dir = prod_text_base_dir / date_str
     prod_text_dir.mkdir(parents=True, exist_ok=True)
+    
+    # For failed files
+    fail_text_base_dir = Path("/home/sanjay/QTRAP_memory/sciborg_dev/UI_2/react-agent/src/react_agent/data/worklist/qc_fail")
+    fail_text_dir = fail_text_base_dir / date_str
+    fail_text_dir.mkdir(parents=True, exist_ok=True)
     
     # Path to the QC results file
     results_file = qc_results_dir / f"QC_{date_str}_RESULTS.csv"
@@ -422,14 +429,15 @@ def qc_validated_move(date_str: str = DATE_STR) -> None:
         # Read the QC results
         results_df = pd.read_csv(results_file)
         
-        # Get list of files that passed QC
+        # Get list of files that passed and failed QC
         passed_files = results_df[results_df['QC_Result'] == 'pass']['Filename'].tolist()
         failed_files = results_df[results_df['QC_Result'] == 'fail']['Filename'].tolist()
         
         logger.info(f"Found {len(passed_files)} files that passed QC and {len(failed_files)} files that failed QC")
         
         # Track successful moves
-        moved_files = []
+        moved_passed_files = []
+        moved_failed_files = []
         
         # Move each passed file to production directory
         for filename in passed_files:
@@ -447,16 +455,42 @@ def qc_validated_move(date_str: str = DATE_STR) -> None:
             try:
                 # Copy the file to the production directory
                 shutil.copy2(src_file, dst_file)
-                moved_files.append(filename)
+                moved_passed_files.append(filename)
                 logger.info(f"Moved passed file: {filename}.txt to {prod_text_dir}")
             except Exception as e:
-                logger.error(f"Error moving file {filename}.txt: {e}")
+                logger.error(f"Error moving passed file {filename}.txt: {e}")
+        
+        # Move each failed file to the QC fail worklist directory
+        for filename in failed_files:
+            # Source text file
+            src_file = qc_text_dir / f"{filename}.txt"
+            
+            # Check if source file exists
+            if not src_file.exists():
+                logger.warning(f"Source file not found: {src_file}")
+                continue
+            
+            # Target file path
+            dst_file = fail_text_dir / f"{filename}.txt"
+            
+            try:
+                # Copy the file to the fail directory
+                shutil.copy2(src_file, dst_file)
+                moved_failed_files.append(filename)
+                logger.info(f"Moved failed file: {filename}.txt to {fail_text_dir}")
+            except Exception as e:
+                logger.error(f"Error moving failed file {filename}.txt: {e}")
         
         # Log summary
-        if moved_files:
-            logger.info(f"✅ Successfully moved {len(moved_files)} files that passed QC to production directory")
+        if moved_passed_files:
+            logger.info(f"✅ Successfully moved {len(moved_passed_files)} files that passed QC to production directory")
         else:
             logger.warning("No files were moved to production directory")
+            
+        if moved_failed_files:
+            logger.info(f"✅ Successfully moved {len(moved_failed_files)} files that failed QC to the worklist/qc_fail directory")
+        else:
+            logger.warning("No files were moved to the worklist/qc_fail directory")
             
     except Exception as e:
         logger.error(f"Error processing QC results: {e}")

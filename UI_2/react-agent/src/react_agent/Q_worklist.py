@@ -3,7 +3,8 @@ import logging
 import os
 import shutil
 import traceback
-from typing import Any, Dict, List, Literal, Optional, TypedDict
+from datetime import datetime
+from typing import Any, Dict, List, TypedDict, Optional, Literal
 
 import pandas as pd
 from langchain_core.messages import AIMessage, BaseMessage
@@ -14,150 +15,179 @@ from langgraph.prebuilt import ToolNode
 from react_agent.tools import TOOLS
 
 # -----------------------------------------------------------------------------
-# Base directory and logging
+# Paths & Logging
 # -----------------------------------------------------------------------------
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# Hardcoded directories
-INPUT_DIR = '/home/sanjay/QTRAP_memory/sciborg_dev/UI_2/react-agent/data/worklists/input'
-OUTPUT_DIR = '/home/sanjay/QTRAP_memory/sciborg_dev/UI_2/react-agent/data/worklists/generated'
-WINDOWS_OUTPUT_DIR = '/mnt/c/Users/iyer95/OneDrive - purdue.edu/Desktop/MSConvert/worklist_generated'
+# 1) Main worklist input (one row per sample)
+INPUT_WORKLIST = os.path.join(
+    SCRIPT_DIR, "data", "worklist", "input", "input_worklist.csv"
+)
 
-LOG_DIR = '/home/sanjay/QTRAP_memory/sciborg_dev/UI_2/react-agent/data/worklists/logs'
+# 2) Lipid→Method lookup table
+METHODS_CSV = os.path.join(
+    SCRIPT_DIR, "data", "worklist", "methods.csv"
+)
+
+# Where the aggregated CSV will be written
+OUTPUT_DIR = os.path.join(
+    SCRIPT_DIR, "data", "worklist", "generated"
+)
+
+# Logs go here, rotated by date
+LOG_DIR = os.path.join(
+    SCRIPT_DIR, "data", "logs", "worklist"
+)
 os.makedirs(LOG_DIR, exist_ok=True)
-LOG_FILE = os.path.join(LOG_DIR, 'worklist_agent.log')
+today_str = datetime.now().strftime("%Y%m%d")
+LOG_FILE = os.path.join(LOG_DIR, f"worklist_{today_str}.log")
 
+# Optional: Windows copy target
+WINDOWS_OUTPUT_DIR = "/mnt/c/Users/iyer95/OneDrive - purdue.edu/Desktop/MSConvert/worklist_generated"
+
+# set up logger
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
+# console handler
 console_handler = logging.StreamHandler()
 console_handler.setLevel(logging.INFO)
-console_formatter = logging.Formatter('%(asctime)s [%(levelname)s] %(name)s: %(message)s')
-console_handler.setFormatter(console_formatter)
+console_handler.setFormatter(logging.Formatter("%(asctime)s [%(levelname)s] %(message)s"))
 logger.addHandler(console_handler)
 
-file_handler = logging.FileHandler(LOG_FILE, mode='w')
+# file handler
+file_handler = logging.FileHandler(LOG_FILE, mode="w")
 file_handler.setLevel(logging.DEBUG)
-file_formatter = logging.Formatter('%(asctime)s [%(levelname)s] %(name)s: %(message)s')
-file_handler.setFormatter(file_formatter)
+file_handler.setFormatter(logging.Formatter("%(asctime)s [%(levelname)s] %(message)s"))
 logger.addHandler(file_handler)
 
-logger.info(f"Logging initialized. Writing to {LOG_FILE}")
+logger.info(f"Logging to {LOG_FILE}")
 
-# ----------------------------------------------------------------------------
-# WorklistGenerator class
-# ----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+# WorklistGenerator: builds one aggregated CSV per run
+# -----------------------------------------------------------------------------
 class WorklistGenerator:
-    def __init__(self, input_file: str, output_file: str):
-        self.input_file = input_file
-        self.output_file = output_file
+    def __init__(self,
+                 worklist_csv: str,
+                 methods_csv:  str,
+                 output_dir:   str):
+        self.worklist_csv = worklist_csv
+        self.methods_csv  = methods_csv
+        self.output_dir   = output_dir
+
+        # fixed columns
         self.column_headers = [
-            "SampleName", "SampleId", "Comments", "AcqMethod", "ProcMethod", "RackCode",
-            "PlateCode", "VialPos", "DilutFact", "WghtToVol", "Type", "RackPos",
-            "PlatePos", "SetName", "OutputFile", "_col1Text", "_col2Int"
+            "SampleName","SampleId","Comments","AcqMethod","ProcMethod","RackCode",
+            "PlateCode","VialPos","DilutFact","WghtToVol","Type","RackPos",
+            "PlatePos","SetName","OutputFile","_col1Text","_col2Int"
         ]
+
+        # defaults for every column except SampleName & AcqMethod
         self.default_values = {
-            "SampleId": "default_id",
-            "Comments": "default_comment",
-            "ProcMethod": "none",
-            "RackCode": "10 By 10",
-            "PlateCode": "N/A",
-            "VialPos": 1,
-            "DilutFact": 1,
-            "WghtToVol": 0,
-            "Type": "Unknown",
-            "RackPos": 1,
-            "PlatePos": 0,
-            "SetName": "Set1",
-            "OutputFile": "DataSet1",
-            "_col1Text": "custCol1_1",
-            "_col2Int": 0
+            "SampleId":    "default_id",
+            "Comments":    "default_comment",
+            "ProcMethod":  "none",          # fallback if no lipid match
+            "RackCode":    "10 By 10",
+            "PlateCode":   "N/A",
+            "VialPos":     1,
+            "DilutFact":   1,
+            "WghtToVol":   0,
+            "Type":        "Unknown",
+            "RackPos":     1,
+            "PlatePos":    0,
+            "SetName":     "Set1",
+            "OutputFile":  "DataSet1",
+            "_col1Text":   "custCol1_1",
+            "_col2Int":    0
         }
 
-    def generate_worklist(self) -> pd.DataFrame:
-        logger.debug(f"Loading CSV input from: {self.input_file}")
-        if not os.path.isfile(self.input_file):
-            logger.error(f"Input file not found: {self.input_file}")
-            raise FileNotFoundError(self.input_file)
+    def generate_worklist(self) -> str:
+        # load inputs
+        df_input   = pd.read_csv(self.worklist_csv)
+        df_methods = pd.read_csv(self.methods_csv)
+        lipid_map  = dict(zip(df_methods["Lipid"], df_methods["Method"]))
 
-        df_in = pd.read_csv(self.input_file)
-        logger.debug(f"Input rows: {len(df_in)}")
+        os.makedirs(self.output_dir, exist_ok=True)
+        today = datetime.now().strftime("%Y%m%d")
+        out_name = f"worklist_{today}.csv"
+        out_path = os.path.join(self.output_dir, out_name)
 
-        df_out = pd.DataFrame(columns=self.column_headers)
-        df_out['SampleName'] = df_in.get('SampleName', pd.Series(dtype=str))
-        df_out['AcqMethod'] = df_in.get('Method', pd.Series(dtype=str))
-        for col, val in self.default_values.items():
-            df_out[col] = val
+        # collect one record per input row
+        records = []
+        for _, row in df_input.iterrows():
+            sample_name = "_".join(
+                str(row[col]) for col in
+                ["Date","Info","Lipid","Technical_Replicate","Operator"]
+            )
+            method = lipid_map.get(row["Lipid"], self.default_values["ProcMethod"])
 
-        with open(self.output_file, 'w') as f:
-            f.write('% header=' + '\t'.join(self.column_headers) + '\n')
-            df_out.to_csv(f, sep='\t', index=False, header=False)
+            rec = {"SampleName": sample_name, "AcqMethod": method}
+            for col, val in self.default_values.items():
+                rec[col] = method if col == "ProcMethod" else val
+            records.append(rec)
 
-        logger.info(f"Generated worklist at: {self.output_file}")
-        return df_out
+        # build DataFrame & write once
+        df_out = pd.DataFrame(records, columns=self.column_headers)
+        with open(out_path, "w") as f:
+            f.write("% header=" + "\t".join(self.column_headers) + "\n")
+            df_out.to_csv(f, sep="\t", index=False, header=False)
 
-# ----------------------------------------------------------------------------
-# Copy function
-# ----------------------------------------------------------------------------
-def copy_to_windows(local_path: str) -> None:
-    os.makedirs(WINDOWS_OUTPUT_DIR, exist_ok=True)
-    dest_path = os.path.join(WINDOWS_OUTPUT_DIR, os.path.basename(local_path))
-    shutil.copy2(local_path, dest_path)
-    logger.info(f"Copied worklist to Windows at: {dest_path}")
+        logger.info(f"Generated aggregated worklist: {out_path}")
 
-# ----------------------------------------------------------------------------
-# State and Node
-# ----------------------------------------------------------------------------
+        # copy to Windows if available
+        try:
+            os.makedirs(WINDOWS_OUTPUT_DIR, exist_ok=True)
+            shutil.copy2(out_path, WINDOWS_OUTPUT_DIR)
+            logger.info(f"Copied to Windows: {WINDOWS_OUTPUT_DIR}")
+        except Exception:
+            logger.debug("Windows copy failed:\n" + traceback.format_exc())
+
+        return out_path
+
+# -----------------------------------------------------------------------------
+# Agent state & node
+# -----------------------------------------------------------------------------
 class WorklistState(TypedDict):
-    messages: List[BaseMessage]
-    input_file: str
-    output_file: str
-    worklist_df: Optional[pd.DataFrame]
-    agent_state: Dict[str, Any]
+    messages:       List[BaseMessage]
+    worklist_paths: Optional[List[str]]
+    agent_state:    Dict[str, Any]
 
-async def generate_worklist_node(state: WorklistState, config: RunnableConfig) -> WorklistState:
-    input_filename = state['input_file']
-    output_filename = state['output_file']
-
-    input_path = os.path.join(INPUT_DIR, input_filename)
-    output_path = os.path.join(OUTPUT_DIR, output_filename)
-
-    # Fix blocking mkdir operation
-    await asyncio.to_thread(os.makedirs, OUTPUT_DIR, exist_ok=True)
-
+async def generate_worklist_node(
+    state: WorklistState,
+    config: RunnableConfig
+) -> WorklistState:
     try:
-        df = await asyncio.to_thread(WorklistGenerator(input_path, output_path).generate_worklist)
-        await asyncio.to_thread(copy_to_windows, output_path)
-        message_content = f"Success: Generated {len(df)} rows at {output_path} and copied to Windows."
+        path = await asyncio.to_thread(
+            WorklistGenerator(INPUT_WORKLIST, METHODS_CSV, OUTPUT_DIR).generate_worklist
+        )
+        msg = f"Success: aggregated worklist written to {path}"
+        state["worklist_paths"] = [path]
     except Exception as e:
-        tb = traceback.format_exc()
-        logger.error(f"Error: {e}\n{tb}")
-        message_content = f"Failed: {e}"
-        df = None
+        msg = f"Failed: {e}"
+        logger.error(msg + "\n" + traceback.format_exc())
+        state["worklist_paths"] = None
 
     return {
         **state,
-        'worklist_df': df,
-        'messages': state['messages'] + [AIMessage(content=message_content)]
+        "messages": state["messages"] + [AIMessage(content=msg)]
     }
 
+def route_model_output(state: WorklistState) -> Literal["__end__", "tools"]:
+    last = next(
+        (m for m in reversed(state["messages"]) if isinstance(m, AIMessage)),
+        None
+    )
+    return "tools" if getattr(last, "tool_calls", None) else "__end__"
 
-# ----------------------------------------------------------------------------
-# Routing
-# ----------------------------------------------------------------------------
-def route_model_output(state: WorklistState) -> Literal['__end__','tools']:
-    last = next((m for m in reversed(state['messages']) if isinstance(m, AIMessage)), None)
-    return 'tools' if getattr(last, 'tool_calls', None) else '__end__'
-
-# ----------------------------------------------------------------------------
-# Build graph
-# ----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+# Graph construction
+# -----------------------------------------------------------------------------
 builder = StateGraph(WorklistState)
-builder.add_node('generate_worklist_node', generate_worklist_node)
-builder.add_node('tools', ToolNode(TOOLS))
-builder.set_entry_point('generate_worklist_node')
-builder.add_conditional_edges('generate_worklist_node', route_model_output)
-builder.add_edge('tools', 'generate_worklist_node')
+builder.add_node("generate_worklist_node", generate_worklist_node)
+builder.add_node("tools", ToolNode(TOOLS))
+builder.set_entry_point("generate_worklist_node")
+builder.add_conditional_edges("generate_worklist_node", route_model_output)
+builder.add_edge("tools", "generate_worklist_node")
 
 graph = builder.compile()
-graph.name = 'Worklist Generator Agent'
+graph.name = "Worklist Generator Agent"
