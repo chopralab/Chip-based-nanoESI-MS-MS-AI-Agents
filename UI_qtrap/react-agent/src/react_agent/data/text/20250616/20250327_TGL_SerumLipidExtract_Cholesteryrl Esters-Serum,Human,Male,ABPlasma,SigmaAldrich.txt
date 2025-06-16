@@ -1,0 +1,898 @@
+msdata:
+  id: 20250327_TGL_SerumLipidExtract_Cholesteryrl Esters-Serum,Human,Male,ABPlasma,SigmaAldrich
+  version: 1.1.0
+  cvList: 
+    cv:
+      id: MS
+      fullName: Proteomics Standards Initiative Mass Spectrometry Ontology
+      version: 4.1.182
+      URI: https://raw.githubusercontent.com/HUPO-PSI/psi-ms-CV/master/psi-ms.obo
+    cv:
+      id: UO
+      fullName: Unit Ontology
+      version: 09:04:2014
+      URI: https://raw.githubusercontent.com/bio-ontology-research-group/unit-ontology/master/unit.obo
+  fileDescription:
+    fileContent:
+      cvParam: selected reaction monitoring chromatogram
+    sourceFileList: 
+      sourceFile:
+        id: WIFF
+        name: 20250327_TGL_SerumLipidExtract_Cholesteryrl Esters.wiff
+        location: file://C:\Users\ChopraLab\Desktop\laptop\convert_raw\raw_data
+        cvParam: WIFF nativeID format
+        cvParam: ABI WIFF format
+        cvParam: SHA-1, 06c4a18c065b888b51d7acfa129bac85187917e9
+      sourceFile:
+        id: WIFFSCAN
+        name: 20250327_TGL_SerumLipidExtract_Cholesteryrl Esters.wiff.scan
+        location: file://C:\Users\ChopraLab\Desktop\laptop\convert_raw\raw_data
+        cvParam: WIFF nativeID format
+        cvParam: ABI WIFF format
+        cvParam: SHA-1, eb01195c3d6017fdecaf660eaa2ec55f679ccc67
+  softwareList: 
+    software:
+      id: Analyst
+      version: unknown
+      cvParam: Analyst
+    software:
+      id: pwiz_Reader_ABI
+      version: 3.0.25155
+      cvParam: ProteoWizard software
+  instrumentConfigurationList: 
+    instrumentConfiguration:
+      id: IC1
+      cvParam: 4000 QTRAP
+      cvParam: instrument serial number, AR23120811
+      componentList:
+        source: 
+          order: 1
+          cvParam: electrospray ionization
+        analyzer: 
+          order: 2
+          cvParam: quadrupole
+        analyzer: 
+          order: 3
+          cvParam: quadrupole
+        analyzer: 
+          order: 4
+          cvParam: axial ejection linear ion trap
+        detector: 
+          order: 5
+          cvParam: electron multiplier
+      softwareRef: Analyst
+  run:
+    id: 20250327_TGL_SerumLipidExtract_Cholesteryrl Esters-Serum,Human,Male,ABPlasma,SigmaAldrich
+    defaultInstrumentConfigurationRef: IC1
+    startTimeStamp: 2025-03-27T18:56:17Z
+    defaultSourceFileRef: WIFF
+    spectrumList (0 spectra):
+      dataProcessing:
+        id: pwiz_Reader_ABI_conversion
+        processingMethod:
+          order: 0
+          softwareRef: pwiz_Reader_ABI
+          cvParam: Conversion to mzML
+        processingMethod:
+          order: 1
+          softwareRef: pwiz_Reader_ABI
+          cvParam: peak picking
+          userParam: ABI/Analyst peak picking
+          userParam: ms levels, [1,2]
+    chromatogramList (36 chromatograms):
+      dataProcessing:
+        id: pwiz_Reader_ABI_conversion
+        processingMethod:
+          order: 0
+          softwareRef: pwiz_Reader_ABI
+          cvParam: Conversion to mzML
+      chromatogram:
+        index: 0
+        id: TIC
+        defaultArrayLength: 60
+        cvParam: total ion current chromatogram
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 4200 5520 4440 5480 85720 86080 45960 91200 55840 73000 40760 64000 75560 63600 52400 44240 38280 36120 28120 26960 32160 24720 19120 21880 26400 20640 26400 22320 27840 16840 25640 26440 27840 24680 24440 25520 80200 37240 31880 44400 33320 21680 14520 17920 31080 31480 61120 47440 63960 38560 33000 45080 29280 37400 36840 38960 27960 26840 21160 22800 
+        binaryDataArray:
+          cvParam: non-standard data array, ms level, dimensionless unit
+          binary: [60] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+      chromatogram:
+        index: 1
+        id: BPC
+        defaultArrayLength: 60
+        cvParam: basepeak chromatogram
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 1040 2160 2320 2280 45720 31600 15840 27320 15360 22920 11440 17680 24280 16720 17880 15240 15920 17080 10960 9920 13600 8800 7520 8240 6520 7920 8440 9000 8840 4200 7480 9800 9840 8360 9200 7680 23400 12160 10400 16040 13600 6880 5440 7000 10200 6960 17680 12560 19880 15040 9240 17560 8960 17120 14320 9800 8680 7560 6600 7040 
+        binaryDataArray:
+          cvParam: non-standard data array, ms level, dimensionless unit
+          binary: [60] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+      chromatogram:
+        index: 2
+        id: SRM SIC Q1=586.56 Q3=369.2 sample=1 period=1 experiment=1 transition=0 ce=35 name=CE(12:0)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 586.56, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 0 0 0 0 80 0 40 40 40 40 0 0 0 0 0 0 80 0 0 0 0 40 80 40 0 0 0 0 40 0 0 40 0 0 0 0 240 0 0 40 0 0 0 0 0 0 40 40 40 0 0 0 160 0 40 0 0 40 0 0 
+      chromatogram:
+        index: 3
+        id: SRM SIC Q1=614.59 Q3=369.2 sample=1 period=1 experiment=1 transition=1 ce=35 name=CE(14:0)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 614.59, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 0 0 0 0 0 0 200 40 120 80 40 0 40 40 80 0 0 0 0 0 80 120 0 80 80 0 0 40 120 80 40 80 0 40 0 0 40 120 0 40 80 0 40 0 40 80 360 80 80 160 40 80 80 40 80 0 0 0 40 40 
+      chromatogram:
+        index: 4
+        id: SRM SIC Q1=612.57 Q3=369.2 sample=1 period=1 experiment=1 transition=2 ce=35 name=CE(14:1)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 612.57, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 0 0 0 40 0 40 40 40 120 40 120 120 40 0 80 40 40 40 0 0 0 0 0 0 80 40 0 40 80 0 120 40 40 0 40 40 40 240 80 80 40 0 0 0 0 0 40 40 80 120 120 80 160 0 0 0 40 40 120 120 
+      chromatogram:
+        index: 5
+        id: SRM SIC Q1=628.6 Q3=369.2 sample=1 period=1 experiment=1 transition=3 ce=35 name=CE(15:0)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 628.6, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 0 80 0 0 0 0 40 120 0 80 80 0 40 40 0 40 0 40 0 0 0 40 0 0 0 0 0 40 0 0 0 0 0 40 40 0 0 160 40 40 80 0 0 0 0 0 120 40 0 40 0 0 40 80 0 80 0 0 0 0 
+      chromatogram:
+        index: 6
+        id: SRM SIC Q1=626.59 Q3=369.2 sample=1 period=1 experiment=1 transition=4 ce=35 name=CE(15:1)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 626.59, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 0 0 0 0 40 40 0 40 40 40 0 80 40 40 0 40 40 0 0 40 0 0 40 0 40 120 0 0 0 0 40 40 40 0 40 120 80 40 0 0 40 0 80 40 80 0 120 80 200 0 80 0 0 0 40 80 0 80 0 0 
+      chromatogram:
+        index: 7
+        id: SRM SIC Q1=642.62 Q3=369.2 sample=1 period=1 experiment=1 transition=5 ce=35 name=CE(16:0)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 642.62, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 40 40 0 0 0 80 80 240 200 40 160 200 200 0 160 40 40 40 40 0 80 120 0 120 40 0 80 0 0 40 40 0 0 40 120 0 160 120 80 120 40 40 40 0 0 120 280 80 200 80 80 120 40 120 160 120 0 40 0 0 
+      chromatogram:
+        index: 8
+        id: SRM SIC Q1=640.6 Q3=369.2 sample=1 period=1 experiment=1 transition=6 ce=35 name=CE(16:1)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 640.6, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 0 0 40 80 0 0 360 560 280 720 120 480 440 760 600 440 240 200 200 200 160 640 360 240 240 160 120 40 160 0 120 400 440 120 320 320 560 720 360 200 600 200 40 200 240 440 480 80 520 640 320 280 200 480 440 240 320 200 280 160 
+      chromatogram:
+        index: 9
+        id: SRM SIC Q1=638.59 Q3=369.2 sample=1 period=1 experiment=1 transition=7 ce=35 name=CE(16:2)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 638.59, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 0 0 0 0 0 0 120 0 0 0 160 0 200 0 80 40 0 0 0 0 0 0 120 0 80 0 0 0 120 160 80 0 40 80 80 0 0 40 40 40 0 0 0 0 40 80 0 0 0 80 0 120 0 80 80 0 80 0 0 80 
+      chromatogram:
+        index: 10
+        id: SRM SIC Q1=636.57 Q3=369.2 sample=1 period=1 experiment=1 transition=8 ce=35 name=CE(16:3)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 636.57, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 0 0 0 0 0 40 80 0 40 40 0 0 40 80 80 40 40 120 0 120 40 0 0 0 80 40 40 0 0 0 40 0 40 0 40 0 40 80 280 0 0 0 0 40 0 40 160 80 0 40 40 80 40 40 80 40 0 40 40 80 
+      chromatogram:
+        index: 11
+        id: SRM SIC Q1=656.63 Q3=369.2 sample=1 period=1 experiment=1 transition=9 ce=35 name=CE(17:0)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 656.63, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 0 0 0 0 0 80 80 120 40 40 0 0 40 40 0 80 40 0 160 40 0 0 40 0 0 120 0 0 40 40 40 0 0 120 40 0 80 320 40 80 80 0 0 0 40 120 40 120 40 40 80 120 80 40 0 0 0 0 0 80 
+      chromatogram:
+        index: 12
+        id: SRM SIC Q1=654.62 Q3=369.2 sample=1 period=1 experiment=1 transition=10 ce=35 name=CE(17:1)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 654.62, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 0 0 0 0 0 80 240 120 40 160 80 120 120 80 0 0 80 0 0 80 40 0 40 0 80 120 80 80 40 0 40 40 40 0 40 80 120 40 80 160 80 0 0 0 0 0 120 0 40 80 0 120 80 80 0 40 40 80 0 80 
+      chromatogram:
+        index: 13
+        id: SRM SIC Q1=670.65 Q3=369.2 sample=1 period=1 experiment=1 transition=11 ce=35 name=CE(18:0)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 670.65, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 40 0 0 120 0 160 240 0 40 160 320 120 160 80 80 0 80 0 160 0 0 40 0 40 40 0 160 80 200 0 0 0 0 40 0 0 200 0 0 0 40 40 0 0 0 0 40 0 80 40 200 0 0 40 120 80 40 0 40 0 
+      chromatogram:
+        index: 14
+        id: SRM SIC Q1=668.63 Q3=369.2 sample=1 period=1 experiment=1 transition=12 ce=35 name=CE(18:1)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 668.63, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 0 40 0 0 0 1440 920 2480 640 1680 1160 1160 1440 1520 1560 1480 1280 1200 560 1000 1440 920 680 440 680 920 560 600 960 160 640 640 960 920 760 760 2040 1680 840 1520 1240 1040 560 520 1240 680 1480 1000 2200 1200 680 1240 600 1880 920 600 480 760 480 600 
+      chromatogram:
+        index: 15
+        id: SRM SIC Q1=666.62 Q3=369.2 sample=1 period=1 experiment=1 transition=13 ce=35 name=CE(18:2)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 666.62, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 720 560 120 280 240 13680 12640 23480 9120 22920 11440 14920 24280 16720 17880 15240 15920 17080 10960 9920 13600 8800 7520 8240 6520 7920 8360 4280 6120 4200 7480 9800 9840 8360 9200 7680 23400 12160 10400 16040 13600 6880 5440 7000 10200 6960 17680 12560 19880 15040 9240 17560 8960 17120 14320 8920 8680 7560 6600 7040 
+      chromatogram:
+        index: 16
+        id: SRM SIC Q1=664.6 Q3=369.2 sample=1 period=1 experiment=1 transition=14 ce=35 name=CE(18:3)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 664.6, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 120 40 120 120 1160 5240 2640 5320 2880 4920 2680 4440 4440 4480 3720 2360 1880 1840 1400 1720 2040 1600 1080 1080 1760 1360 1200 1160 1600 1160 1640 1920 2120 2040 1560 1400 5360 2280 2040 3760 2720 1360 1200 1200 1000 1520 4320 3800 4400 2560 2160 3000 1560 3480 3000 1640 1320 1280 1360 1360 
+      chromatogram:
+        index: 17
+        id: SRM SIC Q1=684.67 Q3=369.2 sample=1 period=1 experiment=1 transition=15 ce=35 name=CE(19:0)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 684.67, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 80 320 80 80 1160 1760 1000 1440 880 1400 600 720 840 1120 920 720 280 360 360 400 440 280 200 40 560 120 720 200 880 320 760 160 280 240 240 320 1200 360 200 640 360 200 120 80 280 320 1040 640 600 680 440 400 240 480 680 520 200 280 320 200 
+      chromatogram:
+        index: 18
+        id: SRM SIC Q1=698.68 Q3=369.2 sample=1 period=1 experiment=1 transition=16 ce=35 name=CE(20:0)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 698.68, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 1040 2160 2320 2280 45720 31600 15840 27320 15360 19440 10200 17680 21440 15080 11600 8840 6560 5360 5320 4480 4440 5000 3520 3920 6440 3840 8440 9000 8840 4120 6840 4960 4960 5240 4760 2680 19480 7960 7800 9080 5600 4200 2600 3200 3200 6520 14320 11600 14000 6360 6600 7440 5520 5920 6560 9800 4320 3680 4400 5680 
+      chromatogram:
+        index: 19
+        id: SRM SIC Q1=696.67 Q3=369.2 sample=1 period=1 experiment=1 transition=17 ce=35 name=CE(20:1)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 696.67, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 280 600 160 400 8920 5720 2080 4440 2560 2680 1800 3200 4240 2840 1800 1920 1640 1240 680 680 760 640 760 400 720 720 720 1480 840 160 1160 680 880 600 840 440 4000 1320 1400 1240 1040 880 440 640 280 1240 3040 2320 2520 1160 1560 1480 1040 1040 1720 1680 1280 880 600 960 
+      chromatogram:
+        index: 20
+        id: SRM SIC Q1=694.65 Q3=369.2 sample=1 period=1 experiment=1 transition=18 ce=35 name=CE(20:2)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 694.65, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 40 0 40 120 1240 800 120 760 360 520 200 400 360 240 360 160 360 40 80 200 120 120 80 120 80 120 0 120 160 280 160 40 120 280 120 80 560 240 200 160 40 160 40 80 200 240 480 160 440 80 160 80 120 120 480 160 80 0 200 40 
+      chromatogram:
+        index: 21
+        id: SRM SIC Q1=692.63 Q3=369.2 sample=1 period=1 experiment=1 transition=19 ce=35 name=CE(20:3)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 692.63, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 0 0 40 160 400 640 200 560 400 920 240 320 800 640 360 360 360 160 520 480 240 240 240 120 520 80 160 200 280 120 160 120 120 120 160 200 640 160 520 440 360 200 120 320 240 360 680 520 440 600 640 400 160 200 200 520 200 280 320 80 
+      chromatogram:
+        index: 22
+        id: SRM SIC Q1=690.62 Q3=369.2 sample=1 period=1 experiment=1 transition=20 ce=35 name=CE(20:4)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 690.62, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 200 160 120 160 1920 4960 3640 5680 5680 5280 2840 5200 6920 5600 3560 3880 3040 3680 2680 3160 4000 2480 1240 1960 2320 2080 1120 880 1440 1800 1640 2720 3120 2000 2120 5360 6320 2960 2480 4400 3320 3120 1320 1360 2720 2320 5000 3240 5600 3160 3120 3960 2760 2720 3240 4600 2640 2320 1360 1920 
+      chromatogram:
+        index: 23
+        id: SRM SIC Q1=688.6 Q3=369.2 sample=1 period=1 experiment=1 transition=21 ce=35 name=CE(20:5)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 688.6, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 0 40 80 40 1160 1120 720 1840 1320 1440 680 1320 1160 1560 1240 1000 1040 1080 960 200 840 680 320 280 720 640 240 280 520 760 480 760 1080 720 600 840 2080 960 600 880 720 480 320 600 560 720 960 1040 600 600 920 1120 400 880 560 720 880 800 600 320 
+      chromatogram:
+        index: 24
+        id: SRM SIC Q1=726.71 Q3=369.2 sample=1 period=1 experiment=1 transition=22 ce=35 name=CE(22:0)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 726.71, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 80 40 0 40 920 560 480 1040 480 720 360 600 520 680 280 800 400 480 480 360 360 120 240 400 280 400 320 40 120 400 200 240 280 120 360 240 880 280 320 280 40 160 200 160 240 360 640 400 680 440 160 640 400 120 480 560 320 200 80 320 
+      chromatogram:
+        index: 25
+        id: SRM SIC Q1=724.7 Q3=369.2 sample=1 period=1 experiment=1 transition=23 ce=35 name=CE(22:1)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 724.7, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 280 160 40 80 2000 2120 440 1880 1200 1280 640 1360 1200 1280 760 800 400 200 320 240 520 200 200 520 520 240 200 280 280 200 240 480 320 440 440 200 1120 480 320 480 480 280 160 360 840 800 920 880 1040 360 600 720 400 160 440 1120 720 800 560 520 
+      chromatogram:
+        index: 26
+        id: SRM SIC Q1=722.68 Q3=369.2 sample=1 period=1 experiment=1 transition=24 ce=35 name=CE(22:2)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 722.68, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 760 640 720 600 12960 9080 1720 7320 8240 4920 4000 6840 4040 6080 3840 3280 2400 2160 1600 2120 1600 1680 880 2120 2680 880 2480 1680 2960 1400 2080 2000 1720 1960 1200 2920 6920 2440 2280 2760 1600 1240 1000 1400 4400 4800 4920 5000 5640 2520 3320 3800 3200 1040 1720 4240 3080 4200 1720 1400 
+      chromatogram:
+        index: 27
+        id: SRM SIC Q1=720.67 Q3=369.2 sample=1 period=1 experiment=1 transition=25 ce=35 name=CE(22:3)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 720.67, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 160 400 320 240 3840 2040 560 2240 2000 880 1040 1560 840 1800 1440 800 880 200 360 640 840 240 680 600 640 480 520 440 880 720 240 440 520 520 400 440 1960 680 600 480 480 560 360 240 1720 920 1520 1360 1400 720 1000 560 720 160 240 1360 1080 1360 760 720 
+      chromatogram:
+        index: 28
+        id: SRM SIC Q1=718.65 Q3=369.2 sample=1 period=1 experiment=1 transition=26 ce=35 name=CE(22:4)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 718.65, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 40 80 0 0 560 1000 280 640 640 280 200 240 200 560 40 320 120 40 240 160 0 80 0 0 120 0 200 80 40 0 120 120 160 120 40 280 400 240 240 200 80 40 120 40 400 120 400 240 240 200 200 160 200 0 0 280 160 240 200 80 
+      chromatogram:
+        index: 29
+        id: SRM SIC Q1=716.63 Q3=369.2 sample=1 period=1 experiment=1 transition=27 ce=35 name=CE(22:5)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 716.63, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 40 0 80 80 160 400 120 480 360 240 200 360 240 240 240 200 40 160 80 160 0 40 120 160 80 0 80 120 160 80 200 40 0 40 120 120 280 120 120 200 0 80 80 120 440 240 160 160 240 200 160 160 200 40 120 80 200 280 200 80 
+      chromatogram:
+        index: 30
+        id: SRM SIC Q1=714.62 Q3=369.2 sample=1 period=1 experiment=1 transition=28 ce=35 name=CE(22:6)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 714.62, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 80 80 120 280 2400 2320 680 2120 2400 1560 960 2160 1040 1280 1200 720 640 320 880 440 440 360 640 440 720 200 520 800 960 520 800 600 560 360 560 880 1400 840 480 680 440 360 160 200 1680 2040 1600 1320 2320 1040 680 920 1440 720 1000 1320 1240 1040 600 640 
+      chromatogram:
+        index: 31
+        id: SRM SIC Q1=752.73 Q3=369.2 sample=1 period=1 experiment=1 transition=29 ce=35 name=CE(24:1)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 752.73, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 40 0 40 40 400 520 160 400 200 280 400 120 120 320 320 200 200 0 80 80 40 120 40 320 160 0 0 160 0 40 120 0 40 0 80 80 320 40 40 200 40 80 80 120 640 240 120 280 200 280 160 80 200 160 80 80 480 120 160 160 
+      chromatogram:
+        index: 32
+        id: SRM SIC Q1=1089.03 Q3=369.2 sample=1 period=1 experiment=1 transition=30 ce=35 name=CE(46:3;O2)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 1089.03, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 120 40 0 80 400 320 120 360 160 120 40 120 40 200 0 160 0 80 0 0 0 120 0 120 80 0 40 120 0 40 120 0 80 80 40 0 80 40 0 80 40 40 0 0 120 80 40 160 40 0 200 240 280 80 0 40 80 120 0 40 
+      chromatogram:
+        index: 33
+        id: SRM SIC Q1=1117.06 Q3=369.2 sample=1 period=1 experiment=1 transition=31 ce=35 name=CE(48:3;O2)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 1117.06, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 0 0 0 0 40 80 0 0 0 0 0 40 0 0 0 0 0 0 0 0 40 0 0 80 0 0 40 40 0 0 0 80 0 0 0 0 0 0 0 80 40 40 0 0 80 40 0 0 80 0 0 40 0 80 0 0 0 0 0 0 
+      chromatogram:
+        index: 34
+        id: SRM SIC Q1=1145.09 Q3=369.2 sample=1 period=1 experiment=1 transition=32 ce=35 name=CE(50:3;O2)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 1145.09, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 40 40 0 80 0 160 80 80 0 0 0 0 40 120 120 240 160 0 0 40 0 0 0 0 0 40 0 40 0 40 0 0 40 40 40 40 200 120 0 0 0 0 0 0 120 80 0 120 120 0 0 40 0 0 40 0 0 40 120 0 
+      chromatogram:
+        index: 35
+        id: SRM SIC Q1=1173.13 Q3=369.2 sample=1 period=1 experiment=1 transition=33 ce=35 name=CE(52:3;O2)
+        defaultArrayLength: 60
+        cvParam: selected reaction monitoring chromatogram
+        cvParam: positive scan
+        userParam: MS_dwell_time, 0.025000000000000001, xs:float
+        precursor:
+          spectrumRef: 
+          isolationWindow:
+            cvParam: isolation window target m/z, 1173.13, m/z
+          activation:
+            cvParam: collision-induced dissociation
+            cvParam: collision energy, 35.0, electronvolt
+        product:
+          isolationWindow:
+            cvParam: isolation window target m/z, 369.2, m/z
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [60] 1.66666666667e-05 0.0170333333333 0.03405 0.05105 0.0680666666667 0.0850666666667 0.102083333333 0.1191 0.1361 0.153116666667 0.170116666667 0.187133333333 0.204133333333 0.22115 0.238166666667 0.255166666667 0.272183333333 0.289183333333 0.3062 0.3232 0.340216666667 0.357233333333 0.374233333333 0.39125 0.408266666667 0.425283333333 0.4423 0.459316666667 0.476316666667 0.493333333333 0.510333333333 0.52735 0.54435 0.561366666667 0.578383333333 0.595383333333 0.6124 0.6294 0.646416666667 0.663433333333 0.680433333333 0.69745 0.71445 0.731466666667 0.748466666667 0.765483333333 0.7825 0.7995 0.816516666667 0.833516666667 0.850533333333 0.867533333333 0.88455 0.901566666667 0.918566666667 0.935583333333 0.952583333333 0.9696 0.986616666667 1.00361666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [60] 0 0 0 80 0 0 0 0 0 80 0 120 0 80 0 0 0 0 0 0 0 0 0 0 40 0 0 0 0 0 0 0 0 0 40 0 0 0 0 0 0 0 0 0 40 0 0 0 0 40 40 40 0 0 0 40 0 80 0 0 

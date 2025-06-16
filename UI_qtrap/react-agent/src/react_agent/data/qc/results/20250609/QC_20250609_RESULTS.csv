@@ -1,0 +1,4 @@
+QC_Result,Filename,TIC_RSD_TopGroupWindow,TIC_RSD_WindowBest,Summed_TIC,TIC_Time,TIC_RSD_Window
+fail,"20250327_TGL_SerumLipidExtract_TG_18-1_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich",,,26720,5.22,[]
+fail,"20250327_TGL_SerumLipidExtract_TG_18-0-Serum,Human,Male,ABPlasma,SigmaAldrich",,,2920,5.34,[]
+fail,"20250327_TGL_SerumLipidExtract_TG_16-1-Serum,Human,Male,ABPlasma,SigmaAldrich",,,480,4.99,[]

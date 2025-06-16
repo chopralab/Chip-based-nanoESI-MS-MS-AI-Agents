@@ -1,0 +1,17 @@
+% header=SampleName	SampleId	Comments	AcqMethod	ProcMethod	RackCode	PlateCode	VialPos	DilutFact	WghtToVol	Type	RackPos	PlatePos	SetName	OutputFile	_col1Text	_col2Int
+2025-06-12_hippo_5xFAD_DG_1_SI_DG_16-0.dam	default_id	default_comment	DG_16-0.dam	DG_16-0.dam	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	2025-06-12_hippo_5xFAD_DG_1_SI_DG_16-0.dam	custCol1_1	0
+2025-06-12_hippo_5xFAD_DG_1_SI_DG_16-1.dam	default_id	default_comment	DG_16-1.dam	DG_16-1.dam	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	2025-06-12_hippo_5xFAD_DG_1_SI_DG_16-1.dam	custCol1_1	0
+2025-06-12_hippo_5xFAD_DG_1_SI_DG_18-0.dam	default_id	default_comment	DG_18-0.dam	DG_18-0.dam	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	2025-06-12_hippo_5xFAD_DG_1_SI_DG_18-0.dam	custCol1_1	0
+2025-06-12_hippo_5xFAD_DG_1_SI_DG_18-1.dam	default_id	default_comment	DG_18-1.dam	DG_18-1.dam	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	2025-06-12_hippo_5xFAD_DG_1_SI_DG_18-1.dam	custCol1_1	0
+2025-06-12_hippo_5xFAD_DG_1_SI_DG_18-2.dam	default_id	default_comment	DG_18-2.dam	DG_18-2.dam	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	2025-06-12_hippo_5xFAD_DG_1_SI_DG_18-2.dam	custCol1_1	0
+2025-06-16_DryRunTest_PE_2_TGL	default_id	default_comment	PE.dam	PE.dam	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	2025-06-16_DryRunTest_PE_2_TGL	custCol1_1	0
+2025-06-16_WetRunTest_TG_2_TGL_TG_14-0.dam	default_id	default_comment	TG_14-0.dam	TG_14-0.dam	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	2025-06-16_WetRunTest_TG_2_TGL_TG_14-0.dam	custCol1_1	0
+2025-06-16_WetRunTest_TG_2_TGL_TG_16-0.dam	default_id	default_comment	TG_16-0.dam	TG_16-0.dam	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	2025-06-16_WetRunTest_TG_2_TGL_TG_16-0.dam	custCol1_1	0
+2025-06-16_WetRunTest_TG_2_TGL_TG_16-1.dam	default_id	default_comment	TG_16-1.dam	TG_16-1.dam	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	2025-06-16_WetRunTest_TG_2_TGL_TG_16-1.dam	custCol1_1	0
+2025-06-16_WetRunTest_TG_2_TGL_TG_18-0.dam	default_id	default_comment	TG_18-0.dam	TG_18-0.dam	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	2025-06-16_WetRunTest_TG_2_TGL_TG_18-0.dam	custCol1_1	0
+2025-06-16_WetRunTest_TG_2_TGL_TG_18-1.dam	default_id	default_comment	TG_18-1.dam	TG_18-1.dam	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	2025-06-16_WetRunTest_TG_2_TGL_TG_18-1.dam	custCol1_1	0
+2025-06-16_WetRunTest_TG_2_TGL_TG_18-2.dam	default_id	default_comment	TG_18-2.dam	TG_18-2.dam	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	2025-06-16_WetRunTest_TG_2_TGL_TG_18-2.dam	custCol1_1	0
+2025-06-16_WetRunTest_TG_2_TGL_TG_18-3.dam	default_id	default_comment	TG_18-3.dam	TG_18-3.dam	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	2025-06-16_WetRunTest_TG_2_TGL_TG_18-3.dam	custCol1_1	0
+2025-06-16_WetRunTest_TG_2_TGL_TG_20-4.dam	default_id	default_comment	TG_20-4.dam	TG_20-4.dam	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	2025-06-16_WetRunTest_TG_2_TGL_TG_20-4.dam	custCol1_1	0
+2025-06-16_WetRunTest_TG_2_TGL_TG_22-5.dam	default_id	default_comment	TG_22-5.dam	TG_22-5.dam	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	2025-06-16_WetRunTest_TG_2_TGL_TG_22-5.dam	custCol1_1	0
+2025-06-16_WetRunTest_TG_2_TGL_TG_22-6.dam	default_id	default_comment	TG_22-6.dam	TG_22-6.dam	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	2025-06-16_WetRunTest_TG_2_TGL_TG_22-6.dam	custCol1_1	0

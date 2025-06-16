@@ -16,11 +16,11 @@ from langchain.memory import ConversationBufferWindowMemory, ConversationSummary
 from langchain_openai import ChatOpenAI
 from langchain.agents import tool
 
-from sciborg_dev.core.library.base import BaseDriverMicroservice
-from sciborg_dev.core.command.base import BaseDriverCommand
-from sciborg_dev.ai.memory.internal_logging import CustomActionLogSummaryMemory, FSAMemory
-from sciborg_dev.ai.memory.embedding import EmbeddingSummaryMemory
-from sciborg_dev.ai.prompts.agent import (
+from core.library.base import BaseDriverMicroservice
+from core.command.base import BaseDriverCommand
+from ai.memory.internal_logging import CustomActionLogSummaryMemory, FSAMemory
+from ai.memory.embedding import EmbeddingSummaryMemory
+from ai.prompts.agent import (
     HUMAN_TOOL_INSTRUCTIONS,
     ASSUME_DEFAULTS_INSTRUCTIONS,
     BASE_LINQX_CHAT_PROMPT_TEMPLATE,

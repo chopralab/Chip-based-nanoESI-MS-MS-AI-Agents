@@ -1,0 +1,7 @@
+% header=SampleName	SampleId	Comments	AcqMethod	ProcMethod	RackCode	PlateCode	VialPos	DilutFact	WghtToVol	Type	RackPos	PlatePos	SetName	OutputFile	_col1Text	_col2Int
+2025-06-12_hippo_5xFAD_DG_1_SI_DG_16-0.dam	default_id	default_comment	DG_16-0.dam	DG_16-0.dam	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	DataSet1	custCol1_1	0
+2025-06-12_hippo_5xFAD_DG_1_SI_DG_16-1.dam	default_id	default_comment	DG_16-1.dam	DG_16-1.dam	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	DataSet1	custCol1_1	0
+2025-06-12_hippo_5xFAD_DG_1_SI_DG_18-0.dam	default_id	default_comment	DG_18-0.dam	DG_18-0.dam	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	DataSet1	custCol1_1	0
+2025-06-12_hippo_5xFAD_DG_1_SI_DG_18-1.dam	default_id	default_comment	DG_18-1.dam	DG_18-1.dam	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	DataSet1	custCol1_1	0
+2025-06-12_hippo_5xFAD_DG_1_SI_DG_18-2.dam	default_id	default_comment	DG_18-2.dam	DG_18-2.dam	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	DataSet1	custCol1_1	0
+2025-06-16_DryRunTest_PE_2_TGL	default_id	default_comment	PE.dam	PE.dam	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	DataSet1	custCol1_1	0

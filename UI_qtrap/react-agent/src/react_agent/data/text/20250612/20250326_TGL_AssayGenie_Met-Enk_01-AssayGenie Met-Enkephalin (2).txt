@@ -1,0 +1,452 @@
+msdata:
+  id: 20250326_TGL_AssayGenie_Met-Enk_01-AssayGenie Met-Enkephalin (2)
+  version: 1.1.0
+  cvList: 
+    cv:
+      id: MS
+      fullName: Proteomics Standards Initiative Mass Spectrometry Ontology
+      version: 4.1.182
+      URI: https://raw.githubusercontent.com/HUPO-PSI/psi-ms-CV/master/psi-ms.obo
+    cv:
+      id: UO
+      fullName: Unit Ontology
+      version: 09:04:2014
+      URI: https://raw.githubusercontent.com/bio-ontology-research-group/unit-ontology/master/unit.obo
+  fileDescription:
+    fileContent:
+      cvParam: MS1 spectrum
+    sourceFileList: 
+      sourceFile:
+        id: WIFF
+        name: 20250326_TGL_AssayGenie_Met-Enk_01.wiff
+        location: file://C:\Users\ChopraLab\Desktop\laptop\convert_raw\raw_data
+        cvParam: WIFF nativeID format
+        cvParam: ABI WIFF format
+        cvParam: SHA-1, 651ee4e17120143132800780f89b2dabf7033935
+      sourceFile:
+        id: WIFFSCAN
+        name: 20250326_TGL_AssayGenie_Met-Enk_01.wiff.scan
+        location: file://C:\Users\ChopraLab\Desktop\laptop\convert_raw\raw_data
+        cvParam: WIFF nativeID format
+        cvParam: ABI WIFF format
+        cvParam: SHA-1, 7cbe05fbbd6125552abf9b4c3abcbacc6756c427
+  softwareList: 
+    software:
+      id: Analyst
+      version: unknown
+      cvParam: Analyst
+    software:
+      id: pwiz_Reader_ABI
+      version: 3.0.25155
+      cvParam: ProteoWizard software
+  instrumentConfigurationList: 
+    instrumentConfiguration:
+      id: IC1
+      cvParam: 4000 QTRAP
+      cvParam: instrument serial number, AR23120811
+      componentList:
+        source: 
+          order: 1
+          cvParam: electrospray ionization
+        analyzer: 
+          order: 2
+          cvParam: quadrupole
+        analyzer: 
+          order: 3
+          cvParam: quadrupole
+        analyzer: 
+          order: 4
+          cvParam: axial ejection linear ion trap
+        detector: 
+          order: 5
+          cvParam: electron multiplier
+      softwareRef: Analyst
+  run:
+    id: 20250326_TGL_AssayGenie_Met-Enk_01-AssayGenie Met-Enkephalin (2)
+    defaultInstrumentConfigurationRef: IC1
+    startTimeStamp: 2025-03-26T17:45:31Z
+    defaultSourceFileRef: WIFF
+    spectrumList (7 spectra):
+      dataProcessing:
+        id: pwiz_Reader_ABI_conversion
+        processingMethod:
+          order: 0
+          softwareRef: pwiz_Reader_ABI
+          cvParam: Conversion to mzML
+        processingMethod:
+          order: 1
+          softwareRef: pwiz_Reader_ABI
+          cvParam: peak picking
+          userParam: ABI/Analyst peak picking
+          userParam: ms levels, [1,2]
+      spectrum:
+        index: 0
+        id: sample=2 period=1 cycle=1 experiment=1
+        defaultArrayLength: 162
+        cvParam: ms level, 1
+        cvParam: MS1 spectrum
+        cvParam: positive scan
+        cvParam: centroid spectrum
+        cvParam: base peak intensity, 2.125000047497e05, number of detector counts
+        cvParam: base peak m/z, 911.2, m/z
+        cvParam: total ion current, 2.12125e07, number of detector counts
+        cvParam: spectrum title, 20250326_TGL_AssayGenie_Met-Enk_01-AssayGenie Met-Enkephalin (2).1.1. File:20250326_TGL_AssayGenie_Met-Enk_01.wiff, NativeID:sample=2 period=1 cycle=1 experiment=1
+        cvParam: no combination
+        scanList:
+          scan:
+            instrumentConfiguration:
+              id: IC1
+              cvParam: 4000 QTRAP
+              cvParam: instrument serial number, AR23120811
+              componentList:
+                source: 
+                  order: 1
+                  cvParam: electrospray ionization
+                analyzer: 
+                  order: 2
+                  cvParam: quadrupole
+                analyzer: 
+                  order: 3
+                  cvParam: quadrupole
+                analyzer: 
+                  order: 4
+                  cvParam: axial ejection linear ion trap
+                detector: 
+                  order: 5
+                  cvParam: electron multiplier
+              softwareRef: Analyst
+            cvParam: scan start time, 0.110933333333, minute
+            cvParam: preset scan configuration, 1
+            scanWindowList: 
+              scanWindow:
+                cvParam: scan window lower limit, 275.0, m/z
+                cvParam: scan window upper limit, 1800.0, m/z
+        binaryDataArray:
+          cvParam: m/z array, m/z
+          binary: [162] 281.084 282.08 283.104761905 284.262857143 285.2 294.304 295.056 299.24 305.2 309.18 312.297142857 313.44 314.262857143 315.4 324.982857143 327.132307692 341.021176471 342.008421053 342.832 345.222857143 352.28 354.96 356 357.04 358.377142857 369.12 395.36 400.992 414.92 415.88 421.28 429.154285714 441.28 442.16 445.328 449.4 450.48 469.312 488.32 497.34 515.2 515.5 541.04 542.56 543.44 565.408 570.44 571.56 577.232 581.52 585.469090909 602.4 605.333333333 607.408 613.32 615.102857143 615.56 616.106666667 617.04 617.52 618.08 619.2 629.382857143 630.48 632.16 633.36 654.117333333 655.76 660.348235294 661.28 662.16 673.4 674.464 675.52 677.48 682.259047619 683.256296296 685.388571429 686.32 687.568 690.124444444 697.48 701.44 705.142857143 711.44 717.52 721.36 727.4 737.392 742.48 763.12 764.144 765.24 777.053333333 778.24 779.146666667 780.4 780.72 782.6 783.76 794.36 797.6 808.48 809.376 810.12 815.44 829.449411765 837.161904762 838.106666667 839.108571429 839.792 840.178823529 841.12 851.2 853.2 857.573333333 876.72 911.196144578 912.210526316 913.180606061 914.144 915.134545455 916.137142857 931.68 959.577142857 985.22 986.148571429 987.19030303 988.145 989.27 990.377142857 991.26 1005.68 1050.24 1059.06526316 1060.29333333 1061.23692308 1062.12 1063.07 1064.26666667 1073.92 1075.29 1110.93714286 1125.56 1133.3447619 1133.87142857 1134.44137931 1135.24 1136.29714286 1142.11428571 1165.76 1203.86 1207.24 1208.21714286 1209.37 1210.08 1211.152 1223.97714286 1233.16 1247.88 1282.52 1385.93230769 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [162] 2650000.05923 550000.012293 500000.011176 150000.003353 450000.010058 200000.00447 200000.00447 300000.006706 200000.00447 750000.016764 150000.003353 450000.010058 600000.013411 100000.002235 150000.003353 650000.014529 350000.007823 650000.014529 300000.006705 150000.003353 100000.002235 1100000.02459 650000.014529 900000.020116 150000.003353 200000.00447 200000.00447 300000.006706 100000.002235 100000.002235 200000.00447 1000000.02235 400000.008941 450000.010058 300000.006706 100000.002235 200000.00447 400000.008941 200000.00447 350000.007823 250000.005588 400000.008941 1000000.02235 400000.008941 650000.014529 300000.006706 350000.007823 400000.008941 300000.006705 500000.011176 250000.005588 750000.016764 250000.005588 300000.006706 200000.00447 1300000.02906 100000.002235 800000.017881 750000.016764 200000.00447 300000.006706 200000.00447 150000.003353 500000.011176 650000.014529 200000.00447 850000.018999 850000.018999 850000.018999 900000.020117 200000.00447 100000.002235 600000.013411 450000.010058 100000.002235 3400000.076 1250000.02794 1650000.03688 1550000.03465 600000.013411 600000.013411 100000.002235 500000.011176 150000.003353 200000.00447 600000.013411 600000.013411 350000.007823 300000.006705 400000.008941 300000.006706 200000.00447 100000.002235 500000.011176 400000.008941 750000.016764 450000.010058 200000.00447 100000.002235 200000.00447 100000.002235 200000.00447 600000.013411 400000.008941 200000.00447 200000.00447 700000.015646 1700000.038 1250000.02794 1500000.03353 300000.006705 350000.007824 2300000.05141 400000.008941 600000.013411 250000.005588 450000.010058 4600000.10282 3600000.08047 3500000.07823 2350000.05253 750000.016764 150000.003353 200000.00447 150000.003353 1600000.03576 1300000.02906 1350000.03017 850000.018999 300000.006705 750000.016764 400000.008941 400000.008941 450000.010058 1250000.02794 900000.020117 1050000.02347 350000.007823 650000.014529 1000000.02235 600000.013411 1700000.038 150000.003353 800000.017881 500000.011175 1650000.03688 2500000.05588 1750000.03912 150000.003353 1000000.02235 200000.00447 400000.008941 300000.006706 150000.003353 1200000.02682 200000.00447 300000.006706 150000.003353 100000.002235 100000.002235 100000.002235 250000.005588 
+      spectrum:
+        index: 1
+        id: sample=2 period=1 cycle=2 experiment=1
+        defaultArrayLength: 91
+        cvParam: ms level, 1
+        cvParam: MS1 spectrum
+        cvParam: positive scan
+        cvParam: centroid spectrum
+        cvParam: base peak intensity, 1.750000039116e05, number of detector counts
+        cvParam: base peak m/z, 685.44, m/z
+        cvParam: total ion current, 1.02875e07, number of detector counts
+        cvParam: spectrum title, 20250326_TGL_AssayGenie_Met-Enk_01-AssayGenie Met-Enkephalin (2).2.2. File:20250326_TGL_AssayGenie_Met-Enk_01.wiff, NativeID:sample=2 period=1 cycle=2 experiment=1
+        cvParam: no combination
+        scanList:
+          scan:
+            instrumentConfiguration:
+              id: IC1
+              cvParam: 4000 QTRAP
+              cvParam: instrument serial number, AR23120811
+              componentList:
+                source: 
+                  order: 1
+                  cvParam: electrospray ionization
+                analyzer: 
+                  order: 2
+                  cvParam: quadrupole
+                analyzer: 
+                  order: 3
+                  cvParam: quadrupole
+                analyzer: 
+                  order: 4
+                  cvParam: axial ejection linear ion trap
+                detector: 
+                  order: 5
+                  cvParam: electron multiplier
+              softwareRef: Analyst
+            cvParam: scan start time, 0.227383333333, minute
+            cvParam: preset scan configuration, 1
+            scanWindowList: 
+              scanWindow:
+                cvParam: scan window lower limit, 275.0, m/z
+                cvParam: scan window upper limit, 1800.0, m/z
+        binaryDataArray:
+          cvParam: m/z array, m/z
+          binary: [91] 281.12 315.173333333 340.902857143 355.105454545 356.04 356.96 413.337142857 415.066666667 428.976 435.48 436.24 441.3 447.424 449.37 455.44 469.36 470.28 497.3 503.08 507.056 520.36 523.36 537.32 551.4 553.328 563.6 571.408 585.342222222 593.6 594.502857143 604.290909091 607.462857143 608.68 622 632.16 633.328 654.147692308 655.269333333 660.364444444 661.265454545 663.6 668.102857143 669.64 673.462857143 682.221538462 683.28 685.403243243 686.339393939 687.44 689.2 696.16 696.56 717.546666667 730.28 730.672 754.88 763.152 764.213333333 783.68 815.6 831.56 837.142857143 838.124444444 839.2 839.96 842.128 852.08 871.542857143 873.728 911.095384615 912.144 913.228571429 914.21 932.742857143 985.08 986.25 987.137777778 988.176 989.2 1003.088 1059.2 1060.208 1061.328 1062.13714286 1134.288 1135.23636364 1208.4 1209.28 1212.26285714 1281.30285714 1283.28 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [91] 200000.00447 450000.010058 150000.003353 500000.011176 100000.002235 400000.008941 300000.006706 250000.005588 200000.00447 400000.008941 200000.00447 550000.012293 400000.008941 600000.013411 200000.00447 600000.013411 350000.007823 1200000.02682 100000.002235 200000.00447 100000.002235 400000.008941 100000.002235 100000.002235 300000.006705 200000.00447 300000.006706 550000.012294 450000.010058 150000.003353 250000.005588 600000.013411 400000.008941 200000.00447 200000.00447 300000.006705 250000.005588 800000.017881 1500000.03353 1400000.03129 450000.010058 150000.003353 100000.002235 150000.003353 1150000.0257 500000.011176 4050000.09052 1500000.03353 600000.013411 450000.010058 200000.00447 200000.00447 250000.005588 100000.002235 300000.006705 450000.010058 300000.006705 250000.005588 450000.010058 200000.00447 400000.008941 600000.013411 650000.014529 650000.014529 100000.002235 300000.006705 400000.008941 150000.003353 300000.006705 2100000.04694 2500000.05588 2350000.05253 1000000.02235 150000.003353 100000.002235 900000.020117 800000.017881 400000.008941 400000.008941 300000.006705 400000.008941 300000.006706 1000000.02235 150000.003353 300000.006705 400000.008941 200000.00447 400000.00894 150000.003353 150000.003353 400000.00894 
+      spectrum:
+        index: 2
+        id: sample=2 period=1 cycle=3 experiment=1
+        defaultArrayLength: 33
+        cvParam: ms level, 1
+        cvParam: MS1 spectrum
+        cvParam: positive scan
+        cvParam: centroid spectrum
+        cvParam: base peak intensity, 1.000000022352e05, number of detector counts
+        cvParam: base peak m/z, 685.36, m/z
+        cvParam: total ion current, 4.4625e06, number of detector counts
+        cvParam: spectrum title, 20250326_TGL_AssayGenie_Met-Enk_01-AssayGenie Met-Enkephalin (2).3.3. File:20250326_TGL_AssayGenie_Met-Enk_01.wiff, NativeID:sample=2 period=1 cycle=3 experiment=1
+        cvParam: no combination
+        scanList:
+          scan:
+            instrumentConfiguration:
+              id: IC1
+              cvParam: 4000 QTRAP
+              cvParam: instrument serial number, AR23120811
+              componentList:
+                source: 
+                  order: 1
+                  cvParam: electrospray ionization
+                analyzer: 
+                  order: 2
+                  cvParam: quadrupole
+                analyzer: 
+                  order: 3
+                  cvParam: quadrupole
+                analyzer: 
+                  order: 4
+                  cvParam: axial ejection linear ion trap
+                detector: 
+                  order: 5
+                  cvParam: electron multiplier
+              softwareRef: Analyst
+            cvParam: scan start time, 0.34375, minute
+            cvParam: preset scan configuration, 1
+            scanWindowList: 
+              scanWindow:
+                cvParam: scan window lower limit, 275.0, m/z
+                cvParam: scan window upper limit, 1800.0, m/z
+        binaryDataArray:
+          cvParam: m/z array, m/z
+          binary: [33] 354.977777778 421.32 435.257142857 445.415384615 449.33 450.377142857 455.302857143 487.52 497.4 515.52 531.462857143 541.410909091 555.488 571.32 619.534545455 627.68 654.213333333 655.257142857 660.196363636 661.325714286 682.12 683.302857143 684.56 685.36 686.416 687.36 838.24 911.051851852 912.022857143 913.146666667 986.32 987.14 990.16 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [33] 350000.007823 100000.002235 600000.013411 500000.011176 1050000.02347 150000.003353 150000.003353 300000.006706 100000.002235 200000.00447 150000.003353 850000.018999 300000.006705 100000.002235 500000.011176 200000.00447 600000.013411 150000.003353 400000.008941 450000.010058 300000.006706 600000.013411 600000.013411 2150000.04806 850000.018999 300000.006706 450000.010058 1050000.02347 450000.010058 850000.018999 200000.00447 1000000.02235 200000.00447 
+      spectrum:
+        index: 3
+        id: sample=2 period=1 cycle=4 experiment=1
+        defaultArrayLength: 19
+        cvParam: ms level, 1
+        cvParam: MS1 spectrum
+        cvParam: positive scan
+        cvParam: centroid spectrum
+        cvParam: base peak intensity, 62500.001396983891, number of detector counts
+        cvParam: base peak m/z, 541.44, m/z
+        cvParam: total ion current, 2.85e06, number of detector counts
+        cvParam: spectrum title, 20250326_TGL_AssayGenie_Met-Enk_01-AssayGenie Met-Enkephalin (2).4.4. File:20250326_TGL_AssayGenie_Met-Enk_01.wiff, NativeID:sample=2 period=1 cycle=4 experiment=1
+        cvParam: no combination
+        scanList:
+          scan:
+            instrumentConfiguration:
+              id: IC1
+              cvParam: 4000 QTRAP
+              cvParam: instrument serial number, AR23120811
+              componentList:
+                source: 
+                  order: 1
+                  cvParam: electrospray ionization
+                analyzer: 
+                  order: 2
+                  cvParam: quadrupole
+                analyzer: 
+                  order: 3
+                  cvParam: quadrupole
+                analyzer: 
+                  order: 4
+                  cvParam: axial ejection linear ion trap
+                detector: 
+                  order: 5
+                  cvParam: electron multiplier
+              softwareRef: Analyst
+            cvParam: scan start time, 0.4601, minute
+            cvParam: preset scan configuration, 1
+            scanWindowList: 
+              scanWindow:
+                cvParam: scan window lower limit, 275.0, m/z
+                cvParam: scan window upper limit, 1800.0, m/z
+        binaryDataArray:
+          cvParam: m/z array, m/z
+          binary: [19] 413.28 469.36 487.56 497.48 541.417142857 551.24 553.32 588.24 649.410909091 660.25 682.192 683.235555556 685.383333333 686.49 727.24 767.48 839.2 939.648 985.152 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [19] 400000.008941 200000.00447 100000.002235 200000.00447 1100000.02459 100000.002235 100000.002235 200000.00447 250000.005588 900000.020117 450000.010058 300000.006705 850000.018999 800000.017881 100000.002235 100000.002235 200000.00447 300000.006705 300000.006705 
+      spectrum:
+        index: 4
+        id: sample=2 period=1 cycle=5 experiment=1
+        defaultArrayLength: 26
+        cvParam: ms level, 1
+        cvParam: MS1 spectrum
+        cvParam: positive scan
+        cvParam: centroid spectrum
+        cvParam: base peak intensity, 87500.00195577745, number of detector counts
+        cvParam: base peak m/z, 654.08, m/z
+        cvParam: total ion current, 3.2625e06, number of detector counts
+        cvParam: spectrum title, 20250326_TGL_AssayGenie_Met-Enk_01-AssayGenie Met-Enkephalin (2).5.5. File:20250326_TGL_AssayGenie_Met-Enk_01.wiff, NativeID:sample=2 period=1 cycle=5 experiment=1
+        cvParam: no combination
+        scanList:
+          scan:
+            instrumentConfiguration:
+              id: IC1
+              cvParam: 4000 QTRAP
+              cvParam: instrument serial number, AR23120811
+              componentList:
+                source: 
+                  order: 1
+                  cvParam: electrospray ionization
+                analyzer: 
+                  order: 2
+                  cvParam: quadrupole
+                analyzer: 
+                  order: 3
+                  cvParam: quadrupole
+                analyzer: 
+                  order: 4
+                  cvParam: axial ejection linear ion trap
+                detector: 
+                  order: 5
+                  cvParam: electron multiplier
+              softwareRef: Analyst
+            cvParam: scan start time, 0.57645, minute
+            cvParam: preset scan configuration, 1
+            scanWindowList: 
+              scanWindow:
+                cvParam: scan window lower limit, 275.0, m/z
+                cvParam: scan window upper limit, 1800.0, m/z
+        binaryDataArray:
+          cvParam: m/z array, m/z
+          binary: [26] 347.52 355.222857143 405.08 413.28 419.32 425.16 441.32 445.382857143 449.337142857 469.24 487.392 497.352 541.36 569.568 585.24 654.093913043 675.56 682.142222222 683.182222222 685.44 686.371428571 687.312 727.36 755.68 762.7 989.52 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [26] 200000.00447 150000.003353 100000.002235 700000.015646 100000.002235 100000.002235 200000.00447 150000.003353 450000.010059 350000.007823 300000.006705 1300000.02906 450000.010058 300000.006705 200000.00447 450000.010058 100000.002235 1100000.02459 350000.007823 400000.008941 750000.016764 300000.006706 200000.00447 200000.00447 400000.008941 450000.010058 
+      spectrum:
+        index: 5
+        id: sample=2 period=1 cycle=6 experiment=1
+        defaultArrayLength: 22
+        cvParam: ms level, 1
+        cvParam: MS1 spectrum
+        cvParam: positive scan
+        cvParam: centroid spectrum
+        cvParam: base peak intensity, 75000.001676380663, number of detector counts
+        cvParam: base peak m/z, 541.44, m/z
+        cvParam: total ion current, 3.525e06, number of detector counts
+        cvParam: spectrum title, 20250326_TGL_AssayGenie_Met-Enk_01-AssayGenie Met-Enkephalin (2).6.6. File:20250326_TGL_AssayGenie_Met-Enk_01.wiff, NativeID:sample=2 period=1 cycle=6 experiment=1
+        cvParam: no combination
+        scanList:
+          scan:
+            instrumentConfiguration:
+              id: IC1
+              cvParam: 4000 QTRAP
+              cvParam: instrument serial number, AR23120811
+              componentList:
+                source: 
+                  order: 1
+                  cvParam: electrospray ionization
+                analyzer: 
+                  order: 2
+                  cvParam: quadrupole
+                analyzer: 
+                  order: 3
+                  cvParam: quadrupole
+                analyzer: 
+                  order: 4
+                  cvParam: axial ejection linear ion trap
+                detector: 
+                  order: 5
+                  cvParam: electron multiplier
+              softwareRef: Analyst
+            cvParam: scan start time, 0.692816666667, minute
+            cvParam: preset scan configuration, 1
+            scanWindowList: 
+              scanWindow:
+                cvParam: scan window lower limit, 275.0, m/z
+                cvParam: scan window upper limit, 1800.0, m/z
+        binaryDataArray:
+          cvParam: m/z array, m/z
+          binary: [22] 421.257142857 425.34 441.292307692 449.294545455 469.312 497.44 498.36 541.446153846 585.507692308 630.52 654.28 660.04 682.342857143 683.222857143 684.4 685.396363636 686.422857143 687.232 774.502857143 912.08 921.88 1049.94285714 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [22] 150000.003353 400000.008941 250000.005588 700000.015646 450000.010058 200000.00447 200000.00447 1150000.0257 250000.005588 100000.002235 100000.002235 100000.002235 900000.020117 300000.006705 200000.00447 1200000.02682 150000.003353 300000.006705 150000.003353 600000.013411 100000.002235 150000.003353 
+      spectrum:
+        index: 6
+        id: sample=2 period=1 cycle=7 experiment=1
+        defaultArrayLength: 12
+        cvParam: ms level, 1
+        cvParam: MS1 spectrum
+        cvParam: positive scan
+        cvParam: centroid spectrum
+        cvParam: base peak intensity, 50000.001117587111, number of detector counts
+        cvParam: base peak m/z, 542.56, m/z
+        cvParam: total ion current, 2.0625e06, number of detector counts
+        cvParam: spectrum title, 20250326_TGL_AssayGenie_Met-Enk_01-AssayGenie Met-Enkephalin (2).7.7. File:20250326_TGL_AssayGenie_Met-Enk_01.wiff, NativeID:sample=2 period=1 cycle=7 experiment=1
+        cvParam: no combination
+        scanList:
+          scan:
+            instrumentConfiguration:
+              id: IC1
+              cvParam: 4000 QTRAP
+              cvParam: instrument serial number, AR23120811
+              componentList:
+                source: 
+                  order: 1
+                  cvParam: electrospray ionization
+                analyzer: 
+                  order: 2
+                  cvParam: quadrupole
+                analyzer: 
+                  order: 3
+                  cvParam: quadrupole
+                analyzer: 
+                  order: 4
+                  cvParam: axial ejection linear ion trap
+                detector: 
+                  order: 5
+                  cvParam: electron multiplier
+              softwareRef: Analyst
+            cvParam: scan start time, 0.80915, minute
+            cvParam: preset scan configuration, 1
+            scanWindowList: 
+              scanWindow:
+                cvParam: scan window lower limit, 275.0, m/z
+                cvParam: scan window upper limit, 1800.0, m/z
+        binaryDataArray:
+          cvParam: m/z array, m/z
+          binary: [12] 447.36 498.36 533.257142857 541.6 542.537142857 565.2 585.466666667 660.269090909 682.288 685.39 686.453333333 727.5 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [12] 200000.00447 200000.00447 150000.003353 450000.010058 300000.006705 450000.010058 800000.017881 250000.005588 300000.006706 900000.020117 250000.005588 450000.010058 
+    chromatogramList (2 chromatograms):
+      dataProcessing:
+        id: pwiz_Reader_ABI_conversion
+        processingMethod:
+          order: 0
+          softwareRef: pwiz_Reader_ABI
+          cvParam: Conversion to mzML
+      chromatogram:
+        index: 0
+        id: TIC
+        defaultArrayLength: 9
+        cvParam: total ion current chromatogram
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [9] 0.110933333333 0.227383333333 0.34375 0.4601 0.57645 0.692816666667 0.80915 0.92545 1.04175 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [9] 21212500 10287500 4462500 2850000 3262500 3525000 2062500 0 0 
+        binaryDataArray:
+          cvParam: non-standard data array, ms level, dimensionless unit
+          binary: [9] 1 1 1 1 1 1 1 1 1 
+      chromatogram:
+        index: 1
+        id: BPC
+        defaultArrayLength: 9
+        cvParam: basepeak chromatogram
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [9] 0.110933333333 0.227383333333 0.34375 0.4601 0.57645 0.692816666667 0.80915 0.92545 1.04175 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [9] 212500.00475 175000.003912 100000.002235 62500.001397 87500.0019558 75000.0016764 50000.0011176 0 0 
+        binaryDataArray:
+          cvParam: non-standard data array, ms level, dimensionless unit
+          binary: [9] 1 1 1 1 1 1 1 1 1 
