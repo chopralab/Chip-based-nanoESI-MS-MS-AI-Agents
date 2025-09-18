@@ -17,23 +17,6 @@ from langchain_core.runnables import RunnableConfig
 from langgraph.graph import StateGraph
 from langgraph.prebuilt import ToolNode
 
-# Import QC Worklist Generator - Conditional Import Solution
-try:
-    # Try relative import first (works in package context)
-    from .qc_worklist_generator import generate_worklist_for_project
-except ImportError:
-    try:
-        # Try absolute import (works when executed standalone)
-        from qc_worklist_generator import generate_worklist_for_project
-    except ImportError:
-        # Fallback: add current directory to path and import
-        import sys
-        from pathlib import Path
-        current_dir = Path(__file__).parent
-        if str(current_dir) not in sys.path:
-            sys.path.insert(0, str(current_dir))
-        from qc_worklist_generator import generate_worklist_for_project
-
 # ----------------------------------------------------------------------------
 # Date Configuration
 # ----------------------------------------------------------------------------
@@ -1276,16 +1259,6 @@ async def run_single_qc_iteration(project_name: str, logger) -> Dict[str, Any]:
         await qc_results(project_name)
         logger.info(f"✅ QC results generated for {project_name}")
         
-        # Generate worklist for failed QC results
-        try:
-            worklist_success = generate_worklist_for_project(project_name)
-            if worklist_success:
-                logger.info(f"✅ Worklist generated for failed QC results")
-            else:
-                logger.info(f"ℹ️ No worklist needed (no failed QC results)")
-        except Exception as e:
-            logger.error(f"❌ Error generating worklist: {e}")
-        
         # Move validated files
         await qc_validated_move(project_name)
         logger.info(f"✅ QC validated files moved to production and fail directories")
@@ -1363,22 +1336,6 @@ async def convert_and_parse_node(state: QCState, config: RunnableConfig) -> QCSt
             qc_msg = f"✅ QC results generated for {project_name}"
             logger.info(qc_msg)
             summary += f"\n{qc_msg}"
-            
-            # Generate worklist for failed QC results
-            try:
-                worklist_success = generate_worklist_for_project(project_name)
-                if worklist_success:
-                    worklist_msg = f"✅ Worklist generated for failed QC results"
-                    logger.info(worklist_msg)
-                    summary += f"\n{worklist_msg}"
-                else:
-                    worklist_msg = f"ℹ️ No worklist needed (no failed QC results)"
-                    logger.info(worklist_msg)
-                    summary += f"\n{worklist_msg}"
-            except Exception as e:
-                worklist_msg = f"❌ Error generating worklist: {e}"
-                logger.error(worklist_msg)
-                summary += f"\n{worklist_msg}"
             try:
                 await qc_validated_move(project_name)
                 move_msg = f"✅ QC validated files moved to production and fail directories"
