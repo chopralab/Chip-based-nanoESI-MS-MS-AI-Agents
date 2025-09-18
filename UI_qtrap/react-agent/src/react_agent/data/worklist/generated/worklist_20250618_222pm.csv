@@ -1,0 +1,49 @@
+% header=SampleName	SampleId	Comments	AcqMethod	ProcMethod	RackCode	PlateCode	VialPos	DilutFact	WghtToVol	Type	RackPos	PlatePos	SetName	OutputFile	_col1Text	_col2Int
+20250618_Human Serum_PC_1_TGL_PC.dam	default_id	default_comment	PC.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_PC_1_TGL_PC.dam	custCol1_1	0
+20250618_Human Serum_PC_2_TGL_PC.dam	default_id	default_comment	PC.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_PC_2_TGL_PC.dam	custCol1_1	0
+20250618_Human Serum_CE_1_TGL_Cholesteryrl Esters.dam	default_id	default_comment	Cholesteryrl Esters.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_CE_1_TGL_Cholesteryrl Esters.dam	custCol1_1	0
+20250618_Human Serum_CE_2_TGL_Cholesteryrl Esters.dam	default_id	default_comment	Cholesteryrl Esters.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_CE_2_TGL_Cholesteryrl Esters.dam	custCol1_1	0
+20250618_Human Serum_DG_1_TGL_DG_16-0.dam	default_id	default_comment	DG_16-0.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_DG_1_TGL_DG_16-0.dam	custCol1_1	0
+20250618_Human Serum_DG_2_TGL_DG_16-0.dam	default_id	default_comment	DG_16-0.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_DG_2_TGL_DG_16-0.dam	custCol1_1	0
+20250618_Human Serum_DG_1_TGL_DG_16-1.dam	default_id	default_comment	DG_16-1.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_DG_1_TGL_DG_16-1.dam	custCol1_1	0
+20250618_Human Serum_DG_2_TGL_DG_16-1.dam	default_id	default_comment	DG_16-1.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_DG_2_TGL_DG_16-1.dam	custCol1_1	0
+20250618_Human Serum_DG_1_TGL_DG_18-0.dam	default_id	default_comment	DG_18-0.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_DG_1_TGL_DG_18-0.dam	custCol1_1	0
+20250618_Human Serum_DG_2_TGL_DG_18-0.dam	default_id	default_comment	DG_18-0.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_DG_2_TGL_DG_18-0.dam	custCol1_1	0
+20250618_Human Serum_DG_1_TGL_DG_18-1.dam	default_id	default_comment	DG_18-1.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_DG_1_TGL_DG_18-1.dam	custCol1_1	0
+20250618_Human Serum_DG_2_TGL_DG_18-1.dam	default_id	default_comment	DG_18-1.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_DG_2_TGL_DG_18-1.dam	custCol1_1	0
+20250618_Human Serum_DG_1_TGL_DG_18-2.dam	default_id	default_comment	DG_18-2.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_DG_1_TGL_DG_18-2.dam	custCol1_1	0
+20250618_Human Serum_DG_2_TGL_DG_18-2.dam	default_id	default_comment	DG_18-2.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_DG_2_TGL_DG_18-2.dam	custCol1_1	0
+20250618_Human Serum_FA_1_TGL_FFA SFA USFA.dam	default_id	default_comment	FFA SFA USFA.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_FA_1_TGL_FFA SFA USFA.dam	custCol1_1	0
+20250618_Human Serum_FA_2_TGL_FFA SFA USFA.dam	default_id	default_comment	FFA SFA USFA.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_FA_2_TGL_FFA SFA USFA.dam	custCol1_1	0
+20250618_Human Serum_CER_1_TGL	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_CER_1_TGL	custCol1_1	0
+20250618_Human Serum_CER_2_TGL	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_CER_2_TGL	custCol1_1	0
+20250618_Human Serum_PE_1_TGL_PE.dam	default_id	default_comment	PE.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_PE_1_TGL_PE.dam	custCol1_1	0
+20250618_Human Serum_PE_2_TGL_PE.dam	default_id	default_comment	PE.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_PE_2_TGL_PE.dam	custCol1_1	0
+20250618_Human Serum_PG_1_TGL_PG.dam	default_id	default_comment	PG.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_PG_1_TGL_PG.dam	custCol1_1	0
+20250618_Human Serum_PG_2_TGL_PG.dam	default_id	default_comment	PG.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_PG_2_TGL_PG.dam	custCol1_1	0
+20250618_Human Serum_PI_1_TGL_PI.dam	default_id	default_comment	PI.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_PI_1_TGL_PI.dam	custCol1_1	0
+20250618_Human Serum_PI_2_TGL_PI.dam	default_id	default_comment	PI.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_PI_2_TGL_PI.dam	custCol1_1	0
+20250618_Human Serum_PS_1_TGL_PS.dam	default_id	default_comment	PS.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_PS_1_TGL_PS.dam	custCol1_1	0
+20250618_Human Serum_PS_2_TGL_PS.dam	default_id	default_comment	PS.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_PS_2_TGL_PS.dam	custCol1_1	0
+20250618_Human Serum_SM_1_TGL_SM.dam	default_id	default_comment	SM.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_SM_1_TGL_SM.dam	custCol1_1	0
+20250618_Human Serum_SM_2_TGL_SM.dam	default_id	default_comment	SM.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_SM_2_TGL_SM.dam	custCol1_1	0
+20250618_Human Serum_TG_1_TGL_TG_14-0.dam	default_id	default_comment	TG_14-0.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_TG_1_TGL_TG_14-0.dam	custCol1_1	0
+20250618_Human Serum_TG_2_TGL_TG_14-0.dam	default_id	default_comment	TG_14-0.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_TG_2_TGL_TG_14-0.dam	custCol1_1	0
+20250618_Human Serum_TG_1_TGL_TG_16-0.dam	default_id	default_comment	TG_16-0.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_TG_1_TGL_TG_16-0.dam	custCol1_1	0
+20250618_Human Serum_TG_2_TGL_TG_16-0.dam	default_id	default_comment	TG_16-0.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_TG_2_TGL_TG_16-0.dam	custCol1_1	0
+20250618_Human Serum_TG_1_TGL_TG_16-1.dam	default_id	default_comment	TG_16-1.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_TG_1_TGL_TG_16-1.dam	custCol1_1	0
+20250618_Human Serum_TG_2_TGL_TG_16-1.dam	default_id	default_comment	TG_16-1.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_TG_2_TGL_TG_16-1.dam	custCol1_1	0
+20250618_Human Serum_TG_1_TGL_TG_18-0.dam	default_id	default_comment	TG_18-0.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_TG_1_TGL_TG_18-0.dam	custCol1_1	0
+20250618_Human Serum_TG_2_TGL_TG_18-0.dam	default_id	default_comment	TG_18-0.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_TG_2_TGL_TG_18-0.dam	custCol1_1	0
+20250618_Human Serum_TG_1_TGL_TG_18-1.dam	default_id	default_comment	TG_18-1.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_TG_1_TGL_TG_18-1.dam	custCol1_1	0
+20250618_Human Serum_TG_2_TGL_TG_18-1.dam	default_id	default_comment	TG_18-1.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_TG_2_TGL_TG_18-1.dam	custCol1_1	0
+20250618_Human Serum_TG_1_TGL_TG_18-2.dam	default_id	default_comment	TG_18-2.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_TG_1_TGL_TG_18-2.dam	custCol1_1	0
+20250618_Human Serum_TG_2_TGL_TG_18-2.dam	default_id	default_comment	TG_18-2.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_TG_2_TGL_TG_18-2.dam	custCol1_1	0
+20250618_Human Serum_TG_1_TGL_TG_18-3.dam	default_id	default_comment	TG_18-3.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_TG_1_TGL_TG_18-3.dam	custCol1_1	0
+20250618_Human Serum_TG_2_TGL_TG_18-3.dam	default_id	default_comment	TG_18-3.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_TG_2_TGL_TG_18-3.dam	custCol1_1	0
+20250618_Human Serum_TG_1_TGL_TG_20-4.dam	default_id	default_comment	TG_20-4.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_TG_1_TGL_TG_20-4.dam	custCol1_1	0
+20250618_Human Serum_TG_2_TGL_TG_20-4.dam	default_id	default_comment	TG_20-4.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_TG_2_TGL_TG_20-4.dam	custCol1_1	0
+20250618_Human Serum_TG_1_TGL_TG_22-5.dam	default_id	default_comment	TG_22-5.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_TG_1_TGL_TG_22-5.dam	custCol1_1	0
+20250618_Human Serum_TG_2_TGL_TG_22-5.dam	default_id	default_comment	TG_22-5.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_TG_2_TGL_TG_22-5.dam	custCol1_1	0
+20250618_Human Serum_TG_1_TGL_TG_22-6.dam	default_id	default_comment	TG_22-6.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_TG_1_TGL_TG_22-6.dam	custCol1_1	0
+20250618_Human Serum_TG_2_TGL_TG_22-6.dam	default_id	default_comment	TG_22-6.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Human Serum_TG_2_TGL_TG_22-6.dam	custCol1_1	0

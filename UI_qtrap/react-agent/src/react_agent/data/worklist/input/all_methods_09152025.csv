@@ -1,0 +1,31 @@
+Method,Lipid
+Acyl-Carnitines.dam,AC
+Ceramides.dam,CER
+Cholesteryrl Esters.dam,CE
+DG_16-0.dam,DG
+DG_16-1.dam,DG
+DG_18-0.dam,DG
+DG_18-1.dam,DG
+DG_18-1_withSPLASH.dam,DG
+DG_18-2.dam,DG
+FFA SFA USFA.dam,FA
+FFA SFA USFA_withSPLASH.dam,FA
+PC.dam,PC
+PC_withSPLASH.dam,PC
+PE.dam,PE
+PE_withSPLASH.dam,PE
+PG.dam,PG
+PI.dam,PI
+PS.dam,PS
+SM.dam,SM
+TG_14-0.dam,TG
+TG_16-0.dam,TG
+TG_16-1.dam,TG
+TG_18-0.dam,TG
+TG_18-1.dam,TG
+TG_18-1_withSPLASH.dam,TG
+TG_18-2.dam,TG
+TG_18-3.dam,TG
+TG_20-4.dam,TG
+TG_22-5.dam,TG
+TG_22-6.dam,TG

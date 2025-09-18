@@ -1,0 +1,25 @@
+% header=SampleName	SampleId	Comments	AcqMethod	ProcMethod	RackCode	PlateCode	VialPos	DilutFact	WghtToVol	Type	RackPos	PlatePos	SetName	OutputFile	_col1Text	_col2Int
+20250618_Matrix Blank\	DG\	20250618\	1\	TGL__1_SI	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Matrix Blank\	DG\	20250618\	1\	TGL__1_SI	custCol1_1	0
+20250618_Matrix Blank\	DG\	20250618\	1\	TGL__2_SI	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Matrix Blank\	DG\	20250618\	1\	TGL__2_SI	custCol1_1	0
+20250618_Matrix Blank\	DG\	20250618\	1\	TGL__3_SI	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Matrix Blank\	DG\	20250618\	1\	TGL__3_SI	custCol1_1	0
+20250618_Matrix Blank\	PC__1_SI	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Matrix Blank\	PC__1_SI	custCol1_1	0
+20250618_Matrix Blank\	PC__2_SI	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Matrix Blank\	PC__2_SI	custCol1_1	0
+20250618_Matrix Blank\	PC__3_SI	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Matrix Blank\	PC__3_SI	custCol1_1	0
+20250618_Matrix Blank\	PE__1_SI	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Matrix Blank\	PE__1_SI	custCol1_1	0
+20250618_Matrix Blank\	PE__2_SI	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Matrix Blank\	PE__2_SI	custCol1_1	0
+20250618_Matrix Blank\	PE__3_SI	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Matrix Blank\	PE__3_SI	custCol1_1	0
+20250618_Matrix Blank\	PG__1_SI	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Matrix Blank\	PG__1_SI	custCol1_1	0
+20250618_Matrix Blank\	PG__2_SI	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Matrix Blank\	PG__2_SI	custCol1_1	0
+20250618_Matrix Blank\	PG__3_SI	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Matrix Blank\	PG__3_SI	custCol1_1	0
+20250618_Matrix Blank\	PI__1_SI	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Matrix Blank\	PI__1_SI	custCol1_1	0
+20250618_Matrix Blank\	PI__2_SI	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Matrix Blank\	PI__2_SI	custCol1_1	0
+20250618_Matrix Blank\	PI__3_SI	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Matrix Blank\	PI__3_SI	custCol1_1	0
+20250618_Matrix Blank\	PS__1_SI	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Matrix Blank\	PS__1_SI	custCol1_1	0
+20250618_Matrix Blank\	PS__2_SI	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Matrix Blank\	PS__2_SI	custCol1_1	0
+20250618_Matrix Blank\	PS__3_SI	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Matrix Blank\	PS__3_SI	custCol1_1	0
+20250618_Matrix Blank\	SM__1_SI	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Matrix Blank\	SM__1_SI	custCol1_1	0
+20250618_Matrix Blank\	SM__2_SI	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Matrix Blank\	SM__2_SI	custCol1_1	0
+20250618_Matrix Blank\	SM__3_SI	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Matrix Blank\	SM__3_SI	custCol1_1	0
+20250618_Matrix Blank\	TG__1_SI	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Matrix Blank\	TG__1_SI	custCol1_1	0
+20250618_Matrix Blank\	TG__2_SI	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Matrix Blank\	TG__2_SI	custCol1_1	0
+20250618_Matrix Blank\	TG__3_SI	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_Matrix Blank\	TG__3_SI	custCol1_1	0

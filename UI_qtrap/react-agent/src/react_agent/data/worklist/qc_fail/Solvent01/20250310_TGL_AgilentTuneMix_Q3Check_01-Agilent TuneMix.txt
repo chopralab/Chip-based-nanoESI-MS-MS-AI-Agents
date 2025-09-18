@@ -1,0 +1,404 @@
+msdata:
+  id: 20250310_TGL_AgilentTuneMix_Q3Check_01-Agilent TuneMix
+  version: 1.1.0
+  cvList: 
+    cv:
+      id: MS
+      fullName: Proteomics Standards Initiative Mass Spectrometry Ontology
+      version: 4.1.182
+      URI: https://raw.githubusercontent.com/HUPO-PSI/psi-ms-CV/master/psi-ms.obo
+    cv:
+      id: UO
+      fullName: Unit Ontology
+      version: 09:04:2014
+      URI: https://raw.githubusercontent.com/bio-ontology-research-group/unit-ontology/master/unit.obo
+  fileDescription:
+    fileContent:
+      cvParam: MS1 spectrum
+    sourceFileList: 
+      sourceFile:
+        id: WIFF
+        name: 20250310_TGL_AgilentTuneMix_Q3Check_01.wiff
+        location: file://C:\Users\ChopraLab\Desktop\laptop\convert_raw\raw_data
+        cvParam: WIFF nativeID format
+        cvParam: ABI WIFF format
+        cvParam: SHA-1, 608c4446c9c08d1b4681cfe584d1291461e8814f
+      sourceFile:
+        id: WIFFSCAN
+        name: 20250310_TGL_AgilentTuneMix_Q3Check_01.wiff.scan
+        location: file://C:\Users\ChopraLab\Desktop\laptop\convert_raw\raw_data
+        cvParam: WIFF nativeID format
+        cvParam: ABI WIFF format
+        cvParam: SHA-1, 26509586e3719debce7f4c54ccc2f69a62e4dd2b
+  softwareList: 
+    software:
+      id: Analyst
+      version: unknown
+      cvParam: Analyst
+    software:
+      id: pwiz_Reader_ABI
+      version: 3.0.25155
+      cvParam: ProteoWizard software
+  instrumentConfigurationList: 
+    instrumentConfiguration:
+      id: IC1
+      cvParam: 4000 QTRAP
+      cvParam: instrument serial number, AR23120811
+      componentList:
+        source: 
+          order: 1
+          cvParam: electrospray ionization
+        analyzer: 
+          order: 2
+          cvParam: quadrupole
+        analyzer: 
+          order: 3
+          cvParam: quadrupole
+        analyzer: 
+          order: 4
+          cvParam: axial ejection linear ion trap
+        detector: 
+          order: 5
+          cvParam: electron multiplier
+      softwareRef: Analyst
+  run:
+    id: 20250310_TGL_AgilentTuneMix_Q3Check_01-Agilent TuneMix
+    defaultInstrumentConfigurationRef: IC1
+    startTimeStamp: 2025-03-10T19:14:14Z
+    defaultSourceFileRef: WIFF
+    spectrumList (6 spectra):
+      dataProcessing:
+        id: pwiz_Reader_ABI_conversion
+        processingMethod:
+          order: 0
+          softwareRef: pwiz_Reader_ABI
+          cvParam: Conversion to mzML
+        processingMethod:
+          order: 1
+          softwareRef: pwiz_Reader_ABI
+          cvParam: peak picking
+          userParam: ABI/Analyst peak picking
+          userParam: ms levels, [1,2]
+      spectrum:
+        index: 0
+        id: sample=1 period=1 cycle=1 experiment=1
+        defaultArrayLength: 90
+        cvParam: ms level, 1
+        cvParam: MS1 spectrum
+        cvParam: positive scan
+        cvParam: centroid spectrum
+        cvParam: base peak intensity, 4.499774489442e06, number of detector counts
+        cvParam: base peak m/z, 921.8, m/z
+        cvParam: total ion current, 1.593499540741e08, number of detector counts
+        cvParam: spectrum title, 20250310_TGL_AgilentTuneMix_Q3Check_01-Agilent TuneMix.1.1. File:20250310_TGL_AgilentTuneMix_Q3Check_01.wiff, NativeID:sample=1 period=1 cycle=1 experiment=1
+        cvParam: no combination
+        scanList:
+          scan:
+            instrumentConfiguration:
+              id: IC1
+              cvParam: 4000 QTRAP
+              cvParam: instrument serial number, AR23120811
+              componentList:
+                source: 
+                  order: 1
+                  cvParam: electrospray ionization
+                analyzer: 
+                  order: 2
+                  cvParam: quadrupole
+                analyzer: 
+                  order: 3
+                  cvParam: quadrupole
+                analyzer: 
+                  order: 4
+                  cvParam: axial ejection linear ion trap
+                detector: 
+                  order: 5
+                  cvParam: electron multiplier
+              softwareRef: Analyst
+            cvParam: scan start time, 8.333333333333e-05, minute
+            cvParam: preset scan configuration, 1
+            scanWindowList: 
+              scanWindow:
+                cvParam: scan window lower limit, 113.1, m/z
+                cvParam: scan window upper limit, 2726.9, m/z
+        binaryDataArray:
+          cvParam: m/z array, m/z
+          binary: [90] 113.870691489 114.830769231 115.889375 117.830032965 118.822106707 119.806234719 120.761253561 121.769672131 122.775473684 617.26462585 618.196296296 619.279130435 621.734090389 622.815141192 623.825248071 624.830635838 626.060560345 626.88019802 917.49027027 918.627777778 919.54 921.769127975 922.79439572 923.785899588 924.820345141 925.759398496 1217.21190476 1217.96833333 1218.445 1219.08793103 1220.05581395 1220.95648855 1221.77333333 1222.85923077 1224.02439024 1224.34166667 1224.95294118 1225.96857143 1226.62454545 1517.6230303 1518.67826087 1519.59281046 1521.66877812 1522.68468464 1523.74784737 1524.8 1525.80606061 1526.72285714 1817.01428571 1817.5125 1818.23333333 1818.85609756 1819.91111111 1820.70526316 1821.6 1822.71511628 1824.69702463 1825.62461224 1826.61921005 2117.7875 2118.2 2118.6862069 2119.4 2121.5810309 2122.52543836 2123.55719555 2125.66857855 2126.75428571 2417.00930233 2417.615 2418.14791667 2418.63458647 2419.48333333 2421.42452431 2422.41037543 2423.37994859 2424.47848485 2425.47668712 2426.41935484 2717.13333333 2717.43333333 2717.8 2718.455 2721.14457156 2722.08678034 2723.09850394 2724.20314286 2725.13987342 2726.20909091 2726.86 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [90] 1223222.23445 233983.335673 291216.669579 75473934.0881 7473438.96362 803511.119146 379311.114904 101561.112127 507805.560634 71261.1118237 103244.445477 116150.001162 314770430.925 28797344.7324 4790205.60346 586361.116975 223883.335572 34788.8892368 196388.890853 153744.445982 23566.6669023 344520542.334 57315817.2398 10337911.2145 1126150.01126 251938.891408 44888.8893378 37033.3337037 5050.00005049 72944.4451739 71822.2229405 65088.8895398 210977.779888 94266.6676093 17955.5557351 5050.0000505 44327.7782211 53866.6672053 42644.4448709 199194.446436 44888.8893378 139155.556947 261550724.838 97759584.3109 17455044.619 2072183.35405 286166.669528 28616.6669528 20761.1113187 20761.1113187 1683.33335017 26933.3336027 17394.4446184 16272.222385 84727.7786251 58916.6672558 4497305.60053 2199555.57755 1011122.23233 17394.4446184 10100.000101 30300.000303 1122.22223345 171322373.935 79498223.0172 21181383.5451 424761.115359 25250.0002525 29738.8891862 136911.11248 10100.000101 80238.8896913 53866.6672053 1775355.57331 792288.896812 201438.890903 159916.668266 73505.5562907 59477.7783726 17955.5557351 2244.44446689 4488.88893378 16272.222385 20309977.9809 9905855.65461 2696700.02697 415783.337491 102683.33436 15150.0001515 3366.66670034 
+      spectrum:
+        index: 1
+        id: sample=1 period=1 cycle=2 experiment=1
+        defaultArrayLength: 87
+        cvParam: ms level, 1
+        cvParam: MS1 spectrum
+        cvParam: positive scan
+        cvParam: centroid spectrum
+        cvParam: base peak intensity, 4.77718782555e06, number of detector counts
+        cvParam: base peak m/z, 921.9, m/z
+        cvParam: total ion current, 1.807489375895e08, number of detector counts
+        cvParam: spectrum title, 20250310_TGL_AgilentTuneMix_Q3Check_01-Agilent TuneMix.2.2. File:20250310_TGL_AgilentTuneMix_Q3Check_01.wiff, NativeID:sample=1 period=1 cycle=2 experiment=1
+        cvParam: no combination
+        scanList:
+          scan:
+            instrumentConfiguration:
+              id: IC1
+              cvParam: 4000 QTRAP
+              cvParam: instrument serial number, AR23120811
+              componentList:
+                source: 
+                  order: 1
+                  cvParam: electrospray ionization
+                analyzer: 
+                  order: 2
+                  cvParam: quadrupole
+                analyzer: 
+                  order: 3
+                  cvParam: quadrupole
+                analyzer: 
+                  order: 4
+                  cvParam: axial ejection linear ion trap
+                detector: 
+                  order: 5
+                  cvParam: electron multiplier
+              softwareRef: Analyst
+            cvParam: scan start time, 0.13585, minute
+            cvParam: preset scan configuration, 1
+            scanWindowList: 
+              scanWindow:
+                cvParam: scan window lower limit, 113.1, m/z
+                cvParam: scan window upper limit, 2726.9, m/z
+        binaryDataArray:
+          cvParam: m/z array, m/z
+          binary: [87] 113.869248555 114.848083067 115.866 117.834969338 118.827389037 119.833515982 120.788211788 121.787121212 122.790273038 617.370930233 618.319553073 619.295726496 621.777500842 622.829271109 623.8374677 624.825565217 626.03183391 917.522027972 918.453367876 919.1546875 919.804180064 921.767769242 922.789170665 923.79128321 924.783939394 925.714695946 926.768 1217.12340426 1218.04222222 1218.85833333 1219.38108108 1220.22553957 1221.88151815 1222.76074766 1223.78392857 1224.36842105 1225.04117647 1226.45470085 1517.08888889 1517.76607143 1518.4862069 1519.61976744 1521.63368364 1522.66798665 1523.80809082 1524.81169073 1816.98 1817.875 1818.26 1818.74615385 1819.05555556 1819.7 1820.4125 1821.49016393 1822.74130435 1824.62611111 1825.53801251 1826.61882952 2117.12857143 2117.89111111 2118.82 2119.2 2121.56496755 2122.52136078 2123.50760918 2124.55415057 2126.51355932 2417.58091603 2418.50116279 2419.60289855 2420.24533333 2421.43847222 2422.47245763 2423.76164384 2424.52965517 2425.08409091 2425.62083333 2426.43589744 2717.19444444 2717.85333333 2718.65714286 2718.93 2721.12124986 2722.09265589 2724.10446429 2725.075 2726.17083333 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [87] 2038516.68705 381555.559371 283922.225061 111917540.008 11541494.5599 1213122.23435 549888.894388 108855.556644 699705.562553 95950.0009595 124566.667912 100438.889893 323861553.239 32366011.4348 5230116.71897 680066.673467 318711.114298 217150.002172 170016.668367 15711.1112682 126250.001263 386738542.756 73349006.289 12370816.7904 1592433.34926 303000.00303 63966.6673063 48816.6671548 66211.1117732 40400.000404 24688.8891358 131300.001313 230616.668973 53866.6672053 51061.1116217 20200.000202 29738.8891863 130177.77908 23005.5557856 74066.6674073 30300.000303 147572.223698 317264008.728 111375506.669 14067055.6962 2627122.24849 15150.0001515 9538.88898428 13466.6668013 5050.0000505 11783.3334512 7294.44451739 3366.66670033 89777.7786756 70138.8895903 9308272.31531 2734855.5829 880383.342137 6733.33340067 19638.8890853 8977.77786756 5611.11116723 184384479.622 79756334.1309 22175111.3329 4404161.15515 58916.6672558 193022.224152 76872.222991 70138.8895903 33666.6670034 2082844.46527 802388.896913 62844.445073 145888.890348 26372.2224859 90338.8897923 75188.8896408 10100.000101 13466.6668013 1683.33335016 7855.5556341 21822172.4404 12910044.5735 572894.450173 114466.667811 28055.5558361 
+      spectrum:
+        index: 2
+        id: sample=1 period=1 cycle=3 experiment=1
+        defaultArrayLength: 92
+        cvParam: ms level, 1
+        cvParam: MS1 spectrum
+        cvParam: positive scan
+        cvParam: centroid spectrum
+        cvParam: base peak intensity, 4.737236714039e06, number of detector counts
+        cvParam: base peak m/z, 921.9, m/z
+        cvParam: total ion current, 1.805734220233e08, number of detector counts
+        cvParam: spectrum title, 20250310_TGL_AgilentTuneMix_Q3Check_01-Agilent TuneMix.3.3. File:20250310_TGL_AgilentTuneMix_Q3Check_01.wiff, NativeID:sample=1 period=1 cycle=3 experiment=1
+        cvParam: no combination
+        scanList:
+          scan:
+            instrumentConfiguration:
+              id: IC1
+              cvParam: 4000 QTRAP
+              cvParam: instrument serial number, AR23120811
+              componentList:
+                source: 
+                  order: 1
+                  cvParam: electrospray ionization
+                analyzer: 
+                  order: 2
+                  cvParam: quadrupole
+                analyzer: 
+                  order: 3
+                  cvParam: quadrupole
+                analyzer: 
+                  order: 4
+                  cvParam: axial ejection linear ion trap
+                detector: 
+                  order: 5
+                  cvParam: electron multiplier
+              softwareRef: Analyst
+            cvParam: scan start time, 0.2716, minute
+            cvParam: preset scan configuration, 1
+            scanWindowList: 
+              scanWindow:
+                cvParam: scan window lower limit, 113.1, m/z
+                cvParam: scan window upper limit, 2726.9, m/z
+        binaryDataArray:
+          cvParam: m/z array, m/z
+          binary: [92] 113.87103222 114.851092896 115.899309154 117.836469359 118.833505611 119.842349235 120.788105727 121.860227273 122.784233577 617.374698795 618.196899225 619.202247191 621.775572624 622.837765168 623.841901125 624.834655172 626.123376623 917.512 918.42970297 919.420960699 921.762775237 922.79618101 923.804200759 924.794284113 925.846759259 926.713125 1217.17264151 1217.95662651 1218.81547619 1219.9382716 1220.77857143 1221.70146628 1222.57051282 1223.34 1223.93783784 1224.69350649 1225.776 1226.72564103 1517.17142857 1517.73541667 1518.50526316 1519.06575342 1519.70670103 1521.63748644 1522.63548515 1524.7398313 1525.86885645 1526.76046512 1816.92857143 1817.35 1818.05 1818.5 1819.03125 1819.76 1820.16666667 1820.78181818 1821.63061224 1822.63709677 1824.61843245 1825.71062455 1826.60132701 2117.9 2118.4 2118.93571429 2121.57746626 2122.51805173 2123.56489743 2124.63017751 2125.67808696 2126.64489796 2417.61441441 2418.62256098 2419.35833333 2419.78083333 2421.45880914 2422.39868852 2423.33342857 2424.31054217 2425.45714286 2425.83947368 2426.56595745 2717.11176471 2717.53076923 2718.01538462 2718.8375 2721.15890553 2722.18068702 2723.16662228 2724.04071567 2725.21485149 2725.89230769 2726.4625 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [92] 2011022.24233 452816.671195 264283.335976 113520634.469 11021905.6658 1191800.01192 536422.227586 130177.77908 737861.11849 71822.2229404 141400.001414 115588.890045 329525969.962 32367133.657 5258172.2748 751327.785291 283361.113945 189655.557452 185727.779635 101561.112127 385050159.406 72137567.388 13022266.7969 1818000.01818 251377.780292 62844.4450729 59477.7783725 48816.6671548 58355.5561391 89777.7786755 71822.2229404 187972.224102 93705.5564926 5050.00005051 35350.0003535 76311.1118742 29738.8891863 45450.0004545 23566.6669023 93144.4453759 10661.1112177 35350.0003535 80800.000808 302350236.357 136450440.253 2836416.69503 222200.002222 30861.1114197 3366.66670033 6172.22228394 5611.11116722 6733.33340067 8977.77786756 14588.8890348 2805.55558361 11783.3334512 117272.223395 66211.1117732 10408050.1041 1402216.68069 953888.898428 8977.77786756 2244.44446689 14027.777918 181510468.482 81466039.7036 20078800.2008 2945833.36279 322077.780999 37594.4448204 268772.22491 80238.8896913 10100.000101 62844.4450729 1869622.24092 769844.452143 327688.892166 193022.224152 33105.5558866 34227.7781201 43205.5559876 10100.000101 17955.5557351 14588.8890348 5611.11116722 23514483.5685 7735477.85513 2223122.24445 613294.450577 95388.8898428 11783.3334512 11783.3334512 
+      spectrum:
+        index: 3
+        id: sample=1 period=1 cycle=4 experiment=1
+        defaultArrayLength: 91
+        cvParam: ms level, 1
+        cvParam: MS1 spectrum
+        cvParam: positive scan
+        cvParam: centroid spectrum
+        cvParam: base peak intensity, 4.832962270552e06, number of detector counts
+        cvParam: base peak m/z, 921.8, m/z
+        cvParam: total ion current, 1.830980855092e08, number of detector counts
+        cvParam: spectrum title, 20250310_TGL_AgilentTuneMix_Q3Check_01-Agilent TuneMix.4.4. File:20250310_TGL_AgilentTuneMix_Q3Check_01.wiff, NativeID:sample=1 period=1 cycle=4 experiment=1
+        cvParam: no combination
+        scanList:
+          scan:
+            instrumentConfiguration:
+              id: IC1
+              cvParam: 4000 QTRAP
+              cvParam: instrument serial number, AR23120811
+              componentList:
+                source: 
+                  order: 1
+                  cvParam: electrospray ionization
+                analyzer: 
+                  order: 2
+                  cvParam: quadrupole
+                analyzer: 
+                  order: 3
+                  cvParam: quadrupole
+                analyzer: 
+                  order: 4
+                  cvParam: axial ejection linear ion trap
+                detector: 
+                  order: 5
+                  cvParam: electron multiplier
+              softwareRef: Analyst
+            cvParam: scan start time, 0.40735, minute
+            cvParam: preset scan configuration, 1
+            scanWindowList: 
+              scanWindow:
+                cvParam: scan window lower limit, 113.1, m/z
+                cvParam: scan window upper limit, 2726.9, m/z
+        binaryDataArray:
+          cvParam: m/z array, m/z
+          binary: [91] 113.874154435 114.836801242 115.895033113 117.839927763 118.83156898 119.819478738 120.815698925 121.804242424 122.78302583 617.497297297 618.242477876 619.628409091 621.768549339 622.832292113 623.84027725 624.861944677 626.054230769 626.932692308 917.539634146 918.617073171 919.464285714 921.767699277 922.788337275 923.752379822 924.83248974 925.820873786 926.566666667 1217.16393443 1217.93076923 1218.96780822 1219.62 1220.07317073 1221.01808511 1221.72909091 1222.9037037 1223.89772727 1224.8125 1225.45517241 1225.81818182 1226.69193548 1517.16538462 1517.81617647 1518.59142857 1519.6441989 1521.63838665 1522.66651403 1523.80904511 1524.86643975 1526.74285714 1817.16470588 1818.04444444 1818.932 1820.07142857 1820.79259259 1821.848 1822.74150943 1824.62717625 1825.59862832 1826.58531879 2117.75714286 2118.21428571 2118.54444444 2119.02 2119.4 2121.57256694 2122.52498209 2123.56254868 2124.57850776 2125.50429043 2126.66833333 2417.103125 2417.66453901 2418.60813953 2419.69 2421.41016196 2422.41814701 2423.41190476 2424.66601942 2425.43975904 2426.11428571 2426.60620155 2717.18333333 2717.71333333 2718.34285714 2718.91428571 2721.16021049 2722.18405887 2723.30274368 2725.02790698 2725.9137931 2726.30588235 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [91] 2009338.90898 386044.448305 317027.780948 112739567.794 11552155.6711 1182822.23405 522394.449668 152622.223748 681750.006817 102122.223243 127933.334613 120638.890095 335069747.795 32194872.5442 5539288.94428 667161.117783 281677.780595 14588.8890348 251377.780292 169455.55725 54988.8894388 390094548.345 70523811.8163 16090983.4942 1491994.45936 199194.446436 74066.6674073 67333.3340067 31983.3336532 70700.000707 29177.7780696 81361.1119247 83605.5563916 195827.779736 62283.3339562 41522.2226375 28616.6669528 25811.1113692 14588.8890348 98755.5565431 23566.6669023 89216.6675588 22444.4446689 117833.334512 323104614.342 111388973.336 14977177.9275 1973988.90863 13466.6668013 23566.6669023 20761.1113187 25250.0002525 1683.33335017 30300.000303 83044.4452749 49938.8893883 9758283.43092 2159716.68826 957255.565128 13466.6668013 5611.11116723 8416.66675083 2244.44446689 1122.22223344 184446762.956 82919317.4959 20147255.757 3155688.92045 617783.339511 46011.1115712 49938.8893883 171700.001717 79116.6674578 40961.1115207 2078355.57634 728883.340622 316466.669831 79677.7785745 97072.223193 16833.3335017 53866.6672053 5611.11116722 6172.22228396 17394.4446184 9538.88898427 23386550.2339 8731450.08732 2053105.57609 136911.11248 17955.5557351 20200.000202 
+      spectrum:
+        index: 4
+        id: sample=1 period=1 cycle=5 experiment=1
+        defaultArrayLength: 90
+        cvParam: ms level, 1
+        cvParam: MS1 spectrum
+        cvParam: positive scan
+        cvParam: centroid spectrum
+        cvParam: base peak intensity, 4.831278937202e06, number of detector counts
+        cvParam: base peak m/z, 921.8, m/z
+        cvParam: total ion current, 1.801153308845e08, number of detector counts
+        cvParam: spectrum title, 20250310_TGL_AgilentTuneMix_Q3Check_01-Agilent TuneMix.5.5. File:20250310_TGL_AgilentTuneMix_Q3Check_01.wiff, NativeID:sample=1 period=1 cycle=5 experiment=1
+        cvParam: no combination
+        scanList:
+          scan:
+            instrumentConfiguration:
+              id: IC1
+              cvParam: 4000 QTRAP
+              cvParam: instrument serial number, AR23120811
+              componentList:
+                source: 
+                  order: 1
+                  cvParam: electrospray ionization
+                analyzer: 
+                  order: 2
+                  cvParam: quadrupole
+                analyzer: 
+                  order: 3
+                  cvParam: quadrupole
+                analyzer: 
+                  order: 4
+                  cvParam: axial ejection linear ion trap
+                detector: 
+                  order: 5
+                  cvParam: electron multiplier
+              softwareRef: Analyst
+            cvParam: scan start time, 0.543116666667, minute
+            cvParam: preset scan configuration, 1
+            scanWindowList: 
+              scanWindow:
+                cvParam: scan window lower limit, 113.1, m/z
+                cvParam: scan window upper limit, 2726.9, m/z
+        binaryDataArray:
+          cvParam: m/z array, m/z
+          binary: [90] 113.165048544 113.887742718 114.847189696 115.894029851 117.837847952 118.831661071 119.816313214 120.857933972 121.789370079 122.770196353 617.412244898 618.360645161 619.28013245 621.765866231 622.794256021 623.828000828 624.851505547 626.152981261 917.510830325 918.499378882 919.578888889 921.770088655 922.798013822 923.837044754 924.83761533 925.877167019 1217.11282051 1217.84452055 1218.62980769 1219.24571429 1219.82627119 1220.3755102 1220.93510638 1221.74285714 1222.73529412 1223.96060606 1224.59594595 1225.27931034 1226.218 1226.75555556 1516.975 1517.71414141 1518.53676471 1519.66730769 1521.64169327 1522.62715807 1523.74665737 1525.80316206 1526.56071429 1817.00606061 1817.85757576 1818.8125 1819.98 1820.51538462 1821.76568627 1822.76351351 1824.64835205 1826.65176832 2116.91428571 2117.58333333 2118.56153846 2118.9137931 2121.58419577 2122.52220414 2123.5548373 2124.64565561 2126.3488764 2416.95168539 2417.6190709 2418.61809045 2419.73928571 2421.44941909 2422.33460744 2423.31169725 2424.63987342 2425.44473684 2426.01818182 2426.7245614 2717.24 2717.59 2717.9375 2718.44444444 2719.04 2719.3 2721.14057914 2722.0632552 2723.21128049 2724.11135408 2725.21162791 2726.71176471 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [90] 57794.4450224 2007655.57563 429250.004292 263161.113743 113631734.47 11757522.3398 1307950.01308 568966.672356 118955.556745 800705.563563 105488.889944 165527.779433 72383.3340572 321525086.549 38515228.1629 5197011.16308 715416.673821 316466.669831 227811.113389 149816.668165 84727.7786251 389400453.894 75171495.1962 11590872.3381 1610388.90499 282238.891711 34227.77812 74627.778524 37033.3337037 33666.6670033 67333.3340067 33666.6670033 71822.2229405 178433.335118 67333.3340067 37033.3337037 46572.2226879 27494.4447194 57233.3339057 31422.2225365 3366.66670033 75188.8896408 49377.7782716 157672.223799 304982408.605 118294567.85 20618589.0951 259794.447042 24127.778019 12905.5556846 30861.1114197 8977.77786756 20200.000202 2805.55558361 111661.112228 74627.778524 10959061.2207 917977.786958 6733.33340067 23566.6669023 8977.77786754 26933.3336027 177705573.999 79787195.2423 20598389.0949 3262861.14374 111661.112228 23005.5557856 208733.335421 103244.445477 50500.000505 1876916.68544 910122.231323 285605.558412 145327.779231 25811.1113692 45450.0004545 38155.5559371 6172.22228396 7855.5556341 7294.44451738 3366.66670033 2244.44446689 2805.55558361 20418833.5375 10603316.7727 1741688.90631 649205.562048 98194.4454264 7855.55563412 
+      spectrum:
+        index: 5
+        id: sample=1 period=1 cycle=6 experiment=1
+        defaultArrayLength: 88
+        cvParam: ms level, 1
+        cvParam: MS1 spectrum
+        cvParam: positive scan
+        cvParam: centroid spectrum
+        cvParam: base peak intensity, 4.796714492412e06, number of detector counts
+        cvParam: base peak m/z, 921.8, m/z
+        cvParam: total ion current, 1.822662943478e08, number of detector counts
+        cvParam: spectrum title, 20250310_TGL_AgilentTuneMix_Q3Check_01-Agilent TuneMix.6.6. File:20250310_TGL_AgilentTuneMix_Q3Check_01.wiff, NativeID:sample=1 period=1 cycle=6 experiment=1
+        cvParam: no combination
+        scanList:
+          scan:
+            instrumentConfiguration:
+              id: IC1
+              cvParam: 4000 QTRAP
+              cvParam: instrument serial number, AR23120811
+              componentList:
+                source: 
+                  order: 1
+                  cvParam: electrospray ionization
+                analyzer: 
+                  order: 2
+                  cvParam: quadrupole
+                analyzer: 
+                  order: 3
+                  cvParam: quadrupole
+                analyzer: 
+                  order: 4
+                  cvParam: axial ejection linear ion trap
+                detector: 
+                  order: 5
+                  cvParam: electron multiplier
+              softwareRef: Analyst
+            cvParam: scan start time, 0.678866666667, minute
+            cvParam: preset scan configuration, 1
+            scanWindowList: 
+              scanWindow:
+                cvParam: scan window lower limit, 113.1, m/z
+                cvParam: scan window upper limit, 2726.9, m/z
+        binaryDataArray:
+          cvParam: m/z array, m/z
+          binary: [88] 113.875085519 114.860981912 115.883762887 117.84083551 118.829199443 119.843294329 120.849126638 121.7964 122.795662848 617.339613527 618.210243902 619.216304348 621.779815529 622.82676319 623.803919519 624.869022556 626.167948718 917.557777778 918.492777778 919.182692308 919.704166667 921.777969356 922.75435012 923.807827743 924.78004386 925.784842105 926.822413793 1217.034375 1217.87746479 1218.92631579 1219.95412844 1220.692 1221.86598361 1222.91881188 1223.82333333 1224.90641026 1226.14285714 1226.73142857 1516.97777778 1517.67731092 1518.65909091 1519.70286885 1521.64277305 1522.62504766 1523.75485532 1525.8020595 1526.8275 1817 1817.6625 1818.625 1819.09545455 1819.92142857 1820.91111111 1821.81666667 1822.6956044 1824.62217978 1825.80027523 1826.6413869 2117.23 2117.916 2118.5 2119.05294118 2121.57627077 2122.50067541 2123.65935586 2124.53253911 2125.65060639 2126.68133333 2417.60544218 2418.6125 2419.89591837 2421.39043825 2422.3873913 2423.39423868 2424.52627737 2425.32359551 2425.855 2426.48461538 2717.12 2717.72222222 2718.23333333 2719.05263158 2721.21511265 2722.14491341 2723.22968421 2724.06794171 2725.27741935 2726.65 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [88] 2194505.5775 413538.893024 357988.892469 112465745.569 12070061.2318 1170477.78948 533055.560886 91461.1120257 716538.896054 84166.6675083 132983.334663 85850.0008585 328827386.622 31253328.0903 6457827.84236 710366.67377 290655.558462 221077.779989 171138.8906 30300.000303 86411.1119752 382471292.714 85355100.8535 13868422.3609 1809022.24031 287288.891762 59477.7783725 35911.1114702 75188.8896408 77433.3341077 106611.112177 38155.5559371 241838.891307 94827.7787261 30861.1114197 72383.3340572 75188.8896408 26933.3336027 5050.00005049 98194.4454264 21883.3335522 143644.445881 305868964.17 120914395.654 20801511.3191 284483.336178 11222.2223345 8416.66675083 22444.4446689 6172.22228394 10100.000101 21322.2224354 15711.1112682 129616.667963 93705.5564926 10693094.5514 1044788.89934 946594.453911 23005.5557856 14027.7779181 2805.55558361 21883.3335522 181676557.372 89668923.1189 14586644.5903 4001283.37335 482555.560381 30300.000303 208733.335421 109977.778878 44888.8893378 1861205.57417 869161.119803 263161.113743 144205.556998 42083.3337542 49377.7782716 51061.1116217 11222.2223344 26933.3336027 11222.2223345 7294.44451738 23303505.7886 8005372.30228 1650227.79428 663794.451082 87533.3342087 7855.55563411 
+    chromatogramList (2 chromatograms):
+      dataProcessing:
+        id: pwiz_Reader_ABI_conversion
+        processingMethod:
+          order: 0
+          softwareRef: pwiz_Reader_ABI
+          cvParam: Conversion to mzML
+      chromatogram:
+        index: 0
+        id: TIC
+        defaultArrayLength: 6
+        cvParam: total ion current chromatogram
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [6] 8.33333333333e-05 0.13585 0.2716 0.40735 0.543116666667 0.678866666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [6] 159349954.074 180748937.589 180573422.023 183098085.509 180115330.885 182266294.348 
+        binaryDataArray:
+          cvParam: non-standard data array, ms level, dimensionless unit
+          binary: [6] 1 1 1 1 1 1 
+      chromatogram:
+        index: 1
+        id: BPC
+        defaultArrayLength: 6
+        cvParam: basepeak chromatogram
+        binaryDataArray:
+          cvParam: time array, minute
+          binary: [6] 8.33333333333e-05 0.13585 0.2716 0.40735 0.543116666667 0.678866666667 
+        binaryDataArray:
+          cvParam: intensity array, number of detector counts
+          binary: [6] 4499774.48944 4777187.82555 4737236.71404 4832962.27055 4831278.9372 4796714.49241 
+        binaryDataArray:
+          cvParam: non-standard data array, ms level, dimensionless unit
+          binary: [6] 1 1 1 1 1 1 

@@ -1,0 +1,16 @@
+% header=SampleName	SampleId	Comments	AcqMethod	ProcMethod	RackCode	PlateCode	VialPos	DilutFact	WghtToVol	Type	RackPos	PlatePos	SetName	OutputFile	_col1Text	_col2Int
+20250915_2:1MeOH/ACN_PC_1_SI_PC_withSPLASH.dam	default_id	default_comment	PC_withSPLASH.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250915_2:1MeOH/ACN_PC_1_SI_PC_withSPLASH.dam	custCol1_1	0
+20250915_2:1MeOH/ACN_PC_2_SI_PC_withSPLASH.dam	default_id	default_comment	PC_withSPLASH.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250915_2:1MeOH/ACN_PC_2_SI_PC_withSPLASH.dam	custCol1_1	0
+20250915_2:1MeOH/ACN_PC_3_SI_PC_withSPLASH.dam	default_id	default_comment	PC_withSPLASH.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250915_2:1MeOH/ACN_PC_3_SI_PC_withSPLASH.dam	custCol1_1	0
+20250915_2:1MeOH/ACN_PE_1_SI_PE_withSPLASH.dam	default_id	default_comment	PE_withSPLASH.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250915_2:1MeOH/ACN_PE_1_SI_PE_withSPLASH.dam	custCol1_1	0
+20250915_2:1MeOH/ACN_PE_2_SI_PE_withSPLASH.dam	default_id	default_comment	PE_withSPLASH.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250915_2:1MeOH/ACN_PE_2_SI_PE_withSPLASH.dam	custCol1_1	0
+20250915_2:1MeOH/ACN_PE_3_SI_PE_withSPLASH.dam	default_id	default_comment	PE_withSPLASH.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250915_2:1MeOH/ACN_PE_3_SI_PE_withSPLASH.dam	custCol1_1	0
+20250915_2:1MeOH/ACN_TG_1_SI_TG_18-0_Splash.dam	default_id	default_comment	TG_18-0_Splash.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250915_2:1MeOH/ACN_TG_1_SI_TG_18-0_Splash.dam	custCol1_1	0
+20250915_2:1MeOH/ACN_TG_2_SI_TG_18-0_Splash.dam	default_id	default_comment	TG_18-0_Splash.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250915_2:1MeOH/ACN_TG_2_SI_TG_18-0_Splash.dam	custCol1_1	0
+20250915_2:1MeOH/ACN_TG_3_SI_TG_18-0_Splash.dam	default_id	default_comment	TG_18-0_Splash.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250915_2:1MeOH/ACN_TG_3_SI_TG_18-0_Splash.dam	custCol1_1	0
+20250915_2:1MeOH/ACN_Cer_1_SI	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250915_2:1MeOH/ACN_Cer_1_SI	custCol1_1	0
+20250915_2:1MeOH/ACN_Cer_2_SI	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250915_2:1MeOH/ACN_Cer_2_SI	custCol1_1	0
+20250915_2:1MeOH/ACN_Cer_3_SI	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250915_2:1MeOH/ACN_Cer_3_SI	custCol1_1	0
+20250915_2:1MeOH/ACN_PS_1_SI_PS_Splash.dam	default_id	default_comment	PS_Splash.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250915_2:1MeOH/ACN_PS_1_SI_PS_Splash.dam	custCol1_1	0
+20250915_2:1MeOH/ACN_PS_2_SI_PS_Splash.dam	default_id	default_comment	PS_Splash.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250915_2:1MeOH/ACN_PS_2_SI_PS_Splash.dam	custCol1_1	0
+20250915_2:1MeOH/ACN_PS_3_SI_PS_Splash.dam	default_id	default_comment	PS_Splash.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250915_2:1MeOH/ACN_PS_3_SI_PS_Splash.dam	custCol1_1	0

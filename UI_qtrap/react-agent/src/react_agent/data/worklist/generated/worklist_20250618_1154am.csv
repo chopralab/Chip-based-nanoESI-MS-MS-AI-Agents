@@ -1,0 +1,14 @@
+% header=SampleName	SampleId	Comments	AcqMethod	ProcMethod	RackCode	PlateCode	VialPos	DilutFact	WghtToVol	Type	RackPos	PlatePos	SetName	OutputFile	_col1Text	_col2Int
+"2025-06-18_Info	Lipid	Date	Technical_Replicate	Operator_nan_3.0_SI"	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	"2025-06-18_Info	Lipid	Date	Technical_Replicate	Operator_nan_3.0_SI"	custCol1_1	0
+20250618.0_HumanSerum_Acyl-Carnitines_3.0_TGL	default_id	default_comment	Acyl-Carnitines.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618.0_HumanSerum_Acyl-Carnitines_3.0_TGL	custCol1_1	0
+"2025-06-18_HumanSerum_Ceramides			_3.0_SI"	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	"2025-06-18_HumanSerum_Ceramides			_3.0_SI"	custCol1_1	0
+"2025-06-18_HumanSerum_Cholesteryrl Esters			_3.0_SI"	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	"2025-06-18_HumanSerum_Cholesteryrl Esters			_3.0_SI"	custCol1_1	0
+"2025-06-18_HumanSerum_DG			_3.0_SI"	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	"2025-06-18_HumanSerum_DG			_3.0_SI"	custCol1_1	0
+"2025-06-18_HumanSerum_FFS SFA USFA			_3.0_SI"	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	"2025-06-18_HumanSerum_FFS SFA USFA			_3.0_SI"	custCol1_1	0
+"2025-06-18_HumanSerum_PC			_3.0_SI"	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	"2025-06-18_HumanSerum_PC			_3.0_SI"	custCol1_1	0
+"2025-06-18_HumanSerum_PE			_3.0_SI"	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	"2025-06-18_HumanSerum_PE			_3.0_SI"	custCol1_1	0
+"2025-06-18_HumanSerum_PG			_3.0_SI"	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	"2025-06-18_HumanSerum_PG			_3.0_SI"	custCol1_1	0
+"2025-06-18_HumanSerum_PI			_3.0_SI"	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	"2025-06-18_HumanSerum_PI			_3.0_SI"	custCol1_1	0
+"2025-06-18_HumanSerum_PS			_3.0_SI"	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	"2025-06-18_HumanSerum_PS			_3.0_SI"	custCol1_1	0
+"2025-06-18_HumanSerum_SM			_3.0_SI"	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	"2025-06-18_HumanSerum_SM			_3.0_SI"	custCol1_1	0
+"2025-06-18_HumanSerum_TG			_3.0_SI"	default_id	default_comment	none	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	"2025-06-18_HumanSerum_TG			_3.0_SI"	custCol1_1	0
