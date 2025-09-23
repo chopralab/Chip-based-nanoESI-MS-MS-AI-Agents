@@ -186,7 +186,7 @@ class WorklistGenerator:
 
         # --- BUILD RECORDS ---
         records = []
-        unique_lipids_with_methods = {}
+
 
         for _, row in df_input.iterrows():
             info = row['Info'].strip() if row['Info'] else ""
@@ -197,10 +197,6 @@ class WorklistGenerator:
             info2 = row['Info2'].strip() if row['Info2'] else "DefaultInfo2"
             methods = lipid_methods.get(lipid, [])
             num_reps = int(str(row['Technical_Replicate']))
-            
-            # Collect unique lipids with their first method only
-            if lipid and methods:
-                unique_lipids_with_methods[lipid] = methods[0]  # Take only first method
 
             # If no methods, still create replicates with AcqMethod = "none"
             if not methods:
@@ -223,21 +219,7 @@ class WorklistGenerator:
                         rec["OutputFile"] = sample_name
                         records.append(deepcopy(rec))
 
-        # Generate exactly 5 BLANK samples total
-        lipid_list = list(unique_lipids_with_methods.keys())
-        for rep in range(1, 6):  # Exactly 5 BLANKs total
-            # Cycle through lipids if we have fewer than 5 lipid classes
-            if lipid_list:
-                lipid_index = (rep - 1) % len(lipid_list)
-                lipid = lipid_list[lipid_index]
-                method = unique_lipids_with_methods[lipid]
-                blank_name = f"BLANK_LC-{lipid}_R-{rep}_{method}"
-                rec = {col: self.default_values.get(col, "") for col in self.column_headers}
-                rec["SampleName"] = blank_name
-                rec["AcqMethod"] = method
-                rec["Type"] = "Blank"
-                rec["OutputFile"] = blank_name
-                records.append(deepcopy(rec))
+
 
         # --- WRITE OUTPUT ---
         df_out = pd.DataFrame(records, columns=self.column_headers)

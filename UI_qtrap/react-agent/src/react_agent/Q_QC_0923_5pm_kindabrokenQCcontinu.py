@@ -123,6 +123,7 @@ def extract_interval_and_duration_from_messages(messages: List[BaseMessage]) -> 
     - "run QC for project Solvent01 every 1 minute for 10 minutes"
     - "monitor Solvent01 QC every 30 seconds for 2 hours"
     - "check QC for project Test01 every 2m for 1h"
+    - "QC monitoring every 1 minute for 10 minutes" (NEW)
     
     Returns:
         tuple: (interval_str, duration_str) or (None, None) if not found
@@ -152,6 +153,7 @@ def extract_interval_and_duration_from_messages(messages: List[BaseMessage]) -> 
         r'every\s+(\d+)\s+(?:minute|minutes|min|m)\s+for\s+(\d+)\s+(?:hour|hours|hr|h)',      # every 2 minutes for 1 hour
         r'every\s+(\d+[sm])\s+for\s+(\d+[hm])',  # every 2m for 1h
         r'every\s+(\d+)\s*([sm])\s+for\s+(\d+)\s*([hm])',  # every 2 m for 1 h
+        r'monitoring\s+every\s+(\d+)\s+(?:minute|minutes|min|m)\s+for\s+(\d+)\s+(?:minute|minutes|min|m)',  # QC monitoring every 1 minute for 10 minutes
     ]
     
     for pattern in interval_duration_patterns:
@@ -437,17 +439,15 @@ def extract_project_from_messages(messages: List[BaseMessage]) -> Optional[str]:
 
 def get_dynamic_project_str(messages: List[BaseMessage]) -> Optional[str]:
     """
-    Try to extract project from messages, otherwise prompt user.
+    Extract project from messages. If not found, return None instead of prompting.
+    This version is compatible with LangGraph server environment.
     """
     project = extract_project_from_messages(messages)
     if project:
-        print(f"Detected project from input: {project}")
+        # Project successfully extracted from messages
         return project
-    print("\nEnter project name for QC processing:")
-    print("Example: Solvent01 (will process files containing 'Proj-Solvent01')")
-    user_input = input("Project: ").strip()
-    if user_input and re.match(r'^[A-Za-z0-9\-]+$', user_input):
-        return user_input
+    
+    # Instead of prompting with input(), return None and let the calling function handle it
     return None
 
 
@@ -472,12 +472,14 @@ def get_directories(project_name: str) -> Dict[str, Path]:
     qc_csv_base_dir = Path("/home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/csv")
     log_base_dir = Path("/home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/logs/qc")
     results_base_dir = Path("/home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/results")
+    wiff_source_dir = Path("/mnt/c/Users/ChopraLab/Desktop/laptop/convert_raw/raw_data")
     return {
         'qc_text_target': qc_text_base_dir / project_name,
         'qc_csv_target': qc_csv_base_dir / project_name,
         'log_dir': log_base_dir / project_name,
         'results_dir': results_base_dir / project_name,
         'wsl_target': qc_text_base_dir / project_name,
+        'wiff': wiff_source_dir,  # Source directory for WIFF files
     }
 
 
@@ -1256,7 +1258,17 @@ async def continuous_qc_monitoring_node(state: QCState, config: RunnableConfig) 
     project_name = get_dynamic_project_str(messages)
     
     if not project_name:
-        raise ValueError("Project name is required for QC processing")
+        error_msg = (
+            "No project name found in message. Please include project name in your request. "
+            "Examples: 'monitor QC every 1 minute for 10 minutes for project Solvent01' or 'run QC for project TestProject01 for 2h'"
+        )
+        return {
+            **state,
+            'parsing_result': error_msg,
+            'messages': state['messages'] + [
+                AIMessage(content=error_msg)
+            ]
+        }
     
     # Check for interval-based monitoring first
     interval_str, duration_str = extract_interval_and_duration_from_messages(messages)
@@ -1275,6 +1287,52 @@ async def continuous_qc_monitoring_node(state: QCState, config: RunnableConfig) 
         total_seconds = parse_duration(duration_str)
     except ValueError as e:
         raise ValueError(f"Invalid interval/duration format: {e}")
+    
+    # SPECIAL CASE: 1-minute intervals for 10 minutes - use comprehensive monitoring
+    if interval_seconds == 60 and total_seconds == 600:
+        logger.info("🎯 Detected request for comprehensive 10-minute monitoring with 1-minute intervals")
+        logger.info("🚀 Switching to comprehensive monitoring function with detailed logging")
+        
+        # Call the comprehensive monitoring function
+        monitoring_result = await run_qc_monitoring_every_minute_for_10_minutes(project_name)
+        
+        # Convert results to QCState format and return
+        if monitoring_result['success']:
+            success_msg = f"✅ Completed comprehensive QC monitoring: {monitoring_result.get('files_processed_total', 0)} files processed, {monitoring_result.get('completed_loops', 0)} loops completed"
+            
+            return {
+                **state,
+                'project_name': project_name,
+                'runtime_duration': duration_str,
+                'loop_interval_seconds': interval_seconds,
+                'total_duration_seconds': total_seconds,
+                'monitoring_start_time': time.time() - monitoring_result.get('total_duration_seconds', 600),
+                'monitoring_end_time': time.time(),
+                'loop_iteration': monitoring_result.get('completed_loops', 0),
+                'files_processed': monitoring_result.get('files_processed_total', 0),
+                'files_skipped': monitoring_result.get('files_skipped_total', 0),
+                'errors_encountered': monitoring_result.get('errors_encountered', 0),
+                'parsing_result': success_msg,
+                'messages': state['messages'] + [
+                    AIMessage(content=f"🎯 Started comprehensive QC monitoring: {project_name}, every 1 minute for 10 minutes"),
+                    AIMessage(content=success_msg),
+                    AIMessage(content=f"📊 Final Stats: {monitoring_result.get('success_rate', 0):.1f}% success rate, {monitoring_result.get('unique_files_tracked', 0)} unique files tracked")
+                ]
+            }
+        else:
+            error_msg = f"❌ Comprehensive QC monitoring failed: {monitoring_result.get('error', 'Unknown error')}"
+            
+            return {
+                **state,
+                'project_name': project_name,
+                'runtime_duration': duration_str,
+                'parsing_result': error_msg,
+                'errors_encountered': monitoring_result.get('errors_encountered', 1),
+                'messages': state['messages'] + [
+                    AIMessage(content=f"🎯 Started comprehensive QC monitoring: {project_name}, every 1 minute for 10 minutes"),
+                    AIMessage(content=error_msg)
+                ]
+            }
     
     # Initialize monitoring state
     start_time = time.time()
@@ -1320,12 +1378,13 @@ async def continuous_qc_monitoring_node(state: QCState, config: RunnableConfig) 
             try:
                 # Find all potential files for this project
                 dirs = get_directories(project_name)
-                wiff_dir = dirs['wiff']
+                wiff_source_dir = dirs['wiff']
                 
-                # Get all WIFF files for this project
+                # Get all WIFF files for this project from the raw data directory
                 all_wiff_files = []
-                if wiff_dir.exists():
-                    for wiff_file in wiff_dir.glob("*.wiff"):
+                if await asyncio.to_thread(wiff_source_dir.exists):
+                    all_wiff_patterns = await asyncio.to_thread(lambda: list(wiff_source_dir.glob("*.wiff")))
+                    for wiff_file in all_wiff_patterns:
                         if f"Proj-{project_name}" in wiff_file.name:
                             all_wiff_files.append(wiff_file)
                 
@@ -1468,6 +1527,17 @@ async def traditional_continuous_monitoring(state: QCState, config: RunnableConf
     import signal
     import traceback
     
+    # Validate project name (should already be validated, but double-check)
+    if not project_name:
+        error_msg = "Project name is required for traditional continuous monitoring"
+        return {
+            **state,
+            'parsing_result': error_msg,
+            'messages': state['messages'] + [
+                AIMessage(content=error_msg)
+            ]
+        }
+    
     file_stability_minutes = state.get('file_stability_check_minutes', 1)
     
     # Parse duration
@@ -1589,6 +1659,246 @@ async def traditional_continuous_monitoring(state: QCState, config: RunnableConf
                 AIMessage(content=f"❌ QC monitoring failed: {str(e)}")
             ]
         }
+
+async def run_qc_monitoring_every_minute_for_10_minutes(project_name: str) -> Dict[str, Any]:
+    """
+    QC Monitoring that runs every 1 minute for exactly 10 minutes.
+    Provides comprehensive logging of all activities, file processing status, and detailed timestamps.
+    
+    Args:
+        project_name: Name of the project to monitor (e.g., "Solvent01")
+    
+    Returns:
+        Dictionary with monitoring results and statistics
+    """
+    import time
+    import signal
+    import traceback
+    from datetime import datetime
+    
+    # Initialize monitoring parameters
+    interval_seconds = 60  # 1 minute
+    total_duration_seconds = 600  # 10 minutes
+    start_time = time.time()
+    end_time = start_time + total_duration_seconds
+    loop_iteration = 0
+    files_processed_total = 0
+    files_skipped_total = 0
+    errors_encountered = 0
+    processed_files = set()  # Avoid reprocessing same files
+    file_size_tracker = {}  # Track file stability
+    
+    # Setup logging
+    logger = await setup_logging(project_name)
+    
+    # Session Start Logging
+    start_datetime = datetime.fromtimestamp(start_time)
+    end_datetime = datetime.fromtimestamp(end_time)
+    
+    logger.info("=" * 80)
+    logger.info("QC MONITORING SESSION STARTED")
+    logger.info("=" * 80)
+    logger.info(f"Project: {project_name}")
+    logger.info(f"Interval: Every 60 seconds (1 minute)")
+    logger.info(f"Total Duration: 600 seconds (10 minutes)")
+    logger.info(f"Start Time: {start_datetime.strftime('%Y-%m-%d %H:%M:%S')}")
+    logger.info(f"End Time: {end_datetime.strftime('%Y-%m-%d %H:%M:%S')}")
+    logger.info(f"File Stability Check: 20 seconds")
+    logger.info("=" * 80)
+    
+    # Graceful shutdown handler
+    shutdown_requested = False
+    
+    def signal_handler(signum, frame):
+        nonlocal shutdown_requested
+        logger.info(f"🛑 Shutdown signal received (signal {signum})")
+        shutdown_requested = True
+    
+    # Register signal handlers for graceful shutdown
+    signal.signal(signal.SIGINT, signal_handler)
+    signal.signal(signal.SIGTERM, signal_handler)
+    
+    monitoring_results = []
+    
+    try:
+        # Main monitoring loop - runs every 1 minute for 10 minutes
+        while time.time() < end_time and not shutdown_requested:
+            loop_start_time = time.time()
+            loop_iteration += 1
+            current_time = time.time()
+            remaining_seconds = int(end_time - current_time)
+            time_remaining_formatted = f"{remaining_seconds // 60:02d}:{remaining_seconds % 60:02d}"
+            
+            # Loop iteration logging
+            logger.info("-" * 60)
+            logger.info(f"LOOP {loop_iteration} STARTING")
+            logger.info(f"Time: {datetime.now().strftime('%H:%M:%S')}")
+            logger.info(f"Remaining: {remaining_seconds} seconds ({time_remaining_formatted})")
+            logger.info("-" * 60)
+            
+            try:
+                # Step 1: Scanning for WIFF files
+                logger.info("Step 1: Scanning for WIFF files...")
+                dirs = get_directories(project_name)
+                
+                # Find all WIFF files in the source directory
+                wiff_source_dir = Path("/mnt/c/Users/ChopraLab/Desktop/laptop/convert_raw/raw_data")
+                all_wiff_files = []
+                total_wiff_files = 0
+                
+                if await asyncio.to_thread(wiff_source_dir.exists):
+                    all_wiff_patterns = await asyncio.to_thread(lambda: list(wiff_source_dir.glob("*.wiff")))
+                    total_wiff_files = len(all_wiff_patterns)
+                    
+                    # Filter for project-specific files
+                    for wiff_file in all_wiff_patterns:
+                        if f"Proj-{project_name}" in wiff_file.name:
+                            all_wiff_files.append(wiff_file)
+                
+                logger.info(f"Found {total_wiff_files} total WIFF files")
+                logger.info(f"Found {len(all_wiff_files)} WIFF files for project {project_name}")
+                
+                # Step 2: Checking file stability
+                logger.info("Step 2: Checking file stability...")
+                stable_files, unstable_files = await get_stable_files(
+                    all_wiff_files, file_size_tracker, stability_seconds=20
+                )
+                
+                # Filter out already processed files
+                new_stable_files = [f for f in stable_files if str(f) not in processed_files]
+                already_processed_files = [f for f in stable_files if str(f) in processed_files]
+                
+                # File Status Summary
+                logger.info("File Status Summary:")
+                logger.info(f"  - Total files found: {len(all_wiff_files)}")
+                logger.info(f"  - Stable files: {len(stable_files)}")
+                logger.info(f"  - Unstable files: {len(unstable_files)}")
+                logger.info(f"  - New stable files: {len(new_stable_files)}")
+                logger.info(f"  - Already processed: {len(already_processed_files)}")
+                
+                # Step 3: Processing files (if any new stable files)
+                if new_stable_files:
+                    logger.info(f"Step 3: Processing {len(new_stable_files)} new stable files...")
+                    
+                    for file_path in new_stable_files:
+                        logger.info(f"Processing: {file_path.name}")
+                    
+                    # Run the complete QC pipeline for new files
+                    result = await run_single_qc_check(project_name, logger, loop_iteration)
+                    
+                    if result['success']:
+                        files_processed_this_loop = result.get('files_processed', len(new_stable_files))
+                        files_processed_total += files_processed_this_loop
+                        
+                        # Add processed files to tracking set
+                        for file_path in new_stable_files:
+                            processed_files.add(str(file_path))
+                            logger.info(f"  ✓ Successfully processed: {file_path.name}")
+                        
+                        monitoring_results.append(f"Loop {loop_iteration}: Processed {files_processed_this_loop} files")
+                    else:
+                        errors_encountered += 1
+                        logger.error(f"❌ Error processing files: {result['error']}")
+                        monitoring_results.append(f"Loop {loop_iteration}: Error - {result['error']}")
+                else:
+                    logger.info("Step 3: No new stable files to process")
+                    monitoring_results.append(f"Loop {loop_iteration}: No new files")
+                
+                # Update skipped files count
+                files_skipped_total += len(unstable_files)
+                
+                # Loop completion logging
+                loop_duration = int(time.time() - loop_start_time)
+                logger.info(f"LOOP {loop_iteration} COMPLETED")
+                logger.info(f"Loop Duration: {loop_duration} seconds")
+                logger.info(f"Files Processed This Loop: {len(new_stable_files) if new_stable_files else 0}")
+                logger.info("Cumulative Stats:")
+                logger.info(f"  - Total Files Processed: {files_processed_total}")
+                logger.info(f"  - Total Files Skipped: {files_skipped_total}")
+                logger.info(f"  - Total Errors: {errors_encountered}")
+                logger.info(f"  - Unique Files Tracked: {len(processed_files)}")
+                
+            except Exception as e:
+                errors_encountered += 1
+                logger.error(f"❌ Error in monitoring loop {loop_iteration}: {e}")
+                logger.error(f"🔍 Traceback: {traceback.format_exc()}")
+                monitoring_results.append(f"Loop {loop_iteration}: Exception - {str(e)}")
+            
+            # Sleep until next iteration (exactly 60 seconds from loop start)
+            if time.time() < end_time and not shutdown_requested:
+                elapsed_time = time.time() - loop_start_time
+                sleep_time = max(0, interval_seconds - elapsed_time)
+                if sleep_time > 0:
+                    await asyncio.sleep(sleep_time)
+        
+        # Session end logging
+        end_time_actual = time.time()
+        total_monitoring_time = int(end_time_actual - start_time)
+        total_minutes = total_monitoring_time // 60
+        success_rate = (files_processed_total / max(1, files_processed_total + errors_encountered)) * 100
+        
+        logger.info("=" * 80)
+        logger.info("QC MONITORING SESSION COMPLETED")
+        logger.info("=" * 80)
+        logger.info(f"Project: {project_name}")
+        logger.info(f"End Time: {datetime.fromtimestamp(end_time_actual).strftime('%Y-%m-%d %H:%M:%S')}")
+        logger.info(f"Total Monitoring Time: {total_monitoring_time} seconds ({total_minutes} minutes)")
+        logger.info(f"Completed Loops: {loop_iteration}")
+        logger.info("Final Statistics:")
+        logger.info(f"  - Total Files Processed: {files_processed_total}")
+        logger.info(f"  - Total Files Skipped (unstable): {files_skipped_total}")
+        logger.info(f"  - Total Errors Encountered: {errors_encountered}")
+        logger.info(f"  - Unique Files Tracked: {len(processed_files)}")
+        logger.info(f"  - Success Rate: {success_rate:.1f}%")
+        logger.info("=" * 80)
+        
+        if shutdown_requested:
+            logger.info(f"🛑 Session was interrupted by user request")
+        
+        return {
+            'success': True,
+            'project_name': project_name,
+            'total_duration_seconds': total_monitoring_time,
+            'interval_seconds': interval_seconds,
+            'completed_loops': loop_iteration,
+            'files_processed_total': files_processed_total,
+            'files_skipped_total': files_skipped_total,
+            'errors_encountered': errors_encountered,
+            'unique_files_tracked': len(processed_files),
+            'success_rate': success_rate,
+            'monitoring_results': monitoring_results,
+            'shutdown_requested': shutdown_requested
+        }
+        
+    except Exception as e:
+        logger.error(f"❌ Fatal error in QC monitoring session: {e}")
+        logger.error(f"🔍 Traceback: {traceback.format_exc()}")
+        
+        return {
+            'success': False,
+            'project_name': project_name,
+            'error': str(e),
+            'completed_loops': loop_iteration,
+            'files_processed_total': files_processed_total,
+            'files_skipped_total': files_skipped_total,
+            'errors_encountered': errors_encountered + 1
+        }
+
+async def run_qc_monitoring_session(project_name: str) -> Dict[str, Any]:
+    """
+    Main entry point for QC monitoring session.
+    Convenience function that wraps the main monitoring function.
+    
+    Args:
+        project_name: Name of the project to monitor
+    
+    Returns:
+        Dictionary with monitoring results
+    """
+    if not project_name:
+        raise ValueError("Project name is required for QC monitoring")
+    
+    return await run_qc_monitoring_every_minute_for_10_minutes(project_name)
 
 async def run_single_qc_check(project_name: str, logger, loop_iteration: int) -> Dict[str, Any]:
     """
@@ -1779,7 +2089,17 @@ async def convert_and_parse_node(state: QCState, config: RunnableConfig) -> QCSt
     project_name = get_dynamic_project_str(messages)
     
     if not project_name:
-        raise ValueError("Project name is required for QC processing")
+        error_msg = (
+            "No project name found in message. Please include project name in your request. "
+            "Examples: 'run QC for project Solvent01' or 'process project TestProject01'"
+        )
+        return {
+            **state,
+            'parsing_result': error_msg,
+            'messages': state['messages'] + [
+                AIMessage(content=error_msg)
+            ]
+        }
     
     # Use project_name for all directory operations and logging
     logger = await setup_logging(project_name)
@@ -2046,10 +2366,12 @@ def should_use_continuous_monitoring(state: QCState) -> bool:
 if __name__ == "__main__":
     import asyncio
     
-    # Example usage with continuous monitoring
+    # Example usage with different monitoring types
     test_messages = [
-        # Short run - 1 hour
-        {'type': 'human', 'content': 'run QC for project Solvent01 for 1h'},
+        # NEW: 1-minute interval monitoring for 10 minutes
+        {'type': 'human', 'content': 'run QC monitoring every 1 minute for 10 minutes for project Solvent01'},
+        # Traditional continuous monitoring - 1 hour
+        # {'type': 'human', 'content': 'run QC for project Solvent01 for 1h'},
         # Long run - 2 days  
         # {'type': 'human', 'content': 'monitor QC for project Solvent01 for 2d'},
         # Single execution (legacy)
@@ -2062,9 +2384,34 @@ if __name__ == "__main__":
     project_name = initial_state['project_name']
     duration_str = initial_state['runtime_duration']
     
+    # Check for special 1-minute monitoring pattern
+    interval_str, duration_str_from_interval = extract_interval_and_duration_from_messages(test_messages)
+    
     print(f"🚀 Starting QC pipeline for project: {project_name}")
     
-    if should_use_continuous_monitoring(initial_state):
+    # Check if this is the special 1-minute for 10-minutes monitoring
+    if interval_str == "1m" and duration_str_from_interval == "10m":
+        print(f"⏱️ Special monitoring: Every 1 minute for 10 minutes")
+        
+        # Run the new 1-minute monitoring function
+        result = asyncio.run(run_qc_monitoring_every_minute_for_10_minutes(project_name))
+        
+        print("\n🎉 QC 1-Minute Monitoring Complete!")
+        print("=" * 60)
+        print(f"📊 Project: {result.get('project_name')}")
+        print(f"⏱️ Total Duration: {result.get('total_duration_seconds')} seconds")
+        print(f"🔄 Completed loops: {result.get('completed_loops')}")
+        print(f"✅ Files processed: {result.get('files_processed_total')}")
+        print(f"⏭️ Files skipped: {result.get('files_skipped_total')}")
+        print(f"❌ Errors encountered: {result.get('errors_encountered')}")
+        print(f"📈 Success rate: {result.get('success_rate', 0):.1f}%")
+        
+        if result.get('monitoring_results'):
+            print(f"\n📋 Last 5 Monitoring Results:")
+            for i, result_msg in enumerate(result['monitoring_results'][-5:], 1):
+                print(f"  {i}. {result_msg}")
+                
+    elif should_use_continuous_monitoring(initial_state):
         print(f"⏱️ Monitoring duration: {duration_str}")
         
         # Run continuous monitoring

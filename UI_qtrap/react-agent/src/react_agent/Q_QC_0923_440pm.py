@@ -43,7 +43,7 @@ DEFAULT_DATE_STR = datetime.now().strftime("%Y%m%d")
 # QC Thresholds
 # ----------------------------------------------------------------------------
 # Maximum acceptable TIC RSD value for passing QC
-TIC_RSD_THRESHOLD = 25.0
+TIC_RSD_THRESHOLD = 5.0
 
 # ----------------------------------------------------------------------------
 # Duration Parser and Monitoring Configuration
