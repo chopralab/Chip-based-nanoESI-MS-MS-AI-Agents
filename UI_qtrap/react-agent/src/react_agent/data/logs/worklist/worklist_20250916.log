@@ -1,0 +1,134 @@
+2025-09-16 11:36:28,029 [INFO] Logging to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/logs/worklist/worklist_20250916.log
+2025-09-16 11:37:00,163 [INFO] Generated aggregated worklist: /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/worklist/generated/worklist_20250916_1137am.csv
+2025-09-16 11:37:01,167 [DEBUG] Server copy failed:
+Traceback (most recent call last):
+  File "/home/qtrap/anaconda3/envs/qtrap_graph/lib/python3.11/site-packages/blockbuster/blockbuster.py", line 78, in wrapper
+    asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/qtrap/sciborg_dev/UI_qtrap/react-agent/./src/react_agent/Q_worklist.py", line 237, in generate_worklist
+    os.makedirs(SERVER_OUTPUT_DIR, exist_ok=True)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 215, in makedirs
+  [Previous line repeated 1 more time]
+  File "<frozen os>", line 225, in makedirs
+  File "/home/qtrap/anaconda3/envs/qtrap_graph/lib/python3.11/site-packages/blockbuster/blockbuster.py", line 80, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: '/mnt/d_drive/Analyst Data'
+
+2025-09-16 11:40:50,132 [INFO] Generated aggregated worklist: /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/worklist/generated/worklist_20250916_1140am.csv
+2025-09-16 11:40:51,134 [DEBUG] Server copy failed:
+Traceback (most recent call last):
+  File "/home/qtrap/anaconda3/envs/qtrap_graph/lib/python3.11/site-packages/blockbuster/blockbuster.py", line 78, in wrapper
+    asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/qtrap/sciborg_dev/UI_qtrap/react-agent/./src/react_agent/Q_worklist.py", line 237, in generate_worklist
+    os.makedirs(SERVER_OUTPUT_DIR, exist_ok=True)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 215, in makedirs
+  [Previous line repeated 1 more time]
+  File "<frozen os>", line 225, in makedirs
+  File "/home/qtrap/anaconda3/envs/qtrap_graph/lib/python3.11/site-packages/blockbuster/blockbuster.py", line 80, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: '/mnt/d_drive/Analyst Data'
+
+2025-09-16 11:41:57,315 [INFO] Generated aggregated worklist: /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/worklist/generated/worklist_20250916_1141am.csv
+2025-09-16 11:41:58,316 [DEBUG] Server copy failed:
+Traceback (most recent call last):
+  File "/home/qtrap/anaconda3/envs/qtrap_graph/lib/python3.11/site-packages/blockbuster/blockbuster.py", line 78, in wrapper
+    asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/qtrap/sciborg_dev/UI_qtrap/react-agent/./src/react_agent/Q_worklist.py", line 237, in generate_worklist
+    os.makedirs(SERVER_OUTPUT_DIR, exist_ok=True)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 215, in makedirs
+  [Previous line repeated 1 more time]
+  File "<frozen os>", line 225, in makedirs
+  File "/home/qtrap/anaconda3/envs/qtrap_graph/lib/python3.11/site-packages/blockbuster/blockbuster.py", line 80, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: '/mnt/d_drive/Analyst Data'
+
+2025-09-16 15:42:11,791 [ERROR] Failed: "['Info', 'Lipid'] not in index"
+Traceback (most recent call last):
+  File "/home/qtrap/sciborg_dev/UI_qtrap/react-agent/./src/react_agent/Q_worklist.py", line 260, in generate_worklist_node
+    path = await asyncio.to_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/qtrap/anaconda3/envs/qtrap_graph/lib/python3.11/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/qtrap/anaconda3/envs/qtrap_graph/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/qtrap/sciborg_dev/UI_qtrap/react-agent/./src/react_agent/Q_worklist.py", line 151, in generate_worklist
+    df_input = df_input[needed_cols]
+               ~~~~~~~~^^^^^^^^^^^^^
+  File "/home/qtrap/anaconda3/envs/qtrap_graph/lib/python3.11/site-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/qtrap/anaconda3/envs/qtrap_graph/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 6212, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "/home/qtrap/anaconda3/envs/qtrap_graph/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 6264, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['Info', 'Lipid'] not in index"
+
+2025-09-16 15:46:26,956 [INFO] Generated aggregated worklist: /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/worklist/generated/worklist_20250916_346pm.csv
+2025-09-16 15:46:27,957 [DEBUG] Server copy failed:
+Traceback (most recent call last):
+  File "/home/qtrap/anaconda3/envs/qtrap_graph/lib/python3.11/site-packages/blockbuster/blockbuster.py", line 78, in wrapper
+    asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/qtrap/sciborg_dev/UI_qtrap/react-agent/./src/react_agent/Q_worklist.py", line 237, in generate_worklist
+    os.makedirs(SERVER_OUTPUT_DIR, exist_ok=True)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 215, in makedirs
+  [Previous line repeated 1 more time]
+  File "<frozen os>", line 225, in makedirs
+  File "/home/qtrap/anaconda3/envs/qtrap_graph/lib/python3.11/site-packages/blockbuster/blockbuster.py", line 80, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: '/mnt/d_drive/Analyst Data'
+
+2025-09-17 11:45:53,022 [INFO] Generated aggregated worklist: /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/worklist/generated/worklist_20250917_1145am.csv
+2025-09-17 11:45:54,029 [DEBUG] Server copy failed:
+Traceback (most recent call last):
+  File "/home/qtrap/anaconda3/envs/qtrap_graph/lib/python3.11/site-packages/blockbuster/blockbuster.py", line 78, in wrapper
+    asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/qtrap/sciborg_dev/UI_qtrap/react-agent/./src/react_agent/Q_worklist.py", line 237, in generate_worklist
+    os.makedirs(SERVER_OUTPUT_DIR, exist_ok=True)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 215, in makedirs
+  [Previous line repeated 1 more time]
+  File "<frozen os>", line 225, in makedirs
+  File "/home/qtrap/anaconda3/envs/qtrap_graph/lib/python3.11/site-packages/blockbuster/blockbuster.py", line 80, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: '/mnt/d_drive/Analyst Data'
+

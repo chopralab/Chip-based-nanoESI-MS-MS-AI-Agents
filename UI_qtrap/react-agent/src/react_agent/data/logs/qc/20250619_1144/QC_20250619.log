@@ -1,0 +1,27 @@
+2025-06-19 11:44:54,599 [INFO] qc_pipeline_20250619: Logging initialized. Processing files from 20250326, saving to 20250619
+2025-06-19 11:44:54,600 [INFO] qc_pipeline_20250619: Log file: /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/logs/qc/20250619_1144/QC_20250619.log
+2025-06-19 11:44:54,601 [INFO] qc_pipeline_20250619: 🚀 Starting QC pipeline for requested date: 20250326
+2025-06-19 11:44:54,601 [INFO] qc_pipeline_20250619: 📅 All QC results will be saved to today's date: 20250619
+2025-06-19 11:44:54,602 [INFO] qc_pipeline_20250619: 🔧 Running file flow diagnostics...
+2025-06-19 11:44:55,060 [INFO] qc_pipeline_20250619: ✅ move_wiff_pairs: 4 file pairs moved.
+2025-06-19 11:44:55,062 [DEBUG] qc_pipeline_20250619: ✓ Server path accessible: /mnt/d_drive/Analyst Data/Projects/API Instrument/Data
+✓ Destination directory ready: /mnt/c/Users/ChopraLab/Desktop/laptop/convert_raw/raw_data
+🔍 Scanning directory for date 20250326: /mnt/d_drive/Analyst Data/Projects/API Instrument/Data
+📄 Found 539 .wiff files total
+📅 Looking for files modified on: 2025-03-26
+✓ Found complete pair: 20250326_TGL_AssayGenie_Met-Enk_01.wiff (modified: 2025-03-26 13:47)
+✓ Found complete pair: 20250326_TGL_Splashmix_SolvenTests_Chloroform_r1.wiff (modified: 2025-03-26 15:34)
+✓ Found complete pair: 20250326_TGL_Splashmix_SolvenTests_Chloroform_r2.wiff (modified: 2025-03-26 15:37)
+✓ Found complete pair: 20250326_TGL_Splashmix_SolvenTests_Chloroform_r3.wiff (modified: 2025-03-26 15:40)
+📊 Files modified on 2025-03-26: 4
+📦 Complete pairs found: 4
+📤 Starting to copy 4 file pairs...
+✓ Copied: 20250326_TGL_AssayGenie_Met-Enk_01.wiff
+✓ Copied: 20250326_TGL_AssayGenie_Met-Enk_01.wiff.scan
+✓ Copied: 20250326_TGL_Splashmix_SolvenTests_Chloroform_r1.wiff
+✓ Copied: 20250326_TGL_Splashmix_SolvenTests_Chloroform_r1.wiff.scan
+✓ Copied: 20250326_TGL_Splashmix_SolvenTests_Chloroform_r2.wiff
+✓ Copied: 20250326_TGL_Splashmix_SolvenTests_Chloroform_r2.wiff.scan
+✓ Copied: 20250326_TGL_Splashmix_SolvenTests_Chloroform_r3.wiff
+✓ Copied: 20250326_TGL_Splashmix_SolvenTests_Chloroform_r3.wiff.scan
+🎉 Successfully copied 4 file pairs

@@ -1,0 +1,13 @@
+2025-06-18 14:25:13,720 [INFO] Logging to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/logs/worklist/worklist_20250618.log
+2025-06-18 14:25:15,752 [INFO] Generated aggregated worklist: /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/worklist/generated/worklist_20250618_225pm.csv
+2025-06-18 14:25:16,775 [INFO] Copied to server output: /mnt/d_drive/Analyst Data/Projects/API Instrument/Batch/QTRAP_worklist
+2025-06-18 14:26:04,746 [INFO] Generated aggregated worklist: /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/worklist/generated/worklist_20250618_226pm.csv
+2025-06-18 14:26:05,766 [INFO] Copied to server output: /mnt/d_drive/Analyst Data/Projects/API Instrument/Batch/QTRAP_worklist
+2025-06-18 14:30:51,504 [INFO] Generated aggregated worklist: /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/worklist/generated/worklist_20250618_230pm.csv
+2025-06-18 14:30:52,584 [INFO] Copied to server output: /mnt/d_drive/Analyst Data/Projects/API Instrument/Batch/QTRAP_worklist
+2025-06-18 14:32:49,809 [INFO] Generated aggregated worklist: /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/worklist/generated/worklist_20250618_232pm.csv
+2025-06-18 14:32:50,829 [INFO] Copied to server output: /mnt/d_drive/Analyst Data/Projects/API Instrument/Batch/QTRAP_worklist
+2025-06-18 14:34:14,042 [INFO] Generated aggregated worklist: /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/worklist/generated/worklist_20250618_234pm.csv
+2025-06-18 14:34:15,059 [INFO] Copied to server output: /mnt/d_drive/Analyst Data/Projects/API Instrument/Batch/QTRAP_worklist
+2025-06-18 14:36:07,828 [INFO] Generated aggregated worklist: /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/worklist/generated/worklist_20250618_236pm.csv
+2025-06-18 14:36:08,848 [INFO] Copied to server output: /mnt/d_drive/Analyst Data/Projects/API Instrument/Batch/QTRAP_worklist

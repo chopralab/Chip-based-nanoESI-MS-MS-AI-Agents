@@ -1,0 +1,3 @@
+2025-06-16 17:27:32,340 [INFO] Logging to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/logs/worklist/worklist_20250616.log
+2025-06-16 17:27:45,691 [INFO] Generated aggregated worklist: /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/worklist/generated/worklist_20250616_527pm.csv
+2025-06-16 17:27:46,707 [INFO] Copied to server output: /mnt/d_drive/Analyst Data/Projects/API Instrument/Batch/QTRAP_worklist

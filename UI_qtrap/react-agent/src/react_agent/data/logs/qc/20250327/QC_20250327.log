@@ -1,0 +1,227 @@
+2025-06-19 10:45:02,277 [INFO] qc_pipeline_20250327: Logging initialized for date 20250327. Writing to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/logs/qc/20250327/QC_20250327.log
+2025-06-19 10:45:02,278 [INFO] qc_pipeline_20250327: 🚀 Starting QC pipeline for date: 20250327
+2025-06-19 10:45:04,173 [INFO] qc_pipeline_20250327: ✅ move_wiff_pairs: 25 file pairs moved.
+2025-06-19 10:45:04,173 [DEBUG] qc_pipeline_20250327: ✓ Server path accessible: /mnt/d_drive/Analyst Data/Projects/API Instrument/Data
+✓ Destination directory ready: /mnt/c/Users/ChopraLab/Desktop/laptop/convert_raw/raw_data
+🔍 Scanning directory for date 20250327: /mnt/d_drive/Analyst Data/Projects/API Instrument/Data
+📄 Found 539 .wiff files total
+📅 Looking for files modified on: 2025-03-27
+✓ Found complete pair: 20250327_TGL_SerumLipidExtract_Acyl-Carnitines.wiff (modified: 2025-03-27 14:51)
+✓ Found complete pair: 20250327_TGL_SerumLipidExtract_Ceramides.wiff (modified: 2025-03-27 14:56)
+✓ Found complete pair: 20250327_TGL_SerumLipidExtract_Cholesteryrl Esters.wiff (modified: 2025-03-27 14:58)
+✓ Found complete pair: 20250327_TGL_SerumLipidExtract_DG_16-0.wiff (modified: 2025-03-27 15:02)
+✓ Found complete pair: 20250327_TGL_SerumLipidExtract_DG_16-1.wiff (modified: 2025-03-27 15:06)
+✓ Found complete pair: 20250327_TGL_SerumLipidExtract_DG_18-0.wiff (modified: 2025-03-27 15:11)
+✓ Found complete pair: 20250327_TGL_SerumLipidExtract_DG_18-1_wSPLASH.wiff (modified: 2025-03-27 15:15)
+✓ Found complete pair: 20250327_TGL_SerumLipidExtract_DG_18-2.wiff (modified: 2025-03-27 15:19)
+✓ Found complete pair: 20250327_TGL_SerumLipidExtract_FFA SFA USFA_wSPLASH.wiff (modified: 2025-03-27 15:25)
+✓ Found complete pair: 20250327_TGL_SerumLipidExtract_PC_wSPLASH.wiff (modified: 2025-03-27 15:33)
+✓ Found complete pair: 20250327_TGL_SerumLipidExtract_PE_wSPLASH.wiff (modified: 2025-03-27 15:38)
+✓ Found complete pair: 20250327_TGL_SerumLipidExtract_PG.wiff (modified: 2025-03-27 15:44)
+✓ Found complete pair: 20250327_TGL_SerumLipidExtract_PI.wiff (modified: 2025-03-27 15:49)
+✓ Found complete pair: 20250327_TGL_SerumLipidExtract_PS.wiff (modified: 2025-03-27 15:55)
+✓ Found complete pair: 20250327_TGL_SerumLipidExtract_SM.wiff (modified: 2025-03-27 15:57)
+✓ Found complete pair: 20250327_TGL_SerumLipidExtract_TG_14-0.wiff (modified: 2025-03-27 16:04)
+✓ Found complete pair: 20250327_TGL_SerumLipidExtract_TG_16-0.wiff (modified: 2025-03-27 16:10)
+✓ Found complete pair: 20250327_TGL_SerumLipidExtract_TG_16-1.wiff (modified: 2025-03-27 16:17)
+✓ Found complete pair: 20250327_TGL_SerumLipidExtract_TG_18-0.wiff (modified: 2025-03-27 16:23)
+✓ Found complete pair: 20250327_TGL_SerumLipidExtract_TG_18-1_wSPLASH.wiff (modified: 2025-03-27 16:30)
+✓ Found complete pair: 20250327_TGL_SerumLipidExtract_TG_18-2.wiff (modified: 2025-03-27 16:36)
+✓ Found complete pair: 20250327_TGL_SerumLipidExtract_TG_18-3.wiff (modified: 2025-03-27 16:42)
+✓ Found complete pair: 20250327_TGL_SerumLipidExtract_TG_20-4.wiff (modified: 2025-03-27 16:47)
+✓ Found complete pair: 20250327_TGL_SerumLipidExtract_TG_22-5.wiff (modified: 2025-03-27 16:52)
+✓ Found complete pair: 20250327_TGL_SerumLipidExtract_TG_22-6.wiff (modified: 2025-03-27 16:57)
+📊 Files modified on 2025-03-27: 25
+📦 Complete pairs found: 25
+📤 Starting to copy 25 file pairs...
+✓ Copied: 20250327_TGL_SerumLipidExtract_Acyl-Carnitines.wiff
+✓ Copied: 20250327_TGL_SerumLipidExtract_Acyl-Carnitines.wiff.scan
+✓ Copied: 20250327_TGL_SerumLipidExtract_Ceramides.wiff
+✓ Copied: 20250327_TGL_SerumLipidExtract_Ceramides.wiff.scan
+✓ Copied: 20250327_TGL_SerumLipidExtract_Cholesteryrl Esters.wiff
+✓ Copied: 20250327_TGL_SerumLipidExtract_Cholesteryrl Esters.wiff.scan
+✓ Copied: 20250327_TGL_SerumLipidExtract_DG_16-0.wiff
+✓ Copied: 20250327_TGL_SerumLipidExtract_DG_16-0.wiff.scan
+✓ Copied: 20250327_TGL_SerumLipidExtract_DG_16-1.wiff
+✓ Copied: 20250327_TGL_SerumLipidExtract_DG_16-1.wiff.scan
+✓ Copied: 20250327_TGL_SerumLipidExtract_DG_18-0.wiff
+✓ Copied: 20250327_TGL_SerumLipidExtract_DG_18-0.wiff.scan
+✓ Copied: 20250327_TGL_SerumLipidExtract_DG_18-1_wSPLASH.wiff
+✓ Copied: 20250327_TGL_SerumLipidExtract_DG_18-1_wSPLASH.wiff.scan
+✓ Copied: 20250327_TGL_SerumLipidExtract_DG_18-2.wiff
+✓ Copied: 20250327_TGL_SerumLipidExtract_DG_18-2.wiff.scan
+✓ Copied: 20250327_TGL_SerumLipidExtract_FFA SFA USFA_wSPLASH.wiff
+✓ Copied: 20250327_TGL_SerumLipidExtract_FFA SFA USFA_wSPLASH.wiff.scan
+✓ Copied: 20250327_TGL_SerumLipidExtract_PC_wSPLASH.wiff
+✓ Copied: 20250327_TGL_SerumLipidExtract_PC_wSPLASH.wiff.scan
+✓ Copied: 20250327_TGL_SerumLipidExtract_PE_wSPLASH.wiff
+✓ Copied: 20250327_TGL_SerumLipidExtract_PE_wSPLASH.wiff.scan
+✓ Copied: 20250327_TGL_SerumLipidExtract_PG.wiff
+✓ Copied: 20250327_TGL_SerumLipidExtract_PG.wiff.scan
+✓ Copied: 20250327_TGL_SerumLipidExtract_PI.wiff
+✓ Copied: 20250327_TGL_SerumLipidExtract_PI.wiff.scan
+✓ Copied: 20250327_TGL_SerumLipidExtract_PS.wiff
+✓ Copied: 20250327_TGL_SerumLipidExtract_PS.wiff.scan
+✓ Copied: 20250327_TGL_SerumLipidExtract_SM.wiff
+✓ Copied: 20250327_TGL_SerumLipidExtract_SM.wiff.scan
+✓ Copied: 20250327_TGL_SerumLipidExtract_TG_14-0.wiff
+✓ Copied: 20250327_TGL_SerumLipidExtract_TG_14-0.wiff.scan
+✓ Copied: 20250327_TGL_SerumLipidExtract_TG_16-0.wiff
+✓ Copied: 20250327_TGL_SerumLipidExtract_TG_16-0.wiff.scan
+✓ Copied: 20250327_TGL_SerumLipidExtract_TG_16-1.wiff
+✓ Copied: 20250327_TGL_SerumLipidExtract_TG_16-1.wiff.scan
+✓ Copied: 20250327_TGL_SerumLipidExtract_TG_18-0.wiff
+✓ Copied: 20250327_TGL_SerumLipidExtract_TG_18-0.wiff.scan
+✓ Copied: 20250327_TGL_SerumLipidExtract_TG_18-1_wSPLASH.wiff
+✓ Copied: 20250327_TGL_SerumLipidExtract_TG_18-1_wSPLASH.wiff.scan
+✓ Copied: 20250327_TGL_SerumLipidExtract_TG_18-2.wiff
+✓ Copied: 20250327_TGL_SerumLipidExtract_TG_18-2.wiff.scan
+✓ Copied: 20250327_TGL_SerumLipidExtract_TG_18-3.wiff
+✓ Copied: 20250327_TGL_SerumLipidExtract_TG_18-3.wiff.scan
+✓ Copied: 20250327_TGL_SerumLipidExtract_TG_20-4.wiff
+✓ Copied: 20250327_TGL_SerumLipidExtract_TG_20-4.wiff.scan
+✓ Copied: 20250327_TGL_SerumLipidExtract_TG_22-5.wiff
+✓ Copied: 20250327_TGL_SerumLipidExtract_TG_22-5.wiff.scan
+✓ Copied: 20250327_TGL_SerumLipidExtract_TG_22-6.wiff
+✓ Copied: 20250327_TGL_SerumLipidExtract_TG_22-6.wiff.scan
+🎉 Successfully copied 25 file pairs
+2025-06-19 10:45:04,176 [INFO] qc_pipeline_20250327: Checking for batch file at: /mnt/c/Users/ChopraLab/Desktop/laptop/convert_raw/convert_files.bat
+2025-06-19 10:45:04,180 [INFO] qc_pipeline_20250327: Executing command: cmd.exe /c cd /d C:\Users\ChopraLab\Desktop\laptop\convert_raw && convert_files.bat
+2025-06-19 10:45:19,793 [INFO] qc_pipeline_20250327: Conversion completed successfully.
+2025-06-19 10:45:19,809 [INFO] qc_pipeline_20250327: Found 33 .txt files to move.
+2025-06-19 10:45:19,834 [INFO] qc_pipeline_20250327: Moved 20250326_TGL_AssayGenie_Met-Enk_01-AssayGenie Met-Enkephalin (2).txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250326_TGL_AssayGenie_Met-Enk_01-AssayGenie Met-Enkephalin (2).txt
+2025-06-19 10:45:19,863 [INFO] qc_pipeline_20250327: Moved 20250326_TGL_AssayGenie_Met-Enk_01-AssayGenie Met-Enkephalin.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250326_TGL_AssayGenie_Met-Enk_01-AssayGenie Met-Enkephalin.txt
+2025-06-19 10:45:19,898 [INFO] qc_pipeline_20250327: Moved 20250326_TGL_Splashmix_SolvenTests_Chloroform_r1-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA (2).txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250326_TGL_Splashmix_SolvenTests_Chloroform_r1-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA (2).txt
+2025-06-19 10:45:19,920 [INFO] qc_pipeline_20250327: Moved 20250326_TGL_Splashmix_SolvenTests_Chloroform_r1-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250326_TGL_Splashmix_SolvenTests_Chloroform_r1-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA.txt
+2025-06-19 10:45:19,944 [INFO] qc_pipeline_20250327: Moved 20250326_TGL_Splashmix_SolvenTests_Chloroform_r2-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA (2).txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250326_TGL_Splashmix_SolvenTests_Chloroform_r2-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA (2).txt
+2025-06-19 10:45:19,960 [INFO] qc_pipeline_20250327: Moved 20250326_TGL_Splashmix_SolvenTests_Chloroform_r2-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250326_TGL_Splashmix_SolvenTests_Chloroform_r2-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA.txt
+2025-06-19 10:45:19,992 [INFO] qc_pipeline_20250327: Moved 20250326_TGL_Splashmix_SolvenTests_Chloroform_r3-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA (2).txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250326_TGL_Splashmix_SolvenTests_Chloroform_r3-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA (2).txt
+2025-06-19 10:45:20,011 [INFO] qc_pipeline_20250327: Moved 20250326_TGL_Splashmix_SolvenTests_Chloroform_r3-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250326_TGL_Splashmix_SolvenTests_Chloroform_r3-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA.txt
+2025-06-19 10:45:20,038 [INFO] qc_pipeline_20250327: Moved 20250327_TGL_SerumLipidExtract_Acyl-Carnitines-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250327_TGL_SerumLipidExtract_Acyl-Carnitines-Serum,Human,Male,ABPlasma,SigmaAldrich.txt
+2025-06-19 10:45:20,081 [INFO] qc_pipeline_20250327: Moved 20250327_TGL_SerumLipidExtract_Ceramides-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250327_TGL_SerumLipidExtract_Ceramides-Serum,Human,Male,ABPlasma,SigmaAldrich.txt
+2025-06-19 10:45:20,111 [INFO] qc_pipeline_20250327: Moved 20250327_TGL_SerumLipidExtract_Cholesteryrl Esters-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250327_TGL_SerumLipidExtract_Cholesteryrl Esters-Serum,Human,Male,ABPlasma,SigmaAldrich.txt
+2025-06-19 10:45:20,142 [INFO] qc_pipeline_20250327: Moved 20250327_TGL_SerumLipidExtract_DG_16-0-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250327_TGL_SerumLipidExtract_DG_16-0-Serum,Human,Male,ABPlasma,SigmaAldrich.txt
+2025-06-19 10:45:20,168 [INFO] qc_pipeline_20250327: Moved 20250327_TGL_SerumLipidExtract_DG_16-1-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250327_TGL_SerumLipidExtract_DG_16-1-Serum,Human,Male,ABPlasma,SigmaAldrich.txt
+2025-06-19 10:45:20,199 [INFO] qc_pipeline_20250327: Moved 20250327_TGL_SerumLipidExtract_DG_18-0-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250327_TGL_SerumLipidExtract_DG_18-0-Serum,Human,Male,ABPlasma,SigmaAldrich.txt
+2025-06-19 10:45:20,235 [INFO] qc_pipeline_20250327: Moved 20250327_TGL_SerumLipidExtract_DG_18-1_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250327_TGL_SerumLipidExtract_DG_18-1_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.txt
+2025-06-19 10:45:20,264 [INFO] qc_pipeline_20250327: Moved 20250327_TGL_SerumLipidExtract_DG_18-2-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250327_TGL_SerumLipidExtract_DG_18-2-Serum,Human,Male,ABPlasma,SigmaAldrich.txt
+2025-06-19 10:45:20,298 [INFO] qc_pipeline_20250327: Moved 20250327_TGL_SerumLipidExtract_FFA SFA USFA_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250327_TGL_SerumLipidExtract_FFA SFA USFA_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.txt
+2025-06-19 10:45:20,334 [INFO] qc_pipeline_20250327: Moved 20250327_TGL_SerumLipidExtract_PC_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250327_TGL_SerumLipidExtract_PC_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.txt
+2025-06-19 10:45:20,366 [INFO] qc_pipeline_20250327: Moved 20250327_TGL_SerumLipidExtract_PE_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250327_TGL_SerumLipidExtract_PE_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.txt
+2025-06-19 10:45:20,392 [INFO] qc_pipeline_20250327: Moved 20250327_TGL_SerumLipidExtract_PG-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250327_TGL_SerumLipidExtract_PG-Serum,Human,Male,ABPlasma,SigmaAldrich.txt
+2025-06-19 10:45:20,415 [INFO] qc_pipeline_20250327: Moved 20250327_TGL_SerumLipidExtract_PI-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250327_TGL_SerumLipidExtract_PI-Serum,Human,Male,ABPlasma,SigmaAldrich.txt
+2025-06-19 10:45:20,435 [INFO] qc_pipeline_20250327: Moved 20250327_TGL_SerumLipidExtract_PS-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250327_TGL_SerumLipidExtract_PS-Serum,Human,Male,ABPlasma,SigmaAldrich.txt
+2025-06-19 10:45:20,457 [INFO] qc_pipeline_20250327: Moved 20250327_TGL_SerumLipidExtract_SM-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250327_TGL_SerumLipidExtract_SM-Serum,Human,Male,ABPlasma,SigmaAldrich.txt
+2025-06-19 10:45:20,481 [INFO] qc_pipeline_20250327: Moved 20250327_TGL_SerumLipidExtract_TG_14-0-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250327_TGL_SerumLipidExtract_TG_14-0-Serum,Human,Male,ABPlasma,SigmaAldrich.txt
+2025-06-19 10:45:20,513 [INFO] qc_pipeline_20250327: Moved 20250327_TGL_SerumLipidExtract_TG_16-0-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250327_TGL_SerumLipidExtract_TG_16-0-Serum,Human,Male,ABPlasma,SigmaAldrich.txt
+2025-06-19 10:45:20,540 [INFO] qc_pipeline_20250327: Moved 20250327_TGL_SerumLipidExtract_TG_16-1-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250327_TGL_SerumLipidExtract_TG_16-1-Serum,Human,Male,ABPlasma,SigmaAldrich.txt
+2025-06-19 10:45:20,567 [INFO] qc_pipeline_20250327: Moved 20250327_TGL_SerumLipidExtract_TG_18-0-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250327_TGL_SerumLipidExtract_TG_18-0-Serum,Human,Male,ABPlasma,SigmaAldrich.txt
+2025-06-19 10:45:20,588 [INFO] qc_pipeline_20250327: Moved 20250327_TGL_SerumLipidExtract_TG_18-1_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250327_TGL_SerumLipidExtract_TG_18-1_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.txt
+2025-06-19 10:45:20,613 [INFO] qc_pipeline_20250327: Moved 20250327_TGL_SerumLipidExtract_TG_18-2-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250327_TGL_SerumLipidExtract_TG_18-2-Serum,Human,Male,ABPlasma,SigmaAldrich.txt
+2025-06-19 10:45:20,651 [INFO] qc_pipeline_20250327: Moved 20250327_TGL_SerumLipidExtract_TG_18-3-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250327_TGL_SerumLipidExtract_TG_18-3-Serum,Human,Male,ABPlasma,SigmaAldrich.txt
+2025-06-19 10:45:20,675 [INFO] qc_pipeline_20250327: Moved 20250327_TGL_SerumLipidExtract_TG_20-4-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250327_TGL_SerumLipidExtract_TG_20-4-Serum,Human,Male,ABPlasma,SigmaAldrich.txt
+2025-06-19 10:45:20,698 [INFO] qc_pipeline_20250327: Moved 20250327_TGL_SerumLipidExtract_TG_22-5-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250327_TGL_SerumLipidExtract_TG_22-5-Serum,Human,Male,ABPlasma,SigmaAldrich.txt
+2025-06-19 10:45:20,726 [INFO] qc_pipeline_20250327: Moved 20250327_TGL_SerumLipidExtract_TG_22-6-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/text/20250327/20250327_TGL_SerumLipidExtract_TG_22-6-Serum,Human,Male,ABPlasma,SigmaAldrich.txt
+2025-06-19 10:45:20,727 [INFO] qc_pipeline_20250327: ✅ Conversion successful. Files moved: ['20250326_TGL_AssayGenie_Met-Enk_01-AssayGenie Met-Enkephalin (2).txt', '20250326_TGL_AssayGenie_Met-Enk_01-AssayGenie Met-Enkephalin.txt', '20250326_TGL_Splashmix_SolvenTests_Chloroform_r1-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA (2).txt', '20250326_TGL_Splashmix_SolvenTests_Chloroform_r1-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA.txt', '20250326_TGL_Splashmix_SolvenTests_Chloroform_r2-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA (2).txt', '20250326_TGL_Splashmix_SolvenTests_Chloroform_r2-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA.txt', '20250326_TGL_Splashmix_SolvenTests_Chloroform_r3-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA (2).txt', '20250326_TGL_Splashmix_SolvenTests_Chloroform_r3-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA.txt', '20250327_TGL_SerumLipidExtract_Acyl-Carnitines-Serum,Human,Male,ABPlasma,SigmaAldrich.txt', '20250327_TGL_SerumLipidExtract_Ceramides-Serum,Human,Male,ABPlasma,SigmaAldrich.txt', '20250327_TGL_SerumLipidExtract_Cholesteryrl Esters-Serum,Human,Male,ABPlasma,SigmaAldrich.txt', '20250327_TGL_SerumLipidExtract_DG_16-0-Serum,Human,Male,ABPlasma,SigmaAldrich.txt', '20250327_TGL_SerumLipidExtract_DG_16-1-Serum,Human,Male,ABPlasma,SigmaAldrich.txt', '20250327_TGL_SerumLipidExtract_DG_18-0-Serum,Human,Male,ABPlasma,SigmaAldrich.txt', '20250327_TGL_SerumLipidExtract_DG_18-1_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.txt', '20250327_TGL_SerumLipidExtract_DG_18-2-Serum,Human,Male,ABPlasma,SigmaAldrich.txt', '20250327_TGL_SerumLipidExtract_FFA SFA USFA_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.txt', '20250327_TGL_SerumLipidExtract_PC_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.txt', '20250327_TGL_SerumLipidExtract_PE_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.txt', '20250327_TGL_SerumLipidExtract_PG-Serum,Human,Male,ABPlasma,SigmaAldrich.txt', '20250327_TGL_SerumLipidExtract_PI-Serum,Human,Male,ABPlasma,SigmaAldrich.txt', '20250327_TGL_SerumLipidExtract_PS-Serum,Human,Male,ABPlasma,SigmaAldrich.txt', '20250327_TGL_SerumLipidExtract_SM-Serum,Human,Male,ABPlasma,SigmaAldrich.txt', '20250327_TGL_SerumLipidExtract_TG_14-0-Serum,Human,Male,ABPlasma,SigmaAldrich.txt', '20250327_TGL_SerumLipidExtract_TG_16-0-Serum,Human,Male,ABPlasma,SigmaAldrich.txt', '20250327_TGL_SerumLipidExtract_TG_16-1-Serum,Human,Male,ABPlasma,SigmaAldrich.txt', '20250327_TGL_SerumLipidExtract_TG_18-0-Serum,Human,Male,ABPlasma,SigmaAldrich.txt', '20250327_TGL_SerumLipidExtract_TG_18-1_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.txt', '20250327_TGL_SerumLipidExtract_TG_18-2-Serum,Human,Male,ABPlasma,SigmaAldrich.txt', '20250327_TGL_SerumLipidExtract_TG_18-3-Serum,Human,Male,ABPlasma,SigmaAldrich.txt', '20250327_TGL_SerumLipidExtract_TG_20-4-Serum,Human,Male,ABPlasma,SigmaAldrich.txt', '20250327_TGL_SerumLipidExtract_TG_22-5-Serum,Human,Male,ABPlasma,SigmaAldrich.txt', '20250327_TGL_SerumLipidExtract_TG_22-6-Serum,Human,Male,ABPlasma,SigmaAldrich.txt']
+2025-06-19 10:45:20,749 [INFO] qc_pipeline_20250327: ✅ Parsed 20250327_TGL_SerumLipidExtract_PC_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.txt → 20250327_TGL_SerumLipidExtract_PC_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.csv (186 rows)
+2025-06-19 10:45:20,766 [INFO] qc_pipeline_20250327: ✅ Parsed 20250327_TGL_SerumLipidExtract_PI-Serum,Human,Male,ABPlasma,SigmaAldrich.txt → 20250327_TGL_SerumLipidExtract_PI-Serum,Human,Male,ABPlasma,SigmaAldrich.csv (141 rows)
+2025-06-19 10:45:20,780 [INFO] qc_pipeline_20250327: ✅ Parsed 20250327_TGL_SerumLipidExtract_DG_16-0-Serum,Human,Male,ABPlasma,SigmaAldrich.txt → 20250327_TGL_SerumLipidExtract_DG_16-0-Serum,Human,Male,ABPlasma,SigmaAldrich.csv (105 rows)
+2025-06-19 10:45:20,795 [INFO] qc_pipeline_20250327: ✅ Parsed 20250327_TGL_SerumLipidExtract_Acyl-Carnitines-Serum,Human,Male,ABPlasma,SigmaAldrich.txt → 20250327_TGL_SerumLipidExtract_Acyl-Carnitines-Serum,Human,Male,ABPlasma,SigmaAldrich.csv (84 rows)
+2025-06-19 10:45:20,817 [INFO] qc_pipeline_20250327: ✅ Parsed 20250327_TGL_SerumLipidExtract_FFA SFA USFA_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.txt → 20250327_TGL_SerumLipidExtract_FFA SFA USFA_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.csv (186 rows)
+2025-06-19 10:45:20,828 [INFO] qc_pipeline_20250327: ✅ Parsed 20250326_TGL_Splashmix_SolvenTests_Chloroform_r1-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA (2).txt → 20250326_TGL_Splashmix_SolvenTests_Chloroform_r1-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA (2).csv (8 rows)
+2025-06-19 10:45:20,830 [ERROR] qc_pipeline_20250327: ❌ Failed to parse 20250326_TGL_AssayGenie_Met-Enk_01-AssayGenie Met-Enkephalin (2).txt
+2025-06-19 10:45:20,840 [INFO] qc_pipeline_20250327: ✅ Parsed 20250327_TGL_SerumLipidExtract_TG_22-6-Serum,Human,Male,ABPlasma,SigmaAldrich.txt → 20250327_TGL_SerumLipidExtract_TG_22-6-Serum,Human,Male,ABPlasma,SigmaAldrich.csv (116 rows)
+2025-06-19 10:45:20,842 [ERROR] qc_pipeline_20250327: ❌ Failed to parse 20250326_TGL_AssayGenie_Met-Enk_01-AssayGenie Met-Enkephalin.txt
+2025-06-19 10:45:20,856 [INFO] qc_pipeline_20250327: ✅ Parsed 20250326_TGL_Splashmix_SolvenTests_Chloroform_r2-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA.txt → 20250326_TGL_Splashmix_SolvenTests_Chloroform_r2-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA.csv (8 rows)
+2025-06-19 10:45:20,871 [INFO] qc_pipeline_20250327: ✅ Parsed 20250327_TGL_SerumLipidExtract_PE_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.txt → 20250327_TGL_SerumLipidExtract_PE_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.csv (153 rows)
+2025-06-19 10:45:20,881 [INFO] qc_pipeline_20250327: ✅ Parsed 20250326_TGL_Splashmix_SolvenTests_Chloroform_r1-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA.txt → 20250326_TGL_Splashmix_SolvenTests_Chloroform_r1-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA.csv (8 rows)
+2025-06-19 10:45:20,905 [INFO] qc_pipeline_20250327: ✅ Parsed 20250327_TGL_SerumLipidExtract_TG_14-0-Serum,Human,Male,ABPlasma,SigmaAldrich.txt → 20250327_TGL_SerumLipidExtract_TG_14-0-Serum,Human,Male,ABPlasma,SigmaAldrich.csv (181 rows)
+2025-06-19 10:45:20,914 [INFO] qc_pipeline_20250327: ✅ Parsed 20250327_TGL_SerumLipidExtract_TG_18-1_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.txt → 20250327_TGL_SerumLipidExtract_TG_18-1_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.csv (177 rows)
+2025-06-19 10:45:20,922 [INFO] qc_pipeline_20250327: ✅ Parsed 20250327_TGL_SerumLipidExtract_TG_22-5-Serum,Human,Male,ABPlasma,SigmaAldrich.txt → 20250327_TGL_SerumLipidExtract_TG_22-5-Serum,Human,Male,ABPlasma,SigmaAldrich.csv (127 rows)
+2025-06-19 10:45:20,935 [INFO] qc_pipeline_20250327: ✅ Parsed 20250326_TGL_Splashmix_SolvenTests_Chloroform_r3-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA.txt → 20250326_TGL_Splashmix_SolvenTests_Chloroform_r3-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA.csv (8 rows)
+2025-06-19 10:45:20,948 [INFO] qc_pipeline_20250327: ✅ Parsed 20250327_TGL_SerumLipidExtract_TG_16-1-Serum,Human,Male,ABPlasma,SigmaAldrich.txt → 20250327_TGL_SerumLipidExtract_TG_16-1-Serum,Human,Male,ABPlasma,SigmaAldrich.csv (169 rows)
+2025-06-19 10:45:20,958 [INFO] qc_pipeline_20250327: ✅ Parsed 20250327_TGL_SerumLipidExtract_Ceramides-Serum,Human,Male,ABPlasma,SigmaAldrich.txt → 20250327_TGL_SerumLipidExtract_Ceramides-Serum,Human,Male,ABPlasma,SigmaAldrich.csv (120 rows)
+2025-06-19 10:45:20,970 [INFO] qc_pipeline_20250327: ✅ Parsed 20250327_TGL_SerumLipidExtract_DG_18-2-Serum,Human,Male,ABPlasma,SigmaAldrich.txt → 20250327_TGL_SerumLipidExtract_DG_18-2-Serum,Human,Male,ABPlasma,SigmaAldrich.csv (84 rows)
+2025-06-19 10:45:20,984 [INFO] qc_pipeline_20250327: ✅ Parsed 20250327_TGL_SerumLipidExtract_TG_18-0-Serum,Human,Male,ABPlasma,SigmaAldrich.txt → 20250327_TGL_SerumLipidExtract_TG_18-0-Serum,Human,Male,ABPlasma,SigmaAldrich.csv (181 rows)
+2025-06-19 10:45:20,997 [INFO] qc_pipeline_20250327: ✅ Parsed 20250327_TGL_SerumLipidExtract_SM-Serum,Human,Male,ABPlasma,SigmaAldrich.txt → 20250327_TGL_SerumLipidExtract_SM-Serum,Human,Male,ABPlasma,SigmaAldrich.csv (42 rows)
+2025-06-19 10:45:21,010 [INFO] qc_pipeline_20250327: ✅ Parsed 20250327_TGL_SerumLipidExtract_TG_16-0-Serum,Human,Male,ABPlasma,SigmaAldrich.txt → 20250327_TGL_SerumLipidExtract_TG_16-0-Serum,Human,Male,ABPlasma,SigmaAldrich.csv (181 rows)
+2025-06-19 10:45:21,023 [INFO] qc_pipeline_20250327: ✅ Parsed 20250327_TGL_SerumLipidExtract_DG_18-0-Serum,Human,Male,ABPlasma,SigmaAldrich.txt → 20250327_TGL_SerumLipidExtract_DG_18-0-Serum,Human,Male,ABPlasma,SigmaAldrich.csv (105 rows)
+2025-06-19 10:45:21,033 [INFO] qc_pipeline_20250327: ✅ Parsed 20250327_TGL_SerumLipidExtract_Cholesteryrl Esters-Serum,Human,Male,ABPlasma,SigmaAldrich.txt → 20250327_TGL_SerumLipidExtract_Cholesteryrl Esters-Serum,Human,Male,ABPlasma,SigmaAldrich.csv (34 rows)
+2025-06-19 10:45:21,044 [INFO] qc_pipeline_20250327: ✅ Parsed 20250327_TGL_SerumLipidExtract_TG_20-4-Serum,Human,Male,ABPlasma,SigmaAldrich.txt → 20250327_TGL_SerumLipidExtract_TG_20-4-Serum,Human,Male,ABPlasma,SigmaAldrich.csv (139 rows)
+2025-06-19 10:45:21,054 [INFO] qc_pipeline_20250327: ✅ Parsed 20250326_TGL_Splashmix_SolvenTests_Chloroform_r2-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA (2).txt → 20250326_TGL_Splashmix_SolvenTests_Chloroform_r2-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA (2).csv (8 rows)
+2025-06-19 10:45:21,070 [INFO] qc_pipeline_20250327: ✅ Parsed 20250327_TGL_SerumLipidExtract_DG_18-1_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.txt → 20250327_TGL_SerumLipidExtract_DG_18-1_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.csv (102 rows)
+2025-06-19 10:45:21,079 [INFO] qc_pipeline_20250327: ✅ Parsed 20250326_TGL_Splashmix_SolvenTests_Chloroform_r3-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA (2).txt → 20250326_TGL_Splashmix_SolvenTests_Chloroform_r3-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA (2).csv (8 rows)
+2025-06-19 10:45:21,091 [INFO] qc_pipeline_20250327: ✅ Parsed 20250327_TGL_SerumLipidExtract_PS-Serum,Human,Male,ABPlasma,SigmaAldrich.txt → 20250327_TGL_SerumLipidExtract_PS-Serum,Human,Male,ABPlasma,SigmaAldrich.csv (139 rows)
+2025-06-19 10:45:21,100 [INFO] qc_pipeline_20250327: ✅ Parsed 20250327_TGL_SerumLipidExtract_TG_18-2-Serum,Human,Male,ABPlasma,SigmaAldrich.txt → 20250327_TGL_SerumLipidExtract_TG_18-2-Serum,Human,Male,ABPlasma,SigmaAldrich.csv (159 rows)
+2025-06-19 10:45:21,112 [INFO] qc_pipeline_20250327: ✅ Parsed 20250327_TGL_SerumLipidExtract_DG_16-1-Serum,Human,Male,ABPlasma,SigmaAldrich.txt → 20250327_TGL_SerumLipidExtract_DG_16-1-Serum,Human,Male,ABPlasma,SigmaAldrich.csv (94 rows)
+2025-06-19 10:45:21,122 [INFO] qc_pipeline_20250327: ✅ Parsed 20250327_TGL_SerumLipidExtract_TG_18-3-Serum,Human,Male,ABPlasma,SigmaAldrich.txt → 20250327_TGL_SerumLipidExtract_TG_18-3-Serum,Human,Male,ABPlasma,SigmaAldrich.csv (149 rows)
+2025-06-19 10:45:21,139 [INFO] qc_pipeline_20250327: ✅ Parsed 20250327_TGL_SerumLipidExtract_PG-Serum,Human,Male,ABPlasma,SigmaAldrich.txt → 20250327_TGL_SerumLipidExtract_PG-Serum,Human,Male,ABPlasma,SigmaAldrich.csv (140 rows)
+2025-06-19 10:45:21,141 [INFO] qc_pipeline_20250327: Found 31 CSV files to process in /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/csv/20250327
+2025-06-19 10:45:21,145 [INFO] qc_pipeline_20250327: Processed 20250326_TGL_Splashmix_SolvenTests_Chloroform_r1-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA (2).csv
+2025-06-19 10:45:21,150 [INFO] qc_pipeline_20250327: Processed 20250327_TGL_SerumLipidExtract_TG_18-2-Serum,Human,Male,ABPlasma,SigmaAldrich.csv
+2025-06-19 10:45:21,156 [INFO] qc_pipeline_20250327: Processed 20250327_TGL_SerumLipidExtract_Acyl-Carnitines-Serum,Human,Male,ABPlasma,SigmaAldrich.csv
+2025-06-19 10:45:21,160 [INFO] qc_pipeline_20250327: Processed 20250326_TGL_Splashmix_SolvenTests_Chloroform_r1-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA.csv
+2025-06-19 10:45:21,165 [INFO] qc_pipeline_20250327: Processed 20250327_TGL_SerumLipidExtract_DG_18-0-Serum,Human,Male,ABPlasma,SigmaAldrich.csv
+2025-06-19 10:45:21,171 [INFO] qc_pipeline_20250327: Processed 20250327_TGL_SerumLipidExtract_PE_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.csv
+2025-06-19 10:45:21,179 [INFO] qc_pipeline_20250327: Processed 20250327_TGL_SerumLipidExtract_DG_18-1_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.csv
+2025-06-19 10:45:21,184 [INFO] qc_pipeline_20250327: Processed 20250327_TGL_SerumLipidExtract_PI-Serum,Human,Male,ABPlasma,SigmaAldrich.csv
+2025-06-19 10:45:21,188 [INFO] qc_pipeline_20250327: Processed 20250327_TGL_SerumLipidExtract_TG_18-3-Serum,Human,Male,ABPlasma,SigmaAldrich.csv
+2025-06-19 10:45:21,193 [INFO] qc_pipeline_20250327: Processed 20250326_TGL_Splashmix_SolvenTests_Chloroform_r3-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA (2).csv
+2025-06-19 10:45:21,199 [INFO] qc_pipeline_20250327: Processed 20250327_TGL_SerumLipidExtract_PG-Serum,Human,Male,ABPlasma,SigmaAldrich.csv
+2025-06-19 10:45:21,203 [INFO] qc_pipeline_20250327: Processed 20250327_TGL_SerumLipidExtract_SM-Serum,Human,Male,ABPlasma,SigmaAldrich.csv
+2025-06-19 10:45:21,208 [INFO] qc_pipeline_20250327: Processed 20250327_TGL_SerumLipidExtract_PS-Serum,Human,Male,ABPlasma,SigmaAldrich.csv
+2025-06-19 10:45:21,214 [INFO] qc_pipeline_20250327: Processed 20250327_TGL_SerumLipidExtract_DG_18-2-Serum,Human,Male,ABPlasma,SigmaAldrich.csv
+2025-06-19 10:45:21,218 [INFO] qc_pipeline_20250327: Processed 20250327_TGL_SerumLipidExtract_TG_22-5-Serum,Human,Male,ABPlasma,SigmaAldrich.csv
+2025-06-19 10:45:21,222 [INFO] qc_pipeline_20250327: Processed 20250326_TGL_Splashmix_SolvenTests_Chloroform_r3-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA.csv
+2025-06-19 10:45:21,229 [INFO] qc_pipeline_20250327: Processed 20250327_TGL_SerumLipidExtract_TG_14-0-Serum,Human,Male,ABPlasma,SigmaAldrich.csv
+2025-06-19 10:45:21,233 [INFO] qc_pipeline_20250327: Processed 20250327_TGL_SerumLipidExtract_TG_22-6-Serum,Human,Male,ABPlasma,SigmaAldrich.csv
+2025-06-19 10:45:21,238 [INFO] qc_pipeline_20250327: Processed 20250326_TGL_Splashmix_SolvenTests_Chloroform_r2-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA.csv
+2025-06-19 10:45:21,243 [INFO] qc_pipeline_20250327: Processed 20250327_TGL_SerumLipidExtract_DG_16-1-Serum,Human,Male,ABPlasma,SigmaAldrich.csv
+2025-06-19 10:45:21,248 [INFO] qc_pipeline_20250327: Processed 20250327_TGL_SerumLipidExtract_TG_18-1_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.csv
+2025-06-19 10:45:21,252 [INFO] qc_pipeline_20250327: Processed 20250327_TGL_SerumLipidExtract_DG_16-0-Serum,Human,Male,ABPlasma,SigmaAldrich.csv
+2025-06-19 10:45:21,257 [INFO] qc_pipeline_20250327: Processed 20250327_TGL_SerumLipidExtract_TG_18-0-Serum,Human,Male,ABPlasma,SigmaAldrich.csv
+2025-06-19 10:45:21,260 [INFO] qc_pipeline_20250327: Processed 20250327_TGL_SerumLipidExtract_Ceramides-Serum,Human,Male,ABPlasma,SigmaAldrich.csv
+2025-06-19 10:45:21,269 [INFO] qc_pipeline_20250327: Processed 20250327_TGL_SerumLipidExtract_PC_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.csv
+2025-06-19 10:45:21,275 [INFO] qc_pipeline_20250327: Processed 20250327_TGL_SerumLipidExtract_TG_20-4-Serum,Human,Male,ABPlasma,SigmaAldrich.csv
+2025-06-19 10:45:21,284 [INFO] qc_pipeline_20250327: Processed 20250327_TGL_SerumLipidExtract_FFA SFA USFA_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.csv
+2025-06-19 10:45:21,289 [INFO] qc_pipeline_20250327: Processed 20250327_TGL_SerumLipidExtract_TG_16-1-Serum,Human,Male,ABPlasma,SigmaAldrich.csv
+2025-06-19 10:45:21,293 [INFO] qc_pipeline_20250327: Processed 20250327_TGL_SerumLipidExtract_TG_16-0-Serum,Human,Male,ABPlasma,SigmaAldrich.csv
+2025-06-19 10:45:21,297 [INFO] qc_pipeline_20250327: Processed 20250326_TGL_Splashmix_SolvenTests_Chloroform_r2-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA (2).csv
+2025-06-19 10:45:21,301 [INFO] qc_pipeline_20250327: Processed 20250327_TGL_SerumLipidExtract_Cholesteryrl Esters-Serum,Human,Male,ABPlasma,SigmaAldrich.csv
+2025-06-19 10:45:21,307 [INFO] qc_pipeline_20250327: ✅ QC results saved to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/qc/results/20250327/QC_20250327_RESULTS.csv (31 rows)
+2025-06-19 10:45:21,308 [INFO] qc_pipeline_20250327: ✅ QC results generated for date 20250327
+2025-06-19 10:45:21,315 [INFO] qc_pipeline_20250327: Found 16 files that passed QC and 15 files that failed QC
+2025-06-19 10:45:21,320 [INFO] qc_pipeline_20250327: Moved passed file: 20250326_TGL_Splashmix_SolvenTests_Chloroform_r1-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA (2).txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/text/20250327
+2025-06-19 10:45:21,323 [INFO] qc_pipeline_20250327: Moved passed file: 20250327_TGL_SerumLipidExtract_Acyl-Carnitines-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/text/20250327
+2025-06-19 10:45:21,326 [INFO] qc_pipeline_20250327: Moved passed file: 20250326_TGL_Splashmix_SolvenTests_Chloroform_r1-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/text/20250327
+2025-06-19 10:45:21,329 [INFO] qc_pipeline_20250327: Moved passed file: 20250327_TGL_SerumLipidExtract_DG_18-0-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/text/20250327
+2025-06-19 10:45:21,332 [INFO] qc_pipeline_20250327: Moved passed file: 20250327_TGL_SerumLipidExtract_PE_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/text/20250327
+2025-06-19 10:45:21,334 [INFO] qc_pipeline_20250327: Moved passed file: 20250327_TGL_SerumLipidExtract_DG_18-1_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/text/20250327
+2025-06-19 10:45:21,337 [INFO] qc_pipeline_20250327: Moved passed file: 20250326_TGL_Splashmix_SolvenTests_Chloroform_r3-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA (2).txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/text/20250327
+2025-06-19 10:45:21,340 [INFO] qc_pipeline_20250327: Moved passed file: 20250327_TGL_SerumLipidExtract_PG-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/text/20250327
+2025-06-19 10:45:21,341 [INFO] qc_pipeline_20250327: Moved passed file: 20250327_TGL_SerumLipidExtract_DG_18-2-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/text/20250327
+2025-06-19 10:45:21,365 [INFO] qc_pipeline_20250327: Moved passed file: 20250326_TGL_Splashmix_SolvenTests_Chloroform_r3-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/text/20250327
+2025-06-19 10:45:21,369 [INFO] qc_pipeline_20250327: Moved passed file: 20250327_TGL_SerumLipidExtract_TG_14-0-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/text/20250327
+2025-06-19 10:45:21,371 [INFO] qc_pipeline_20250327: Moved passed file: 20250326_TGL_Splashmix_SolvenTests_Chloroform_r2-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/text/20250327
+2025-06-19 10:45:21,372 [INFO] qc_pipeline_20250327: Moved passed file: 20250327_TGL_SerumLipidExtract_DG_16-0-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/text/20250327
+2025-06-19 10:45:21,374 [INFO] qc_pipeline_20250327: Moved passed file: 20250327_TGL_SerumLipidExtract_FFA SFA USFA_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/text/20250327
+2025-06-19 10:45:21,376 [INFO] qc_pipeline_20250327: Moved passed file: 20250326_TGL_Splashmix_SolvenTests_Chloroform_r2-1_2_4 Chloroform_MeOH(20mM NH4 Formate)_IPA (2).txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/text/20250327
+2025-06-19 10:45:21,378 [INFO] qc_pipeline_20250327: Moved passed file: 20250327_TGL_SerumLipidExtract_Cholesteryrl Esters-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/text/20250327
+2025-06-19 10:45:21,380 [INFO] qc_pipeline_20250327: Moved failed file: 20250327_TGL_SerumLipidExtract_TG_18-2-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/worklist/qc_fail/20250327
+2025-06-19 10:45:21,383 [INFO] qc_pipeline_20250327: Moved failed file: 20250327_TGL_SerumLipidExtract_PI-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/worklist/qc_fail/20250327
+2025-06-19 10:45:21,386 [INFO] qc_pipeline_20250327: Moved failed file: 20250327_TGL_SerumLipidExtract_TG_18-3-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/worklist/qc_fail/20250327
+2025-06-19 10:45:21,389 [INFO] qc_pipeline_20250327: Moved failed file: 20250327_TGL_SerumLipidExtract_SM-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/worklist/qc_fail/20250327
+2025-06-19 10:45:21,392 [INFO] qc_pipeline_20250327: Moved failed file: 20250327_TGL_SerumLipidExtract_PS-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/worklist/qc_fail/20250327
+2025-06-19 10:45:21,395 [INFO] qc_pipeline_20250327: Moved failed file: 20250327_TGL_SerumLipidExtract_TG_22-5-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/worklist/qc_fail/20250327
+2025-06-19 10:45:21,398 [INFO] qc_pipeline_20250327: Moved failed file: 20250327_TGL_SerumLipidExtract_TG_22-6-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/worklist/qc_fail/20250327
+2025-06-19 10:45:21,402 [INFO] qc_pipeline_20250327: Moved failed file: 20250327_TGL_SerumLipidExtract_DG_16-1-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/worklist/qc_fail/20250327
+2025-06-19 10:45:21,407 [INFO] qc_pipeline_20250327: Moved failed file: 20250327_TGL_SerumLipidExtract_TG_18-1_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/worklist/qc_fail/20250327
+2025-06-19 10:45:21,412 [INFO] qc_pipeline_20250327: Moved failed file: 20250327_TGL_SerumLipidExtract_TG_18-0-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/worklist/qc_fail/20250327
+2025-06-19 10:45:21,417 [INFO] qc_pipeline_20250327: Moved failed file: 20250327_TGL_SerumLipidExtract_Ceramides-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/worklist/qc_fail/20250327
+2025-06-19 10:45:21,420 [INFO] qc_pipeline_20250327: Moved failed file: 20250327_TGL_SerumLipidExtract_PC_wSPLASH-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/worklist/qc_fail/20250327
+2025-06-19 10:45:21,423 [INFO] qc_pipeline_20250327: Moved failed file: 20250327_TGL_SerumLipidExtract_TG_20-4-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/worklist/qc_fail/20250327
+2025-06-19 10:45:21,428 [INFO] qc_pipeline_20250327: Moved failed file: 20250327_TGL_SerumLipidExtract_TG_16-1-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/worklist/qc_fail/20250327
+2025-06-19 10:45:21,432 [INFO] qc_pipeline_20250327: Moved failed file: 20250327_TGL_SerumLipidExtract_TG_16-0-Serum,Human,Male,ABPlasma,SigmaAldrich.txt to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/worklist/qc_fail/20250327
+2025-06-19 10:45:21,435 [INFO] qc_pipeline_20250327: ✅ Successfully moved 16 files that passed QC to production directory
+2025-06-19 10:45:21,435 [INFO] qc_pipeline_20250327: ✅ Successfully moved 15 files that failed QC to the worklist/qc_fail directory
+2025-06-19 10:45:21,436 [INFO] qc_pipeline_20250327: ✅ QC validated files moved to production directory
