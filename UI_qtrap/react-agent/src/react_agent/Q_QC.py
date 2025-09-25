@@ -34,6 +34,23 @@ except ImportError:
             sys.path.insert(0, str(current_dir))
         from qc_worklist_generator import generate_worklist_for_project
 
+# Import TIC Generator - Conditional Import Solution
+try:
+    # Try relative import first (works in package context)
+    from .Q_QC_TIC import generate_tic_plots_for_project
+except ImportError:
+    try:
+        # Try absolute import (works when executed standalone)
+        from Q_QC_TIC import generate_tic_plots_for_project
+    except ImportError:
+        # Fallback: add current directory to path and import
+        import sys
+        from pathlib import Path
+        current_dir = Path(__file__).parent
+        if str(current_dir) not in sys.path:
+            sys.path.insert(0, str(current_dir))
+        from Q_QC_TIC import generate_tic_plots_for_project
+
 # ----------------------------------------------------------------------------
 # Date Configuration
 # ----------------------------------------------------------------------------
@@ -706,7 +723,7 @@ class QTRAP_Parse:
         self,
         input_file: str,
         output_file: str,
-        window_size: int = 7,
+        window_size: int = 45,
         threshold_factor: float = 0.1,
         top_group_count: int = 6
     ):
@@ -1702,6 +1719,15 @@ async def run_single_qc_check(project_name: str, logger, loop_iteration: int) ->
         logger.info(f"Step 4: Generating QC results...")
         await qc_results(project_name)
         logger.info(f"✅ Step 4: QC results generated for {project_name}")
+        
+        # Step 4.5: Generate TIC plots
+        logger.info(f"Step 4.5: Generating TIC plots...")
+        try:
+            tic_results = await generate_tic_plots_for_project(project_name)
+            logger.info(f"✅ Step 4.5: TIC plots generated - {tic_results['plots_created']} regular plots and {tic_results['hidden_plots_created']} hidden plots from {tic_results['files_processed']} files")
+            logger.info(f"📋 TIC reference CSV with 5 columns (Filename, Number, Result, Threshold, Result_Data) saved to TIC/{project_name}/ directory")
+        except Exception as e:
+            logger.error(f"❌ Error generating TIC plots: {e}")
         
         # Generate worklist for failed QC results
         try:
