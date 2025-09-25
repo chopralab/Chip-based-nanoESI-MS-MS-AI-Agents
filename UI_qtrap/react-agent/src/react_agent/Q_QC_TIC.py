@@ -260,8 +260,11 @@ class TICExtractor:
                 threshold = self.filename_to_threshold.get(base_name, '25.0')
                 result_data = self.filename_to_result_data.get(base_name, 'N/A')
                 
-                # Create regular chromatogram in chromatograms subdirectory
-                regular_output_path = self.chromatograms_dir / f"{base_name}_TIC.png"
+                # Get or assign number for consistent numbering across regular and hidden chromatograms
+                number = self._get_or_assign_number(base_name)
+                
+                # Create regular chromatogram in chromatograms subdirectory with number prefix
+                regular_output_path = self.chromatograms_dir / f"{number}_{base_name}_TIC.png"
                 
                 if self.create_tic_plot(time_array, intensity_array, file_path.name, regular_output_path):
                     self.stats['files_processed'] += 1
@@ -285,11 +288,12 @@ class TICExtractor:
         
         # Log summary
         self.logger.info(f"📊 TIC Processing Summary:")
-        self.logger.info(f"   ✅ Regular plots: {self.stats['plots_created']}")
-        self.logger.info(f"   🔒 Hidden plots: {self.stats['hidden_plots_created']}")
+        self.logger.info(f"   ✅ Regular plots: {self.stats['plots_created']} (format: #_filename_TIC.png)")
+        self.logger.info(f"   🔒 Hidden plots: {self.stats['hidden_plots_created']} (format: {self.project_name}_#.png)")
         self.logger.info(f"   ❌ Failed: {self.stats['files_failed']}")
         self.logger.info(f"   📋 Reference CSV (5 columns): {self.reference_csv_path}")
         self.logger.info(f"   📊 Columns: Filename, Number, Result, Threshold, Result_Data")
+        self.logger.info(f"   🔗 Matching: Regular and hidden plots use same numbering system")
         
         return self.stats
 
