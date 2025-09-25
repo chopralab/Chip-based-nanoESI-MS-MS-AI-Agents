@@ -60,3 +60,17 @@ Filename,Number,Result,Threshold,Result_Data
 20250916_21MeOHACN_BrainLipidEx_LC-PS_R-1_Op-TGL_Proj-solventmatrix_PS_Splash,59,pass,25.0,7.89
 20250916_12CHCl3MeOH_BrainLipidEx_LC-Cer_R-3_Op-TGL_Proj-solventmatrix_Cer_Splash,60,pass,25.0,11.69
 20250916_124CHCl3MeOHIPA_BrainLipidEx_LC-PC_R-1_Op-TGL_Proj-solventmatrix_PC_withSPLASH,61,pass,25.0,1.70
+20250916_124CHCl3MeOHIPA_BrainLipidEx_LC-PE_R-2_Op-TGL_Proj-solventmatrix_PE_withSPLASH,62,fail,25.0,N/A
+20250916_124CHCl3MeOHIPA_BrainLipidEx_LC-Cer_R-3_Op-TGL_Proj-solventmatrix_Cer_Splash,63,pass,25.0,7.84
+20250916_124CHCl3MeOHIPA_BrainLipidEx_LC-PC_R-2_Op-TGL_Proj-solventmatrix_PC_withSPLASH,64,pass,25.0,1.74
+20250916_124CHCl3MeOHIPA_BrainLipidEx_LC-PS_R-3_Op-TGL_Proj-solventmatrix_PS_Splash,65,pass,25.0,6.11
+20250916_124CHCl3MeOHIPA_BrainLipidEx_LC-PS_R-2_Op-TGL_Proj-solventmatrix_PS_Splash,66,pass,25.0,7.22
+20250916_124CHCl3MeOHIPA_BrainLipidEx_LC-PE_R-3_Op-TGL_Proj-solventmatrix_PE_withSPLASH,67,pass,25.0,15.16
+20250916_124CHCl3MeOHIPA_BrainLipidEx_LC-TG_R-1_Op-TGL_Proj-solventmatrix_TG_18-0_Splash,68,fail,25.0,45.38
+20250916_124CHCl3MeOHIPA_BrainLipidEx_LC-PC_R-3_Op-TGL_Proj-solventmatrix_PC_withSPLASH,69,pass,25.0,2.88
+20250916_124CHCl3MeOHIPA_BrainLipidEx_LC-Cer_R-2_Op-TGL_Proj-solventmatrix_Cer_Splash,70,pass,25.0,8.25
+20250916_124CHCl3MeOHIPA_BrainLipidEx_LC-PE_R-1_Op-TGL_Proj-solventmatrix_PE_withSPLASH,71,pass,25.0,18.02
+20250916_124CHCl3MeOHIPA_BrainLipidEx_LC-TG_R-3_Op-TGL_Proj-solventmatrix_TG_18-0_Splash,72,fail,25.0,25.12
+20250916_124CHCl3MeOHIPA_BrainLipidEx_LC-PS_R-1_Op-TGL_Proj-solventmatrix_PS_Splash,73,pass,25.0,6.58
+20250916_124CHCl3MeOHIPA_BrainLipidEx_LC-TG_R-2_Op-TGL_Proj-solventmatrix_TG_18-0_Splash,74,fail,25.0,N/A
+20250916_124CHCl3MeOHIPA_BrainLipidEx_LC-Cer_R-1_Op-TGL_Proj-solventmatrix_Cer_Splash,75,fail,25.0,N/A
