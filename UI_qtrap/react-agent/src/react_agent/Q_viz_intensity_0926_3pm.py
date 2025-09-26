@@ -66,6 +66,8 @@ def assign_colors_by_solvent_type(solvent_matrices: List[str]) -> Dict[str, str]
             color_map[matrix] = '#1f77b4'  # Blue
         elif matrix.startswith(('124CH', '12CH')):
             color_map[matrix] = '#d62728'  # Red
+        else:
+            color_map[matrix] = '#2ca02c'  # Green (default for others)
     return color_map
 
 # --- Data Processing Functions ---
@@ -124,7 +126,6 @@ def create_highest_tic_plot(df: pd.DataFrame, output_dir: str, project_name: str
     if '#d62728' in used_colors:
         legend_elements.append(Patch(facecolor='#d62728', label='RAG Agent'))
 
-
     ax.legend(handles=legend_elements, bbox_to_anchor=(1.02, 1), loc='upper left')
     
     plt.tight_layout(rect=[0, 0, 0.85, 1]) # Adjust layout
@@ -163,8 +164,10 @@ def create_average_tic_plot(df: pd.DataFrame, output_dir: str, project_name: str
         legend_elements.append(Patch(facecolor='#1f77b4', label='Human'))
     if '#d62728' in used_colors:
         legend_elements.append(Patch(facecolor='#d62728', label='RAG Agent'))
+    if '#2ca02c' in used_colors:
+        legend_elements.append(Patch(facecolor='#2ca02c', label='Other Solvents'))
 
-    ax.legend(handles=legend_elements, bbox_to_anchor=(1.02, 1), loc='upper left')
+    ax.legend(handles=legend_elements, bbox_to_anchor=(1.02, 1), loc='upper left', title='Author')
 
     plt.tight_layout(rect=[0, 0, 0.85, 1]) # Adjust layout
 
