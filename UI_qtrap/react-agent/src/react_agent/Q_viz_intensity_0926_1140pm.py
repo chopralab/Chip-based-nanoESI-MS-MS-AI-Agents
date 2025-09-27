@@ -103,10 +103,7 @@ def prepare_visualization_data(df: pd.DataFrame) -> Optional[pd.DataFrame]:
 # --- Plotting Functions ---
 
 def create_highest_tic_plot(df: pd.DataFrame, output_dir: str, project_name: str, lipid_class: str):
-    """Generate and save a bar plot for the highest Summed_TIC for a specific lipid class.
-    
-    Saves both PNG and high-quality PDF versions of the plot.
-    """
+    """Generate and save a bar plot for the highest Summed_TIC for a specific lipid class."""
     logging.info(f"Creating plot for Highest Summed TIC for {lipid_class}...")
     plt.style.use('seaborn-v0_8-whitegrid')
     fig, ax = plt.subplots(figsize=(15, 8), dpi=300)
@@ -137,29 +134,16 @@ def create_highest_tic_plot(df: pd.DataFrame, output_dir: str, project_name: str
     
     plt.tight_layout(rect=[0, 0, 0.85, 1]) # Adjust layout
     
-    # Save PNG
-    output_path_png = Path(output_dir) / f'highest_tic_{lipid_class}.png'
+    output_path = Path(output_dir) / f'highest_tic_{lipid_class}.png'
     try:
-        plt.savefig(output_path_png, dpi=300, bbox_inches='tight')
-        logging.info(f"PNG plot saved to: {output_path_png}")
+        plt.savefig(output_path)
+        logging.info(f"Plot saved to: {output_path}")
     except Exception as e:
-        logging.error(f"Failed to save PNG plot for {lipid_class}: {e}")
-    
-    # Save high-quality PDF
-    output_path_pdf = Path(output_dir) / f'highest_tic_{lipid_class}.pdf'
-    try:
-        plt.savefig(output_path_pdf, format='pdf', dpi=300, bbox_inches='tight')
-        logging.info(f"PDF plot saved to: {output_path_pdf}")
-    except Exception as e:
-        logging.error(f"Failed to save PDF plot for {lipid_class}: {e}")
-    
+        logging.error(f"Failed to save plot for {lipid_class}: {e}")
     plt.close(fig)
 
 def create_average_tic_plot(df: pd.DataFrame, output_dir: str, project_name: str, lipid_class: str):
-    """Generate and save a bar plot for the average Summed_TIC for a specific lipid class.
-    
-    Saves both PNG and high-quality PDF versions of the plot.
-    """
+    """Generate and save a bar plot for the average Summed_TIC for a specific lipid class."""
     logging.info(f"Creating plot for Average Summed TIC for {lipid_class}...")
     plt.style.use('seaborn-v0_8-whitegrid')
     fig, ax = plt.subplots(figsize=(15, 8), dpi=300)
@@ -192,29 +176,16 @@ def create_average_tic_plot(df: pd.DataFrame, output_dir: str, project_name: str
 
     plt.tight_layout(rect=[0, 0, 0.85, 1]) # Adjust layout
 
-    # Save PNG
-    output_path_png = Path(output_dir) / f'average_tic_{lipid_class}.png'
+    output_path = Path(output_dir) / f'average_tic_{lipid_class}.png'
     try:
-        plt.savefig(output_path_png, dpi=300, bbox_inches='tight')
-        logging.info(f"PNG plot saved to: {output_path_png}")
+        plt.savefig(output_path)
+        logging.info(f"Plot saved to: {output_path}")
     except Exception as e:
-        logging.error(f"Failed to save PNG plot for {lipid_class}: {e}")
-    
-    # Save high-quality PDF
-    output_path_pdf = Path(output_dir) / f'average_tic_{lipid_class}.pdf'
-    try:
-        plt.savefig(output_path_pdf, format='pdf', dpi=300, bbox_inches='tight')
-        logging.info(f"PDF plot saved to: {output_path_pdf}")
-    except Exception as e:
-        logging.error(f"Failed to save PDF plot for {lipid_class}: {e}")
-    
+        logging.error(f"Failed to save plot for {lipid_class}: {e}")
     plt.close(fig)
 
 def create_tic_barplots(df: pd.DataFrame, output_dir: str, project_name: str):
-    """Create and save both highest and average TIC bar plots for each lipid class.
-    
-    Saves both PNG and high-quality PDF versions of each plot.
-    """
+    """Create and save both highest and average TIC bar plots for each lipid class."""
     if df is None or df.empty:
         logging.warning("Data for plotting is empty. Skipping plot generation.")
         return
