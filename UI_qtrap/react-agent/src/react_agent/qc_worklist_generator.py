@@ -53,6 +53,14 @@ def parse_filename_components(filename: str) -> Dict[str, str]:
     }
     
     try:
+        # Extract date from first part (should be YYYYMMDD format)
+        if len(parts) >= 1:
+            first_part = parts[0]
+            # Extract date pattern (8 digits at start)
+            date_match = re.match(r'^(\d{8})', first_part)
+            if date_match:
+                result['Date'] = date_match.group(1)
+        
         # Extract basic parts (first 3 underscore-separated parts)
         if len(parts) >= 3:
             # Info is the second part
@@ -61,20 +69,14 @@ def parse_filename_components(filename: str) -> Dict[str, str]:
             # Info2 is the third part
             result['Info2'] = parts[2] if len(parts) > 2 else ''
         
-        # Find LC- pattern for Date and Lipid extraction
+        # Find LC- pattern for Lipid extraction
         lc_pattern = None
-        lc_index = -1
-        for i, part in enumerate(parts):
+        for part in parts:
             if part.startswith('LC-'):
                 lc_pattern = part
-                lc_index = i
                 break
         
-        if lc_pattern and lc_index >= 0:
-            # Date: everything up to and including LC-
-            date_parts = parts[:lc_index + 1]
-            result['Date'] = '_'.join(date_parts)
-            
+        if lc_pattern:
             # Lipid: extract from LC-{lipid} pattern
             lipid_match = re.match(r'LC-(.+)', lc_pattern)
             if lipid_match:
@@ -159,6 +161,11 @@ async def create_worklist_from_failed_qc(project_name: str) -> Optional[Path]:
             # Parse filename components
             components = parse_filename_components(filename)
             
+            # Check if this is a blank sample - skip blanks as they don't need to be rerun
+            if filename.upper().startswith('BLANK') or 'BLANK' in filename.upper():
+                logger.info(f"🚫 Skipping blank sample (blanks don't need rerun): {filename}")
+                continue
+            
             # Validate required components
             if not components['Project']:
                 logger.warning(f"⚠️ Could not extract project from filename: {filename}")
@@ -217,9 +224,9 @@ async def create_worklist_from_failed_qc(project_name: str) -> Optional[Path]:
         return None
 
 
-def generate_worklist_for_project(project_name: str) -> bool:
+async def generate_worklist_for_project_async(project_name: str) -> bool:
     """
-    Integration function for pipeline - generates worklist for a project.
+    Async integration function for pipeline - generates worklist for a project.
     
     Args:
         project_name: The project name (e.g., 'Solvent01')
@@ -233,7 +240,7 @@ def generate_worklist_for_project(project_name: str) -> bool:
         logger.info(f"🔄 Generating worklist for project: {project_name}")
         
         # Run the async worklist creation
-        worklist_file = asyncio.run(create_worklist_from_failed_qc(project_name))
+        worklist_file = await create_worklist_from_failed_qc(project_name)
         
         if worklist_file:
             logger.info(f"✅ Worklist generation successful: {worklist_file}")
@@ -244,6 +251,53 @@ def generate_worklist_for_project(project_name: str) -> bool:
             
     except Exception as e:
         logger.error(f"❌ Error in worklist generation for project {project_name}: {e}")
+        return False
+
+
+def generate_worklist_for_project(project_name: str) -> bool:
+    """
+    Sync integration function for pipeline - generates worklist for a project.
+    
+    Args:
+        project_name: The project name (e.g., 'Solvent01')
+    
+    Returns:
+        True if worklist was created successfully, False otherwise
+    """
+    logger = logging.getLogger(f"qc_pipeline_{project_name}")
+    
+    try:
+        logger.info(f"🔄 Generating worklist for project: {project_name}")
+        
+        # Check if we're in an async context
+        try:
+            loop = asyncio.get_running_loop()
+            # We're in an async context, use asyncio.create_task or similar
+            logger.warning("⚠️ Called from async context, using sync fallback")
+            # Create a sync version by calling the async function directly
+            import asyncio
+            import concurrent.futures
+            
+            # Use a thread pool to run the async function
+            with concurrent.futures.ThreadPoolExecutor() as executor:
+                future = executor.submit(asyncio.run, create_worklist_from_failed_qc(project_name))
+                worklist_file = future.result()
+                
+        except RuntimeError:
+            # No running event loop, safe to use asyncio.run()
+            worklist_file = asyncio.run(create_worklist_from_failed_qc(project_name))
+        
+        if worklist_file:
+            logger.info(f"✅ Worklist generation successful: {worklist_file}")
+            return True
+        else:
+            logger.info(f"ℹ️ No worklist generated (no failed files or error)")
+            return False
+            
+    except Exception as e:
+        logger.error(f"❌ Error in worklist generation for project {project_name}: {e}")
+        import traceback
+        logger.error(f"Traceback: {traceback.format_exc()}")
         return False
 
 

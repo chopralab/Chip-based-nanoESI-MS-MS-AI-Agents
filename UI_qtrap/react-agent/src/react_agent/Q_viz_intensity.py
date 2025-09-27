@@ -82,9 +82,14 @@ def prepare_visualization_data(df: pd.DataFrame) -> Optional[pd.DataFrame]:
     # Group by BaseId and LipidClass
     grouped = df.groupby(['BaseId', 'LipidClass'])
     
-    # Calculate highest and average TIC
-    agg_data = grouped['Summed_TIC'].agg(['max', 'mean']).reset_index()
-    agg_data.rename(columns={'max': 'Highest_Summed_TIC', 'mean': 'Average_Summed_TIC'}, inplace=True)
+    # Calculate highest, average, and standard deviation of TIC
+    agg_data = grouped['Summed_TIC'].agg(['max', 'mean', 'std']).reset_index()
+    agg_data.rename(columns={'max': 'Highest_Summed_TIC', 'mean': 'Average_Summed_TIC', 'std': 'Std_Summed_TIC'}, inplace=True)
+    agg_data['Std_Summed_TIC'].fillna(0, inplace=True) # Replace NaN std for single replicates with 0
+
+    # Calculate Std Dev Percent (Coefficient of Variation)
+    agg_data['Std_Dev_Percent'] = (agg_data['Std_Summed_TIC'] / agg_data['Average_Summed_TIC']) * 100
+    agg_data['Std_Dev_Percent'].fillna(0, inplace=True)
     
     # Add simplified solvent matrix labels
     agg_data['SolventMatrix'] = agg_data['BaseId'].apply(extract_solvent_matrix)
@@ -146,8 +151,11 @@ def create_average_tic_plot(df: pd.DataFrame, output_dir: str, project_name: str
     # Assign colors based on solvent matrix
     solvent_matrices = df['SolventMatrix'].unique()
     color_map = assign_colors_by_solvent_type(solvent_matrices)
+    colors = [color_map.get(matrix) for matrix in df['SolventMatrix']]
 
-    sns.barplot(data=df, x='SolventMatrix', y='Average_Summed_TIC', palette=color_map, ax=ax)
+    # Use matplotlib bar plot to have control over error bars (yerr)
+    ax.bar(df['SolventMatrix'], df['Average_Summed_TIC'], yerr=df['Std_Summed_TIC'], 
+           color=colors, capsize=5, ecolor='black')
 
     ax.set_xlabel('Solvent Matrix', fontsize=12, fontweight='bold')
     ax.set_ylabel('Average Summed TIC', fontsize=12)
@@ -216,8 +224,14 @@ def generate_intensity_win_summary(df: pd.DataFrame) -> pd.DataFrame:
     average_wins = average_tic_winners['SolventMatrix'].value_counts().reset_index()
     average_wins.columns = ['SolventMatrix', 'Average_TIC_Wins']
 
-    # Merge the two summaries
-    summary_df = pd.merge(highest_wins, average_wins, on='SolventMatrix', how='outer').fillna(0)
+    avg_stats = df.groupby('SolventMatrix').agg(
+        Avg_Std_Dev=('Std_Summed_TIC', 'mean'),
+        Avg_Std_Dev_Percent=('Std_Dev_Percent', 'mean')
+    ).reset_index()
+
+    # Merge summaries and stats
+    summary_df = pd.merge(highest_wins, average_wins, on='SolventMatrix', how='outer')
+    summary_df = pd.merge(summary_df, avg_stats, on='SolventMatrix', how='outer').fillna(0)
     
     # Convert counts to integer
     summary_df[['Highest_TIC_Wins', 'Average_TIC_Wins']] = summary_df[['Highest_TIC_Wins', 'Average_TIC_Wins']].astype(int)
@@ -243,16 +257,53 @@ def generate_detailed_win_report(df: pd.DataFrame) -> pd.DataFrame:
     })
 
     # Find winner for Average TIC for each lipid class
-    average_tic_winners = df.loc[df.groupby('LipidClass')['Average_Summed_TIC'].idxmax()]
-    average_tic_winners = average_tic_winners[['LipidClass', 'SolventMatrix', 'Average_Summed_TIC']].rename(columns={
+    average_tic_winners = df.loc[df.groupby('LipidClass')['Average_Summed_TIC'].idxmax()].copy()
+    
+    average_tic_winners = average_tic_winners[['LipidClass', 'SolventMatrix', 'Average_Summed_TIC', 'Std_Summed_TIC', 'Std_Dev_Percent']].rename(columns={
         'SolventMatrix': 'Average_TIC_Winner_SolventMatrix',
-        'Average_Summed_TIC': 'Average_TIC_Value'
+        'Average_Summed_TIC': 'Average_TIC_Value',
+        'Std_Summed_TIC': 'Std_Dev'
     })
 
     # Merge the reports
     detailed_report_df = pd.merge(highest_tic_winners, average_tic_winners, on='LipidClass', how='outer')
     
     return detailed_report_df
+
+def generate_std_dev_report(df: pd.DataFrame, output_dir: str):
+    """Generate a CSV report of Std Dev and CV for each SolventMatrix, pivoted by LipidClass."""
+    if df is None or df.empty:
+        return
+
+    logging.info("Generating standard deviation report...")
+
+    # Select relevant columns
+    std_dev_data = df[['SolventMatrix', 'LipidClass', 'Std_Summed_TIC', 'Std_Dev_Percent']]
+
+    # Pivot the table
+    pivoted_df = std_dev_data.pivot(index='SolventMatrix', columns='LipidClass', values=['Std_Summed_TIC', 'Std_Dev_Percent'])
+
+    # Flatten the multi-level column index and format names
+    pivoted_df.columns = [f'{col[1]}_{col[0].replace("Std_Summed_TIC", "Std_Dev").replace("Std_Dev_Percent", "Std_Dev_Percent")}' for col in pivoted_df.columns]
+    
+    # Reorder columns to group by lipid class for readability
+    lipid_classes = sorted(df['LipidClass'].unique())
+    new_column_order = []
+    for lipid in lipid_classes:
+        new_column_order.append(f'{lipid}_Std_Dev')
+        new_column_order.append(f'{lipid}_Std_Dev_Percent')
+    
+    pivoted_df = pivoted_df[new_column_order]
+
+    pivoted_df.reset_index(inplace=True)
+
+    # Save to CSV
+    output_path = Path(output_dir) / 'std_dev_by_lipid_class.csv'
+    try:
+        pivoted_df.to_csv(output_path, index=False)
+        logging.info(f"Standard deviation report saved to: {output_path}")
+    except Exception as e:
+        logging.error(f"Failed to save standard deviation report: {e}")
 
 # --- Main Controller ---
 
@@ -322,6 +373,9 @@ def visualize_tic_intensity(csv_file_path: str, output_base_dir: Optional[str] =
             logging.info(f"Detailed win report saved to: {detailed_report_path}")
         except Exception as e:
             logging.error(f"Failed to save detailed win report: {e}")
+
+    # Generate and save the new standard deviation report
+    generate_std_dev_report(viz_data, output_dir)
     
     logging.info("Visualization script finished.")
 

@@ -20,13 +20,11 @@ from langgraph.prebuilt import ToolNode
 # Import QC Worklist Generator - Conditional Import Solution
 try:
     # Try relative import first (works in package context)
-    from .qc_worklist_generator import generate_worklist_for_project, generate_worklist_for_project_async
-    from .Q_worklist import generate_integrated_worklist_for_project
+    from .qc_worklist_generator import generate_worklist_for_project
 except ImportError:
     try:
         # Try absolute import (works when executed standalone)
-        from qc_worklist_generator import generate_worklist_for_project, generate_worklist_for_project_async
-        from Q_worklist import generate_integrated_worklist_for_project
+        from qc_worklist_generator import generate_worklist_for_project
     except ImportError:
         # Fallback: add current directory to path and import
         import sys
@@ -34,8 +32,7 @@ except ImportError:
         current_dir = Path(__file__).parent
         if str(current_dir) not in sys.path:
             sys.path.insert(0, str(current_dir))
-        from qc_worklist_generator import generate_worklist_for_project, generate_worklist_for_project_async
-        from Q_worklist import generate_integrated_worklist_for_project
+        from qc_worklist_generator import generate_worklist_for_project
 
 # Import TIC Generator - Conditional Import Solution
 try:
@@ -1734,23 +1731,13 @@ async def run_single_qc_check(project_name: str, logger, loop_iteration: int) ->
         
         # Generate worklist for failed QC results
         try:
-            worklist_success = await generate_worklist_for_project_async(project_name)
+            worklist_success = generate_worklist_for_project(project_name)
             if worklist_success:
-                logger.info(f"✅ QC-specific worklist generated for failed QC results")
+                logger.info(f"✅ Worklist generated for failed QC results")
             else:
-                logger.info(f"ℹ️ No QC-specific worklist needed (no failed QC results)")
+                logger.info(f"ℹ️ No worklist needed (no failed QC results)")
         except Exception as e:
-            logger.error(f"❌ Error generating QC-specific worklist: {e}")
-        
-        # Generate integrated worklist (includes QC failures + regular samples)
-        try:
-            integrated_worklist_path = generate_integrated_worklist_for_project(project_name)
-            if integrated_worklist_path:
-                logger.info(f"✅ Integrated worklist generated: {integrated_worklist_path}")
-            else:
-                logger.info(f"ℹ️ Could not generate integrated worklist")
-        except Exception as e:
-            logger.error(f"❌ Error generating integrated worklist: {e}")
+            logger.error(f"❌ Error generating worklist: {e}")
         
         # Step 5: Move files based on pass/fail
         logger.info(f"Step 5: Moving validated files...")
