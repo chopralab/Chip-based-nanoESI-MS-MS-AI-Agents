@@ -25,18 +25,10 @@ class TICExtractor:
         
         # Create main target directory and subdirectories
         self.target_dir.mkdir(parents=True, exist_ok=True)
-        
-        # Create PNG and PDF subdirectories for chromatograms
-        self.chromatograms_png_dir = self.target_dir / "chromatograms" / "png"
-        self.chromatograms_pdf_dir = self.target_dir / "chromatograms" / "pdf"
-        self.chromatograms_png_dir.mkdir(parents=True, exist_ok=True)
-        self.chromatograms_pdf_dir.mkdir(parents=True, exist_ok=True)
-        
-        # Create PNG and PDF subdirectories for hidden chromatograms
-        self.hidden_chromatograms_png_dir = self.target_dir / "hidden_chromatograms" / "png"
-        self.hidden_chromatograms_pdf_dir = self.target_dir / "hidden_chromatograms" / "pdf"
-        self.hidden_chromatograms_png_dir.mkdir(parents=True, exist_ok=True)
-        self.hidden_chromatograms_pdf_dir.mkdir(parents=True, exist_ok=True)
+        self.chromatograms_dir = self.target_dir / "chromatograms"
+        self.hidden_chromatograms_dir = self.target_dir / "hidden_chromatograms"
+        self.chromatograms_dir.mkdir(parents=True, exist_ok=True)
+        self.hidden_chromatograms_dir.mkdir(parents=True, exist_ok=True)
         
         # Reference CSV for filename-number mapping
         self.reference_csv_path = self.target_dir / f"{project_name}_reference.csv"
@@ -191,48 +183,24 @@ class TICExtractor:
             return None
     
     def create_tic_plot(self, time_array: List[float], intensity_array: List[float], 
-                       filename: str, output_path_png: Path, output_path_pdf: Path, title: str = None) -> bool:
-        """Create high-quality TIC plot in both PNG and PDF formats for scientific publications.
-        
-        Args:
-            time_array: Time values for x-axis
-            intensity_array: Intensity values for y-axis
-            filename: Original filename for display
-            output_path_png: Path to save PNG file
-            output_path_pdf: Path to save PDF file
-            title: Custom title (optional)
-            
-        Returns:
-            bool: True if both PNG and PDF were saved successfully
-        """
+                       filename: str, output_path: Path, title: str = None) -> bool:
+        """Create TIC plot with customizable title."""
         try:
-            # Create figure with publication-quality settings
             fig, ax = plt.subplots(figsize=(12, 6))
             ax.plot(time_array, intensity_array, 'b-', linewidth=1.2)
-            
-            # Set labels with proper font sizes for publication
-            ax.set_xlabel('Time (minutes)', fontsize=12)
-            ax.set_ylabel('Intensity (detector counts)', fontsize=12)
+            ax.set_xlabel('Time (minutes)')
+            ax.set_ylabel('Intensity (detector counts)')
             
             # Use custom title if provided, otherwise use default format
             if title:
-                ax.set_title(title, fontsize=14, fontweight='bold')
+                ax.set_title(title)
             else:
-                ax.set_title(f'Total Ion Chromatogram (TIC)\n{filename}', fontsize=14, fontweight='bold')
+                ax.set_title(f'Total Ion Chromatogram (TIC)\n{filename}')
             
             ax.grid(True, alpha=0.3)
-            ax.tick_params(labelsize=10)
             
             plt.tight_layout()
-            
-            # Save PNG with high DPI
-            plt.savefig(output_path_png, dpi=300, bbox_inches='tight', format='png')
-            self.logger.debug(f"Saved PNG: {output_path_png}")
-            
-            # Save PDF with vector graphics for publication quality
-            plt.savefig(output_path_pdf, dpi=300, bbox_inches='tight', format='pdf')
-            self.logger.debug(f"Saved PDF: {output_path_pdf}")
-            
+            plt.savefig(output_path, dpi=300, bbox_inches='tight')
             plt.close(fig)
             return True
             
@@ -244,29 +212,27 @@ class TICExtractor:
     
     def create_hidden_chromatogram(self, time_array: List[float], intensity_array: List[float], 
                                   base_filename: str) -> bool:
-        """Create anonymized version of chromatogram for bias-free review in both PNG and PDF formats."""
+        """Create anonymized version of chromatogram for bias-free review."""
         try:
             # Get or assign number for this filename
             number = self._get_or_assign_number(base_filename)
             
-            # Create hidden chromatogram filenames (without extension)
-            hidden_filename_base = f"{self.project_name}_{number}"
-            hidden_output_path_png = self.hidden_chromatograms_png_dir / f"{hidden_filename_base}.png"
-            hidden_output_path_pdf = self.hidden_chromatograms_pdf_dir / f"{hidden_filename_base}.pdf"
+            # Create hidden chromatogram filename
+            hidden_filename = f"{self.project_name}_{number}.png"
+            hidden_output_path = self.hidden_chromatograms_dir / hidden_filename
             
             # Create plot with only the number as title
             success = self.create_tic_plot(
                 time_array, 
                 intensity_array, 
                 "", 
-                hidden_output_path_png,
-                hidden_output_path_pdf,
+                hidden_output_path, 
                 title=str(number)
             )
             
             if success:
                 self.stats['hidden_plots_created'] += 1
-                self.logger.debug(f"Created hidden chromatogram PNG and PDF: {hidden_filename_base}")
+                self.logger.debug(f"Created hidden chromatogram: {hidden_filename}")
             
             return success
             
@@ -297,13 +263,10 @@ class TICExtractor:
                 # Get or assign number for consistent numbering across regular and hidden chromatograms
                 number = self._get_or_assign_number(base_name)
                 
-                # Create regular chromatogram filenames in separate PNG and PDF directories
-                regular_filename_base = f"{number}_{base_name}_TIC"
-                regular_output_path_png = self.chromatograms_png_dir / f"{regular_filename_base}.png"
-                regular_output_path_pdf = self.chromatograms_pdf_dir / f"{regular_filename_base}.pdf"
+                # Create regular chromatogram in chromatograms subdirectory with number prefix
+                regular_output_path = self.chromatograms_dir / f"{number}_{base_name}_TIC.png"
                 
-                if self.create_tic_plot(time_array, intensity_array, file_path.name, 
-                                       regular_output_path_png, regular_output_path_pdf):
+                if self.create_tic_plot(time_array, intensity_array, file_path.name, regular_output_path):
                     self.stats['files_processed'] += 1
                     self.stats['plots_created'] += 1
                     
@@ -325,17 +288,12 @@ class TICExtractor:
         
         # Log summary
         self.logger.info(f"📊 TIC Processing Summary:")
-        self.logger.info(f"   ✅ Regular plots: {self.stats['plots_created']} (PNG + PDF)")
-        self.logger.info(f"      📁 PNG: {self.chromatograms_png_dir}")
-        self.logger.info(f"      📁 PDF: {self.chromatograms_pdf_dir}")
-        self.logger.info(f"   🔒 Hidden plots: {self.stats['hidden_plots_created']} (PNG + PDF)")
-        self.logger.info(f"      📁 PNG: {self.hidden_chromatograms_png_dir}")
-        self.logger.info(f"      📁 PDF: {self.hidden_chromatograms_pdf_dir}")
+        self.logger.info(f"   ✅ Regular plots: {self.stats['plots_created']} (format: #_filename_TIC.png)")
+        self.logger.info(f"   🔒 Hidden plots: {self.stats['hidden_plots_created']} (format: {self.project_name}_#.png)")
         self.logger.info(f"   ❌ Failed: {self.stats['files_failed']}")
         self.logger.info(f"   📋 Reference CSV (5 columns): {self.reference_csv_path}")
         self.logger.info(f"   📊 Columns: Filename, Number, Result, Threshold, Result_Data")
         self.logger.info(f"   🔗 Matching: Regular and hidden plots use same numbering system")
-        self.logger.info(f"   📄 Format: High-quality PNG (300 DPI) + PDF (vector graphics) for publications")
         
         return self.stats
 
