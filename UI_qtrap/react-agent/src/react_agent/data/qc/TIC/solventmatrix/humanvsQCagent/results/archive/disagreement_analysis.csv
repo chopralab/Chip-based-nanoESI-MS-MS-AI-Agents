@@ -1,0 +1,4 @@
+Human,False Positives,False Negatives,Agreements,Total
+Human 1,23,1,56,80
+Human 2,24,0,56,80
+Human 3,8,1,71,80
