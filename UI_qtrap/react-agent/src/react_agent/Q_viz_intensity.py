@@ -238,6 +238,185 @@ def create_tic_barplots(df: pd.DataFrame, output_dir: str, project_name: str):
 
         create_highest_tic_plot(lipid_df, output_dir, project_name, lipid_class)
         create_average_tic_plot(lipid_df, output_dir, project_name, lipid_class)
+        create_normalized_highest_tic_plot(lipid_df, output_dir, project_name, lipid_class)
+        create_normalized_average_tic_plot(lipid_df, output_dir, project_name, lipid_class)
+
+def create_normalized_highest_tic_plot(df: pd.DataFrame, output_dir: str, project_name: str, lipid_class: str):
+    """Generate and save a normalized bar plot for highest TIC (normalized to 100%).
+    
+    Normalizes all values to the highest bar value (set to 100%), showing relative performance.
+    
+    Parameters:
+        df: DataFrame for a single lipid class
+        output_dir: Directory path to save output files
+        project_name: Project identifier for logging
+        lipid_class: Name of the lipid class
+    
+    Outputs:
+        - normalized_highest_tic_{lipid_class}.png (300 DPI)
+        - normalized_highest_tic_{lipid_class}.pdf
+    """
+    if df is None or df.empty:
+        logging.warning(f"No data for normalized highest TIC plot ({lipid_class}). Skipping.")
+        return
+    
+    logging.info(f"Creating normalized highest TIC plot for {lipid_class}...")
+    
+    try:
+        df_sorted = df.sort_values('SolventMatrix')
+        
+        # Normalize to highest value (100%)
+        max_value = df_sorted['Highest_Summed_TIC'].max()
+        normalized_values = (df_sorted['Highest_Summed_TIC'] / max_value) * 100
+        
+        # Get colors
+        solvent_matrices = df_sorted['SolventMatrix'].values
+        color_map = assign_colors_by_solvent_type(solvent_matrices)
+        colors = [color_map.get(sm, '#gray') for sm in solvent_matrices]
+        
+        plt.style.use('seaborn-v0_8-whitegrid')
+        fig, ax = plt.subplots(figsize=(10, 6), dpi=300)
+        
+        bars = ax.bar(range(len(df_sorted)), normalized_values, color=colors, edgecolor='black', linewidth=1.5)
+        
+        # Add value labels on bars
+        for i, (bar, norm_val, orig_val) in enumerate(zip(bars, normalized_values, df_sorted['Highest_Summed_TIC'].values)):
+            height = bar.get_height()
+            ax.text(bar.get_x() + bar.get_width()/2., height,
+                   f'{norm_val:.1f}%\n({orig_val:.2e})',
+                   ha='center', va='bottom', fontsize=9, fontweight='bold')
+        
+        ax.set_xlabel('Solvent System', fontsize=14, fontweight='bold')
+        ax.set_ylabel('Normalized Highest TIC (%)', fontsize=14, fontweight='bold')
+        ax.set_xticks(range(len(df_sorted)))
+        ax.set_xticklabels(solvent_matrices, rotation=45, ha='right')
+        ax.set_ylim(0, 110)  # Give some space for labels
+        ax.axhline(y=100, color='red', linestyle='--', linewidth=1, alpha=0.5, label='Max (100%)')
+        ax.grid(axis='y', alpha=0.3)
+        ax.legend(loc='upper right')
+        
+        plt.tight_layout()
+        
+        # Save PNG
+        output_path_png = Path(output_dir) / f'normalized_highest_tic_{lipid_class}.png'
+        plt.savefig(output_path_png, dpi=300, bbox_inches='tight')
+        logging.info(f"PNG normalized highest TIC plot saved to: {output_path_png}")
+        
+        # Save PDF
+        output_path_pdf = Path(output_dir) / f'normalized_highest_tic_{lipid_class}.pdf'
+        plt.savefig(output_path_pdf, format='pdf', dpi=300, bbox_inches='tight')
+        logging.info(f"PDF normalized highest TIC plot saved to: {output_path_pdf}")
+        
+        plt.close(fig)
+        
+        # Save normalized values to CSV
+        normalized_df = pd.DataFrame({
+            'SolventMatrix': solvent_matrices,
+            'Normalized_Highest_TIC_%': normalized_values,
+            'Original_Highest_TIC': df_sorted['Highest_Summed_TIC'].values,
+            'LipidClass': lipid_class
+        })
+        csv_path = Path(output_dir) / f'normalized_highest_tic_{lipid_class}.csv'
+        normalized_df.to_csv(csv_path, index=False)
+        logging.info(f"Normalized highest TIC CSV saved to: {csv_path}")
+        
+    except Exception as e:
+        logging.error(f"Failed to create normalized highest TIC plot for {lipid_class}: {e}")
+
+def create_normalized_average_tic_plot(df: pd.DataFrame, output_dir: str, project_name: str, lipid_class: str):
+    """Generate and save a normalized bar plot for average TIC (normalized to 100%).
+    
+    Normalizes all values to the highest bar value (set to 100%), showing relative performance.
+    Error bars are also normalized proportionally.
+    
+    Parameters:
+        df: DataFrame for a single lipid class
+        output_dir: Directory path to save output files
+        project_name: Project identifier for logging
+        lipid_class: Name of the lipid class
+    
+    Outputs:
+        - normalized_average_tic_{lipid_class}.png (300 DPI)
+        - normalized_average_tic_{lipid_class}.pdf
+    """
+    if df is None or df.empty:
+        logging.warning(f"No data for normalized average TIC plot ({lipid_class}). Skipping.")
+        return
+    
+    logging.info(f"Creating normalized average TIC plot for {lipid_class}...")
+    
+    try:
+        df_sorted = df.sort_values('SolventMatrix')
+        
+        # Normalize to highest average value (100%)
+        max_value = df_sorted['Average_Summed_TIC'].max()
+        normalized_values = (df_sorted['Average_Summed_TIC'] / max_value) * 100
+        normalized_errors = (df_sorted['Std_Summed_TIC'] / max_value) * 100
+        
+        # Get colors
+        solvent_matrices = df_sorted['SolventMatrix'].values
+        color_map = assign_colors_by_solvent_type(solvent_matrices)
+        colors = [color_map.get(sm, '#gray') for sm in solvent_matrices]
+        
+        plt.style.use('seaborn-v0_8-whitegrid')
+        fig, ax = plt.subplots(figsize=(10, 6), dpi=300)
+        
+        bars = ax.bar(
+            range(len(df_sorted)), 
+            normalized_values, 
+            yerr=normalized_errors,
+            color=colors, 
+            edgecolor='black', 
+            linewidth=1.5,
+            capsize=5,
+            ecolor='black'
+        )
+        
+        # Add value labels on bars
+        for i, (bar, norm_val, orig_val) in enumerate(zip(bars, normalized_values, df_sorted['Average_Summed_TIC'].values)):
+            height = bar.get_height()
+            ax.text(bar.get_x() + bar.get_width()/2., height + normalized_errors.iloc[i],
+                   f'{norm_val:.1f}%\n({orig_val:.2e})',
+                   ha='center', va='bottom', fontsize=9, fontweight='bold')
+        
+        ax.set_xlabel('Solvent System', fontsize=14, fontweight='bold')
+        ax.set_ylabel('Normalized Average TIC (%)', fontsize=14, fontweight='bold')
+        ax.set_xticks(range(len(df_sorted)))
+        ax.set_xticklabels(solvent_matrices, rotation=45, ha='right')
+        ax.set_ylim(0, 110 + normalized_errors.max())  # Give space for labels and error bars
+        ax.axhline(y=100, color='red', linestyle='--', linewidth=1, alpha=0.5, label='Max (100%)')
+        ax.grid(axis='y', alpha=0.3)
+        ax.legend(loc='upper right')
+        
+        plt.tight_layout()
+        
+        # Save PNG
+        output_path_png = Path(output_dir) / f'normalized_average_tic_{lipid_class}.png'
+        plt.savefig(output_path_png, dpi=300, bbox_inches='tight')
+        logging.info(f"PNG normalized average TIC plot saved to: {output_path_png}")
+        
+        # Save PDF
+        output_path_pdf = Path(output_dir) / f'normalized_average_tic_{lipid_class}.pdf'
+        plt.savefig(output_path_pdf, format='pdf', dpi=300, bbox_inches='tight')
+        logging.info(f"PDF normalized average TIC plot saved to: {output_path_pdf}")
+        
+        plt.close(fig)
+        
+        # Save normalized values to CSV
+        normalized_df = pd.DataFrame({
+            'SolventMatrix': solvent_matrices,
+            'Normalized_Average_TIC_%': normalized_values,
+            'Normalized_Std_%': normalized_errors,
+            'Original_Average_TIC': df_sorted['Average_Summed_TIC'].values,
+            'Original_Std': df_sorted['Std_Summed_TIC'].values,
+            'LipidClass': lipid_class
+        })
+        csv_path = Path(output_dir) / f'normalized_average_tic_{lipid_class}.csv'
+        normalized_df.to_csv(csv_path, index=False)
+        logging.info(f"Normalized average TIC CSV saved to: {csv_path}")
+        
+    except Exception as e:
+        logging.error(f"Failed to create normalized average TIC plot for {lipid_class}: {e}")
 
 def create_grouped_highest_tic_plot(df: pd.DataFrame, output_dir: str, project_name: str):
     """Generate and save a side-by-side plot showing highest TIC for all lipid classes.
@@ -413,6 +592,529 @@ def create_grouped_average_tic_plot(df: pd.DataFrame, output_dir: str, project_n
         
     except Exception as e:
         logging.error(f"Failed to create grouped average TIC plot: {e}")
+
+def create_overall_average_tic_plot(df: pd.DataFrame, output_dir: str, project_name: str):
+    """Generate and save 6 versions of bar plot showing overall average TIC across all lipid classes per solvent.
+    
+    This calculates the mean TIC value across all lipid classes and replicates for each solvent system.
+    For each solvent: averages 5 lipid classes × 3 replicates = 15 data points.
+    
+    Creates 6 versions with different error bar handling:
+    1. Clipped at zero (error bars don't go negative)
+    2. 95% confidence interval (smaller, more conservative)
+    3. Log scale y-axis (better for large ranges)
+    4. Upper error bar only (shows only positive deviation)
+    5. No error bars (clean view of means only)
+    6. With individual data points (shows all 15 points as dots)
+    
+    Parameters:
+        df: Raw DataFrame with individual replicate data
+        output_dir: Directory path to save output files
+        project_name: Project identifier for logging
+    
+    Outputs:
+        - overall_average_tic_by_solvent_v1_clipped.png/pdf
+        - overall_average_tic_by_solvent_v2_ci95.png/pdf
+        - overall_average_tic_by_solvent_v3_logscale.png/pdf
+        - overall_average_tic_by_solvent_v4_upper_only.png/pdf
+        - overall_average_tic_by_solvent_v5_no_error.png/pdf
+        - overall_average_tic_by_solvent_v6_with_points.png/pdf
+        - overall_average_tic_by_solvent.csv
+    """
+    if df is None or df.empty:
+        logging.warning("Data for overall average TIC plot is empty. Skipping generation.")
+        return
+    
+    logging.info("Creating overall average TIC plot across all lipid classes (6 versions)...")
+    
+    try:
+        # Extract solvent matrix from BaseId
+        df_copy = df.copy()
+        df_copy['SolventMatrix'] = df_copy['BaseId'].apply(extract_solvent_matrix)
+        
+        # Group by solvent and calculate mean and std across ALL lipid classes and replicates
+        overall_stats = df_copy.groupby('SolventMatrix')['Summed_TIC'].agg(['mean', 'std', 'count']).reset_index()
+        overall_stats = overall_stats.sort_values('SolventMatrix')
+        
+        # Get colors based on solvent type
+        solvent_matrices = overall_stats['SolventMatrix'].values
+        color_map = assign_colors_by_solvent_type(solvent_matrices)
+        colors = [color_map.get(sm, '#gray') for sm in solvent_matrices]
+        
+        x_positions = np.arange(len(solvent_matrices))
+        
+        from matplotlib.patches import Patch
+        legend_elements = [
+            Patch(facecolor='#1f77b4', label='Human'),
+            Patch(facecolor='#d62728', label='RAG')
+        ]
+        
+        # ===== VERSION 1: Clipped at Zero =====
+        plt.style.use('seaborn-v0_8-whitegrid')
+        fig, ax = plt.subplots(figsize=(12, 8), dpi=300)
+        
+        # Calculate asymmetric error bars (clip lower at zero)
+        lower_errors = np.minimum(overall_stats['std'].values, overall_stats['mean'].values)
+        upper_errors = overall_stats['std'].values
+        
+        bars = ax.bar(
+            x_positions,
+            overall_stats['mean'].values,
+            yerr=[lower_errors, upper_errors],
+            color=colors,
+            capsize=8,
+            ecolor='black',
+            linewidth=2,
+            edgecolor='black'
+        )
+        
+        for i, (bar, mean_val, count) in enumerate(zip(bars, overall_stats['mean'].values, overall_stats['count'].values)):
+            height = bar.get_height()
+            ax.text(bar.get_x() + bar.get_width()/2., height + upper_errors[i],
+                   f'{mean_val:.2e}\n(n={int(count)})', ha='center', va='bottom', fontsize=10, fontweight='bold')
+        
+        ax.set_xlabel('Solvent System', fontsize=16, fontweight='bold')
+        ax.set_ylabel('TIC', fontsize=16, fontweight='bold')
+        ax.set_xticks(x_positions)
+        ax.set_xticklabels(solvent_matrices, rotation=45, ha='right', fontsize=14)
+        ax.tick_params(axis='y', labelsize=14)
+        ax.ticklabel_format(style='scientific', axis='y', scilimits=(0,0))
+        ax.grid(axis='y', alpha=0.3)
+        ax.legend(handles=legend_elements, loc='upper right', fontsize=14)
+        
+        note_text = "Error bars show ±1 SD, clipped at zero (won't go negative)"
+        ax.text(0.5, -0.2, note_text, transform=ax.transAxes, ha='center', fontsize=11, style='italic',
+               bbox=dict(boxstyle='round,pad=0.5', facecolor='lightyellow', alpha=0.8))
+        
+        plt.tight_layout()
+        output_path_png = Path(output_dir) / 'overall_average_tic_by_solvent_v1_clipped.png'
+        plt.savefig(output_path_png, dpi=300, bbox_inches='tight')
+        output_path_pdf = Path(output_dir) / 'overall_average_tic_by_solvent_v1_clipped.pdf'
+        plt.savefig(output_path_pdf, format='pdf', dpi=300, bbox_inches='tight')
+        plt.close(fig)
+        logging.info(f"V1 (clipped) saved: {output_path_png}")
+        
+        # ===== VERSION 2: 95% Confidence Interval =====
+        fig, ax = plt.subplots(figsize=(12, 8), dpi=300)
+        
+        # Calculate 95% CI: mean ± 1.96 * (std / sqrt(n))
+        ci_95 = 1.96 * (overall_stats['std'].values / np.sqrt(overall_stats['count'].values))
+        
+        bars = ax.bar(
+            x_positions,
+            overall_stats['mean'].values,
+            yerr=ci_95,
+            color=colors,
+            capsize=8,
+            ecolor='black',
+            linewidth=2,
+            edgecolor='black'
+        )
+        
+        for i, (bar, mean_val, count) in enumerate(zip(bars, overall_stats['mean'].values, overall_stats['count'].values)):
+            height = bar.get_height()
+            ax.text(bar.get_x() + bar.get_width()/2., height + ci_95[i],
+                   f'{mean_val:.2e}\n(n={int(count)})', ha='center', va='bottom', fontsize=10, fontweight='bold')
+        
+        ax.set_xlabel('Solvent System', fontsize=16, fontweight='bold')
+        ax.set_ylabel('TIC', fontsize=16, fontweight='bold')
+        ax.set_xticks(x_positions)
+        ax.set_xticklabels(solvent_matrices, rotation=45, ha='right', fontsize=14)
+        ax.tick_params(axis='y', labelsize=14)
+        ax.ticklabel_format(style='scientific', axis='y', scilimits=(0,0))
+        ax.grid(axis='y', alpha=0.3)
+        ax.legend(handles=legend_elements, loc='upper right', fontsize=14)
+        
+        note_text = "Error bars show 95% confidence interval (±1.96 × SEM)"
+        ax.text(0.5, -0.2, note_text, transform=ax.transAxes, ha='center', fontsize=11, style='italic',
+               bbox=dict(boxstyle='round,pad=0.5', facecolor='lightyellow', alpha=0.8))
+        
+        plt.tight_layout()
+        output_path_png = Path(output_dir) / 'overall_average_tic_by_solvent_v2_ci95.png'
+        plt.savefig(output_path_png, dpi=300, bbox_inches='tight')
+        output_path_pdf = Path(output_dir) / 'overall_average_tic_by_solvent_v2_ci95.pdf'
+        plt.savefig(output_path_pdf, format='pdf', dpi=300, bbox_inches='tight')
+        plt.close(fig)
+        logging.info(f"V2 (95% CI) saved: {output_path_png}")
+        
+        # ===== VERSION 3: Log Scale =====
+        fig, ax = plt.subplots(figsize=(12, 8), dpi=300)
+        
+        bars = ax.bar(
+            x_positions,
+            overall_stats['mean'].values,
+            yerr=overall_stats['std'].values,
+            color=colors,
+            capsize=8,
+            ecolor='black',
+            linewidth=2,
+            edgecolor='black'
+        )
+        
+        for i, (bar, mean_val, count) in enumerate(zip(bars, overall_stats['mean'].values, overall_stats['count'].values)):
+            height = bar.get_height()
+            ax.text(bar.get_x() + bar.get_width()/2., height * 2,
+                   f'{mean_val:.2e}\n(n={int(count)})', ha='center', va='bottom', fontsize=10, fontweight='bold')
+        
+        ax.set_xlabel('Solvent System', fontsize=16, fontweight='bold')
+        ax.set_ylabel('TIC (Log Scale)', fontsize=16, fontweight='bold')
+        ax.set_xticks(x_positions)
+        ax.set_xticklabels(solvent_matrices, rotation=45, ha='right', fontsize=14)
+        ax.tick_params(axis='y', labelsize=14)
+        ax.set_yscale('log')
+        ax.grid(axis='y', alpha=0.3, which='both')
+        ax.legend(handles=legend_elements, loc='upper right', fontsize=14)
+        
+        note_text = "Y-axis uses logarithmic scale - better for large value ranges"
+        ax.text(0.5, -0.2, note_text, transform=ax.transAxes, ha='center', fontsize=11, style='italic',
+               bbox=dict(boxstyle='round,pad=0.5', facecolor='lightyellow', alpha=0.8))
+        
+        plt.tight_layout()
+        output_path_png = Path(output_dir) / 'overall_average_tic_by_solvent_v3_logscale.png'
+        plt.savefig(output_path_png, dpi=300, bbox_inches='tight')
+        output_path_pdf = Path(output_dir) / 'overall_average_tic_by_solvent_v3_logscale.pdf'
+        plt.savefig(output_path_pdf, format='pdf', dpi=300, bbox_inches='tight')
+        plt.close(fig)
+        logging.info(f"V3 (log scale) saved: {output_path_png}")
+        
+        # ===== VERSION 4: Upper Error Bar Only =====
+        fig, ax = plt.subplots(figsize=(12, 8), dpi=300)
+        
+        # Only show upper error bar
+        bars = ax.bar(
+            x_positions,
+            overall_stats['mean'].values,
+            yerr=[np.zeros(len(overall_stats)), overall_stats['std'].values],
+            color=colors,
+            capsize=8,
+            ecolor='black',
+            linewidth=2,
+            edgecolor='black'
+        )
+        
+        for i, (bar, mean_val, count) in enumerate(zip(bars, overall_stats['mean'].values, overall_stats['count'].values)):
+            height = bar.get_height()
+            ax.text(bar.get_x() + bar.get_width()/2., height + overall_stats['std'].values[i],
+                   f'{mean_val:.2e}\n(n={int(count)})', ha='center', va='bottom', fontsize=10, fontweight='bold')
+        
+        ax.set_xlabel('Solvent System', fontsize=16, fontweight='bold')
+        ax.set_ylabel('TIC', fontsize=16, fontweight='bold')
+        ax.set_xticks(x_positions)
+        ax.set_xticklabels(solvent_matrices, rotation=45, ha='right', fontsize=14)
+        ax.tick_params(axis='y', labelsize=14)
+        ax.ticklabel_format(style='scientific', axis='y', scilimits=(0,0))
+        ax.grid(axis='y', alpha=0.3)
+        ax.legend(handles=legend_elements, loc='upper right', fontsize=14)
+        
+        note_text = "Error bars show only +1 SD (upper deviation only)"
+        ax.text(0.5, -0.2, note_text, transform=ax.transAxes, ha='center', fontsize=11, style='italic',
+               bbox=dict(boxstyle='round,pad=0.5', facecolor='lightyellow', alpha=0.8))
+        
+        plt.tight_layout()
+        output_path_png = Path(output_dir) / 'overall_average_tic_by_solvent_v4_upper_only.png'
+        plt.savefig(output_path_png, dpi=300, bbox_inches='tight')
+        output_path_pdf = Path(output_dir) / 'overall_average_tic_by_solvent_v4_upper_only.pdf'
+        plt.savefig(output_path_pdf, format='pdf', dpi=300, bbox_inches='tight')
+        plt.close(fig)
+        logging.info(f"V4 (upper only) saved: {output_path_png}")
+        
+        # ===== VERSION 5: No Error Bars =====
+        fig, ax = plt.subplots(figsize=(12, 8), dpi=300)
+        
+        bars = ax.bar(
+            x_positions,
+            overall_stats['mean'].values,
+            color=colors,
+            linewidth=2,
+            edgecolor='black'
+        )
+        
+        for i, (bar, mean_val, count) in enumerate(zip(bars, overall_stats['mean'].values, overall_stats['count'].values)):
+            height = bar.get_height()
+            ax.text(bar.get_x() + bar.get_width()/2., height,
+                   f'{mean_val:.2e}\n(n={int(count)})', ha='center', va='bottom', fontsize=10, fontweight='bold')
+        
+        ax.set_xlabel('Solvent System', fontsize=16, fontweight='bold')
+        ax.set_ylabel('TIC', fontsize=16, fontweight='bold')
+        ax.set_xticks(x_positions)
+        ax.set_xticklabels(solvent_matrices, rotation=45, ha='right', fontsize=14)
+        ax.tick_params(axis='y', labelsize=14)
+        ax.ticklabel_format(style='scientific', axis='y', scilimits=(0,0))
+        ax.grid(axis='y', alpha=0.3)
+        ax.legend(handles=legend_elements, loc='upper right', fontsize=14)
+        
+        note_text = "No error bars shown - clean view of mean values only"
+        ax.text(0.5, -0.2, note_text, transform=ax.transAxes, ha='center', fontsize=11, style='italic',
+               bbox=dict(boxstyle='round,pad=0.5', facecolor='lightyellow', alpha=0.8))
+        
+        plt.tight_layout()
+        output_path_png = Path(output_dir) / 'overall_average_tic_by_solvent_v5_no_error.png'
+        plt.savefig(output_path_png, dpi=300, bbox_inches='tight')
+        output_path_pdf = Path(output_dir) / 'overall_average_tic_by_solvent_v5_no_error.pdf'
+        plt.savefig(output_path_pdf, format='pdf', dpi=300, bbox_inches='tight')
+        plt.close(fig)
+        logging.info(f"V5 (no error bars) saved: {output_path_png}")
+        
+        # ===== VERSION 6: With Individual Data Points =====
+        fig, ax = plt.subplots(figsize=(12, 8), dpi=300)
+        
+        bars = ax.bar(
+            x_positions,
+            overall_stats['mean'].values,
+            yerr=overall_stats['std'].values,
+            color=colors,
+            capsize=8,
+            ecolor='black',
+            linewidth=2,
+            edgecolor='black',
+            alpha=0.7  # Make bars slightly transparent so dots are visible
+        )
+        
+        # Add individual data points
+        for i, solvent in enumerate(solvent_matrices):
+            # Get all individual data points for this solvent
+            solvent_data = df_copy[df_copy['SolventMatrix'] == solvent]['Summed_TIC'].values
+            
+            # Add jitter to x-position so points don't overlap
+            x_jitter = np.random.normal(x_positions[i], 0.04, size=len(solvent_data))
+            
+            # Plot individual points
+            ax.scatter(
+                x_jitter,
+                solvent_data,
+                color='black',
+                s=50,
+                alpha=0.6,
+                edgecolors='white',
+                linewidth=1,
+                zorder=3  # Make sure points are on top
+            )
+        
+        for i, (bar, mean_val, count) in enumerate(zip(bars, overall_stats['mean'].values, overall_stats['count'].values)):
+            height = bar.get_height()
+            ax.text(bar.get_x() + bar.get_width()/2., height + overall_stats['std'].values[i],
+                   f'{mean_val:.2e}\n(n={int(count)})', ha='center', va='bottom', fontsize=10, fontweight='bold')
+        
+        ax.set_xlabel('Solvent System', fontsize=16, fontweight='bold')
+        ax.set_ylabel('TIC', fontsize=16, fontweight='bold')
+        ax.set_xticks(x_positions)
+        ax.set_xticklabels(solvent_matrices, rotation=45, ha='right', fontsize=14)
+        ax.tick_params(axis='y', labelsize=14)
+        ax.ticklabel_format(style='scientific', axis='y', scilimits=(0,0))
+        ax.grid(axis='y', alpha=0.3)
+        ax.legend(handles=legend_elements, loc='upper right', fontsize=14)
+        
+        note_text = "Black dots show individual data points (n=15 per solvent)"
+        ax.text(0.5, -0.2, note_text, transform=ax.transAxes, ha='center', fontsize=11, style='italic',
+               bbox=dict(boxstyle='round,pad=0.5', facecolor='lightyellow', alpha=0.8))
+        
+        plt.tight_layout()
+        output_path_png = Path(output_dir) / 'overall_average_tic_by_solvent_v6_with_points.png'
+        plt.savefig(output_path_png, dpi=300, bbox_inches='tight')
+        output_path_pdf = Path(output_dir) / 'overall_average_tic_by_solvent_v6_with_points.pdf'
+        plt.savefig(output_path_pdf, format='pdf', dpi=300, bbox_inches='tight')
+        plt.close(fig)
+        logging.info(f"V6 (with data points) saved: {output_path_png}")
+        
+        # Save the summary statistics to CSV
+        output_csv = Path(output_dir) / 'overall_average_tic_by_solvent.csv'
+        overall_stats.to_csv(output_csv, index=False)
+        logging.info(f"Overall average TIC statistics saved to: {output_csv}")
+        
+    except Exception as e:
+        logging.error(f"Failed to create overall average TIC plot: {e}")
+
+def create_overall_normalized_plots(output_dir: str, project_name: str):
+    """Create overall normalized plots by averaging normalized values across all lipid classes.
+    
+    Reads the individual normalized CSV files and creates plots showing the average
+    normalized performance across all lipid classes for each solvent.
+    
+    Parameters:
+        output_dir: Directory containing the normalized CSV files
+        project_name: Project identifier for logging
+    
+    Outputs:
+        - overall_normalized_highest_tic.png/pdf
+        - overall_normalized_average_tic.png/pdf
+        - overall_normalized_highest_tic.csv
+        - overall_normalized_average_tic.csv
+    """
+    logging.info("Creating overall normalized plots from individual lipid class data...")
+    
+    try:
+        output_path = Path(output_dir)
+        
+        # ===== HIGHEST TIC =====
+        # Read all normalized highest TIC CSV files
+        highest_dfs = []
+        for csv_file in output_path.glob('normalized_highest_tic_*.csv'):
+            if 'overall' not in csv_file.name:  # Skip the overall file if it exists
+                df = pd.read_csv(csv_file)
+                highest_dfs.append(df)
+        
+        if highest_dfs:
+            # Combine all lipid classes
+            combined_highest = pd.concat(highest_dfs, ignore_index=True)
+            
+            # Calculate average normalized value across all lipid classes for each solvent
+            overall_highest = combined_highest.groupby('SolventMatrix').agg({
+                'Normalized_Highest_TIC_%': ['mean', 'std'],
+                'Original_Highest_TIC': 'mean'
+            }).reset_index()
+            overall_highest.columns = ['SolventMatrix', 'Mean_Normalized_%', 'Std_Normalized_%', 'Mean_Original_TIC']
+            overall_highest = overall_highest.sort_values('SolventMatrix')
+            
+            # Save to CSV
+            csv_path = output_path / 'overall_normalized_highest_tic.csv'
+            overall_highest.to_csv(csv_path, index=False)
+            logging.info(f"Overall normalized highest TIC CSV saved to: {csv_path}")
+            
+            # Also save detailed breakdown (pivot table showing each lipid class)
+            breakdown_pivot = combined_highest.pivot(
+                index='SolventMatrix', 
+                columns='LipidClass', 
+                values='Normalized_Highest_TIC_%'
+            )
+            breakdown_pivot['Overall_Average_%'] = overall_highest.set_index('SolventMatrix')['Mean_Normalized_%']
+            breakdown_pivot = breakdown_pivot.sort_index()
+            
+            breakdown_csv_path = output_path / 'overall_normalized_highest_tic_breakdown.csv'
+            breakdown_pivot.to_csv(breakdown_csv_path)
+            logging.info(f"Detailed breakdown CSV saved to: {breakdown_csv_path}")
+            
+            # Create plot
+            solvent_matrices = overall_highest['SolventMatrix'].values
+            color_map = assign_colors_by_solvent_type(solvent_matrices)
+            colors = [color_map.get(sm, '#gray') for sm in solvent_matrices]
+            
+            plt.style.use('seaborn-v0_8-whitegrid')
+            fig, ax = plt.subplots(figsize=(12, 8), dpi=300)
+            
+            bars = ax.bar(
+                range(len(overall_highest)),
+                overall_highest['Mean_Normalized_%'].values,
+                yerr=overall_highest['Std_Normalized_%'].values,
+                color=colors,
+                edgecolor='black',
+                linewidth=2,
+                capsize=8,
+                ecolor='black'
+            )
+            
+            # Add value labels
+            for i, (bar, mean_val) in enumerate(zip(bars, overall_highest['Mean_Normalized_%'].values)):
+                height = bar.get_height()
+                ax.text(bar.get_x() + bar.get_width()/2., height + overall_highest['Std_Normalized_%'].values[i],
+                       f'{mean_val:.1f}%', ha='center', va='bottom', fontsize=10, fontweight='bold')
+            
+            ax.set_xlabel('Solvent System', fontsize=16, fontweight='bold')
+            ax.set_ylabel('Average Normalized Highest TIC (%)', fontsize=16, fontweight='bold')
+            ax.set_xticks(range(len(overall_highest)))
+            ax.set_xticklabels(solvent_matrices, rotation=45, ha='right', fontsize=14)
+            ax.tick_params(axis='y', labelsize=14)
+            ax.axhline(y=100, color='red', linestyle='--', linewidth=1, alpha=0.5, label='Max (100%)')
+            ax.grid(axis='y', alpha=0.3)
+            ax.legend(loc='upper right', fontsize=14)
+            
+            plt.tight_layout()
+            
+            output_path_png = output_path / 'overall_normalized_highest_tic.png'
+            plt.savefig(output_path_png, dpi=300, bbox_inches='tight')
+            logging.info(f"PNG overall normalized highest TIC plot saved to: {output_path_png}")
+            
+            output_path_pdf = output_path / 'overall_normalized_highest_tic.pdf'
+            plt.savefig(output_path_pdf, format='pdf', dpi=300, bbox_inches='tight')
+            logging.info(f"PDF overall normalized highest TIC plot saved to: {output_path_pdf}")
+            
+            plt.close(fig)
+        
+        # ===== AVERAGE TIC =====
+        # Read all normalized average TIC CSV files
+        average_dfs = []
+        for csv_file in output_path.glob('normalized_average_tic_*.csv'):
+            if 'overall' not in csv_file.name:  # Skip the overall file if it exists
+                df = pd.read_csv(csv_file)
+                average_dfs.append(df)
+        
+        if average_dfs:
+            # Combine all lipid classes
+            combined_average = pd.concat(average_dfs, ignore_index=True)
+            
+            # Calculate average normalized value across all lipid classes for each solvent
+            overall_average = combined_average.groupby('SolventMatrix').agg({
+                'Normalized_Average_TIC_%': ['mean', 'std'],
+                'Original_Average_TIC': 'mean'
+            }).reset_index()
+            overall_average.columns = ['SolventMatrix', 'Mean_Normalized_%', 'Std_Normalized_%', 'Mean_Original_TIC']
+            overall_average = overall_average.sort_values('SolventMatrix')
+            
+            # Save to CSV
+            csv_path = output_path / 'overall_normalized_average_tic.csv'
+            overall_average.to_csv(csv_path, index=False)
+            logging.info(f"Overall normalized average TIC CSV saved to: {csv_path}")
+            
+            # Also save detailed breakdown (pivot table showing each lipid class)
+            breakdown_pivot = combined_average.pivot(
+                index='SolventMatrix', 
+                columns='LipidClass', 
+                values='Normalized_Average_TIC_%'
+            )
+            breakdown_pivot['Overall_Average_%'] = overall_average.set_index('SolventMatrix')['Mean_Normalized_%']
+            breakdown_pivot = breakdown_pivot.sort_index()
+            
+            breakdown_csv_path = output_path / 'overall_normalized_average_tic_breakdown.csv'
+            breakdown_pivot.to_csv(breakdown_csv_path)
+            logging.info(f"Detailed breakdown CSV saved to: {breakdown_csv_path}")
+            
+            # Create plot
+            solvent_matrices = overall_average['SolventMatrix'].values
+            color_map = assign_colors_by_solvent_type(solvent_matrices)
+            colors = [color_map.get(sm, '#gray') for sm in solvent_matrices]
+            
+            plt.style.use('seaborn-v0_8-whitegrid')
+            fig, ax = plt.subplots(figsize=(12, 8), dpi=300)
+            
+            bars = ax.bar(
+                range(len(overall_average)),
+                overall_average['Mean_Normalized_%'].values,
+                yerr=overall_average['Std_Normalized_%'].values,
+                color=colors,
+                edgecolor='black',
+                linewidth=2,
+                capsize=8,
+                ecolor='black'
+            )
+            
+            # Add value labels
+            for i, (bar, mean_val) in enumerate(zip(bars, overall_average['Mean_Normalized_%'].values)):
+                height = bar.get_height()
+                ax.text(bar.get_x() + bar.get_width()/2., height + overall_average['Std_Normalized_%'].values[i],
+                       f'{mean_val:.1f}%', ha='center', va='bottom', fontsize=10, fontweight='bold')
+            
+            ax.set_xlabel('Solvent System', fontsize=16, fontweight='bold')
+            ax.set_ylabel('Average Normalized Average TIC (%)', fontsize=16, fontweight='bold')
+            ax.set_xticks(range(len(overall_average)))
+            ax.set_xticklabels(solvent_matrices, rotation=45, ha='right', fontsize=14)
+            ax.tick_params(axis='y', labelsize=14)
+            ax.axhline(y=100, color='red', linestyle='--', linewidth=1, alpha=0.5, label='Max (100%)')
+            ax.grid(axis='y', alpha=0.3)
+            ax.legend(loc='upper right', fontsize=14)
+            
+            plt.tight_layout()
+            
+            output_path_png = output_path / 'overall_normalized_average_tic.png'
+            plt.savefig(output_path_png, dpi=300, bbox_inches='tight')
+            logging.info(f"PNG overall normalized average TIC plot saved to: {output_path_png}")
+            
+            output_path_pdf = output_path / 'overall_normalized_average_tic.pdf'
+            plt.savefig(output_path_pdf, format='pdf', dpi=300, bbox_inches='tight')
+            logging.info(f"PDF overall normalized average TIC plot saved to: {output_path_pdf}")
+            
+            plt.close(fig)
+        
+    except Exception as e:
+        logging.error(f"Failed to create overall normalized plots: {e}")
 
 def generate_intensity_win_summary(df: pd.DataFrame) -> pd.DataFrame:
     """Summarize which BaseId has the most 'wins' for highest and average TIC."""
@@ -1315,6 +2017,12 @@ def visualize_tic_intensity(csv_file_path: str, output_base_dir: Optional[str] =
     # Generate grouped plots showing all lipid classes together
     create_grouped_highest_tic_plot(viz_data, str(output_dir), project_name)
     create_grouped_average_tic_plot(viz_data, str(output_dir), project_name)
+    
+    # Generate overall average plot (average across all lipid classes per solvent)
+    create_overall_average_tic_plot(df, str(output_dir), project_name)
+    
+    # Generate overall normalized plots (average of normalized values across all lipid classes)
+    create_overall_normalized_plots(str(output_dir), project_name)
 
     # Generate and save win summary
     win_summary_df = generate_intensity_win_summary(viz_data)
