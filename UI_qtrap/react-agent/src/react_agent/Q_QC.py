@@ -111,11 +111,21 @@ def extract_duration_from_messages(messages: List[BaseMessage]) -> Optional[str]
     for msg in reversed(messages):
         if isinstance(msg, dict):
             if msg.get('type') in ('human', 'user'):
-                user_message = msg.get('content', '')
+                content = msg.get('content', '')
+                # Handle case where content is a list
+                if isinstance(content, list):
+                    user_message = ' '.join(str(item) for item in content)
+                else:
+                    user_message = content
                 break
         elif hasattr(msg, 'content'):
             if msg.__class__.__name__.lower().startswith(('human', 'user')):
-                user_message = msg.content
+                content = msg.content
+                # Handle case where content is a list
+                if isinstance(content, list):
+                    user_message = ' '.join(str(item) for item in content)
+                else:
+                    user_message = content
                 break
     
     if not user_message:
@@ -154,11 +164,21 @@ def extract_interval_and_duration_from_messages(messages: List[BaseMessage]) -> 
     for msg in reversed(messages):
         if isinstance(msg, dict):
             if msg.get('type') in ('human', 'user'):
-                user_message = msg.get('content', '')
+                content = msg.get('content', '')
+                # Handle case where content is a list
+                if isinstance(content, list):
+                    user_message = ' '.join(str(item) for item in content)
+                else:
+                    user_message = content
                 break
         elif hasattr(msg, 'content'):
             if msg.__class__.__name__.lower().startswith(('human', 'user')):
-                user_message = msg.content
+                content = msg.content
+                # Handle case where content is a list
+                if isinstance(content, list):
+                    user_message = ' '.join(str(item) for item in content)
+                else:
+                    user_message = content
                 break
     
     if not user_message:
@@ -430,11 +450,21 @@ def extract_project_from_messages(messages: List[BaseMessage]) -> Optional[str]:
     for msg in reversed(messages):
         if isinstance(msg, dict):
             if msg.get('type') in ('human', 'user'):
-                user_message = msg.get('content', '')
+                content = msg.get('content', '')
+                # Handle case where content is a list
+                if isinstance(content, list):
+                    user_message = ' '.join(str(item) for item in content)
+                else:
+                    user_message = content
                 break
         elif hasattr(msg, 'content'):
             if msg.__class__.__name__.lower().startswith(('human', 'user')):
-                user_message = msg.content
+                content = msg.content
+                # Handle case where content is a list
+                if isinstance(content, list):
+                    user_message = ' '.join(str(item) for item in content)
+                else:
+                    user_message = content
                 break
     if not user_message:
         return None
