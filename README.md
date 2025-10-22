@@ -99,90 +99,51 @@ sciborg_dev/
 - Triggers reprocessing workflows
 
 ### **agent_worklist** - Worklist Generation
-- Creates optimized sample worklists
-- Integrates failed sample reprocessing
-- Organizes by lipid class and project
+- Creates worklists formatted for Analyst v1.6.3
+- Formats for windows 7 and moves files to QTRAP worklist directory automatically 
+- Operator initials for each experiemnt
 
 ### **agent_parse** - Data Parsing
-- Extracts data from raw MS files
+- Extracts data from raw .wiff files
 - Converts to structured CSV format
-- Organizes by date and project
+- Organizes by project
 
 ### **agent_helper** - Literature Assistant
 - RAG-based Q&A on scientific papers
-- FAISS vector database integration
-- Answers questions about MS methods
+- Persistent memory for knowledge retention
 
 ---
 
 ## 📚 Documentation
 
 ### **User Guides**
-- [Interval Monitoring Guide](docs/guides/INTERVAL_MONITORING_GUIDE.md)
-- [Minute Monitoring Guide](docs/guides/QC_MINUTE_MONITORING_GUIDE.md)
-- [Advanced Visualization](docs/guides/ADVANCED_VIZ_INTEGRATION_GUIDE.md)
-- [Faceted Panel Plots](docs/guides/FACETED_PANEL_PLOT_ADDED.md)
-
-### **Technical Documentation**
-- [Implementation Summary](docs/guides/IMPLEMENTATION_SUMMARY.md)
-- [Cleanup Summary](docs/CLEANUP_SUMMARY.md)
-- [Git Analysis](docs/GIT_LARGE_FILES_REPORT.md)
-
-**Full documentation:** See [`docs/README.md`](docs/README.md)
+- [`docs/README.md`](docs/README.md)
 
 ---
 
 ## 🔧 Core Scripts
 
 ### **Quality Control**
-- `Q_QC.py` (98 KB) - Main QC workflow with monitoring
-- `Q_QC_TIC.py` (17 KB) - TIC extraction and plotting
-- `Q_viz_QC.py` (29 KB) - QC visualization
+- `Q_QC.py` - Main QC workflow with monitoring
+- `Q_QC_TIC.py` - TIC extraction and plotting
+- `Q_viz_QC.py` - QC visualization
 
 ### **Data Processing**
-- `Q_parse.py` (15 KB) - Data parsing and extraction
-- `Q_worklist.py` (22 KB) - Worklist generation
-- `Q_convert.py` (5 KB) - MSConvert integration
+- `Q_parse.py` - Data parsing and extraction
+- `Q_worklist.py` - Worklist generation
+- `Q_convert.py` - MSConvert integration
 
 ### **Visualization**
-- `Q_viz_intensity.py` (90 KB) - Intensity visualization
-- `Q_viz_intensity_advanced.py` (16 KB) - Advanced plots
-- `Q_viz_intensity_advanced_part2.py` (18 KB) - Statistical plots
+- `Q_viz_intensity.py` - Intensity visualization
+- `Q_viz_intensity_advanced.py` - Advanced plots
+- `Q_viz_intensity_advanced_part2.py` - Statistical plots
 
 ### **AI Helper**
-- `Q_helper.py` (5 KB) - RAG-based literature assistant
+- `Q_helper.py` - RAG-based literature assistant and persistent memory for knowledge retention
 
 ---
 
-## 🎯 Workflow Examples
-
-### **Continuous QC Monitoring**
-```python
-# Monitors data directory continuously
-# Automatically detects and flags failed samples
-# Generates TIC plots and QC metrics
-# Triggers reprocessing workflows
-```
-
-### **Automated Worklist Generation**
-```python
-# Scans QC results for failed samples
-# Creates optimized reprocessing worklists
-# Organizes by lipid class and project
-# Integrates with MS instrument software
-```
-
-### **Intelligent Data Parsing**
-```python
-# Extracts data from raw MS files
-# Converts to structured CSV format
-# Organizes by date and project structure
-# Handles multiple file formats
-```
-
----
-
-## 📊 Key Technologies
+## 📊 Key Dependencies
 
 - **LangGraph** - Agent orchestration and workflow management
 - **LangChain** - LLM integration and tool calling
@@ -199,28 +160,16 @@ sciborg_dev/
 If you use this workflow in your research, please cite:
 
 ```
-QTRAP: AI-Powered Mass Spectrometry Quality Control Workflow
-Presented at ACS Analytical Chemistry, 2025
+Memory-Based AI Agents Integrated with Real-Time Quality Control Automates Chip-based nanoESI-MS/MS Platform
+(In Preparation)
 ```
-
----
-
-## 📝 License
-
-[Add your license here]
-
----
-
-## 👥 Contributors
-
-[Add contributors here]
 
 ---
 
 ## 📧 Contact
 
 For questions or collaboration:
-- [Add contact information]
+- iyer95@purdue.edu
 
 ---
 
@@ -233,5 +182,4 @@ This project uses:
 
 ---
 
-**Status:** ✅ Presentation Ready  
 **Last Updated:** October 22, 2025
