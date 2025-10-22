@@ -1,7 +1,0 @@
-% header=SampleName	SampleId	Comments	AcqMethod	ProcMethod	RackCode	PlateCode	VialPos	DilutFact	WghtToVol	Type	RackPos	PlatePos	SetName	OutputFile	_col1Text	_col2Int
-2025-01-07_splashmix_PC_1_SI	default_id	default_comment	PC.dam	PC.dam	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	DataSet1	custCol1_1	0
-2025-01-07_brain_TG_1_SI	default_id	default_comment	TG_18-1.dam	TG_18-1.dam	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	DataSet1	custCol1_1	0
-2025-01-07_liver_DG_1_SI	default_id	default_comment	DG_18-1.dam	DG_18-1.dam	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	DataSet1	custCol1_1	0
-2025-01-07_liver_FA_1_SI	default_id	default_comment	FFA SFA USFA.dam	FFA SFA USFA.dam	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	DataSet1	custCol1_1	0
-2025-01-07_brain_PC_1_SI	default_id	default_comment	PC.dam	PC.dam	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	DataSet1	custCol1_1	0
-2025-01-07_brain_PC_2_SI	default_id	default_comment	PC.dam	PC.dam	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	DataSet1	custCol1_1	0

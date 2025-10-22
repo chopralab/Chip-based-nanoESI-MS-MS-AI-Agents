@@ -168,3 +168,5 @@ desktop.ini
 !requirements.txt
 !pyproject.toml
 !langgraph.json
+archive/
+**/archive/

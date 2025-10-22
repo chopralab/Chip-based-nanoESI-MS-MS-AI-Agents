@@ -1,6 +1,0 @@
-% header=SampleName	SampleId	Comments	AcqMethod	ProcMethod	RackCode	PlateCode	VialPos	DilutFact	WghtToVol	Type	RackPos	PlatePos	SetName	OutputFile	_col1Text	_col2Int
-20250618_QC_DG_1_TGL_DG_16-0.dam	default_id	default_comment	DG_16-0.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_QC_DG_1_TGL_DG_16-0.dam	custCol1_1	0
-20250618_QC_DG_1_TGL_DG_16-1.dam	default_id	default_comment	DG_16-1.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_QC_DG_1_TGL_DG_16-1.dam	custCol1_1	0
-20250618_QC_DG_1_TGL_DG_18-0.dam	default_id	default_comment	DG_18-0.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_QC_DG_1_TGL_DG_18-0.dam	custCol1_1	0
-20250618_QC_DG_1_TGL_DG_18-1.dam	default_id	default_comment	DG_18-1.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_QC_DG_1_TGL_DG_18-1.dam	custCol1_1	0
-20250618_QC_DG_1_TGL_DG_18-2.dam	default_id	default_comment	DG_18-2.dam	none	10 By 10	N/A	1	1	0	Unknown	1	0	Set1	20250618_QC_DG_1_TGL_DG_18-2.dam	custCol1_1	0
