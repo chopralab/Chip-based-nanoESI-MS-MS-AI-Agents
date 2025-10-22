@@ -1,166 +1,237 @@
-# SciBORG
+# Memory-Based AI Agents Integrated with Real-Time Quality Control Automates Chip-based nanoESI-MS/MS Platform 
 
-In the version update branch we use a venv to maintain the new list of packages till the time the entire shift is done. The new list of packages is in the new_requirements.txt file. The new venv is created using the following command:
-```shell
-python3.10 -m venv env
-source env/bin/activate
+---
+
+## 🎯 Overview
+
+This repository implements the first LLM-driven AI agent framework for chip-based nanoESI-MS/MS automation, specifically designed for TriVersa NanoMate coupled to SCIEX 4000 QTRAP systems. The framework leverages large language models to interpret natural language instructions and autonomously execute analytical workflows—from worklist generation and real-time quality control to data conversion, visualization, and literature retrieval—without requiring programming expertise. Unlike traditional vendor software or custom scripts, the system integrates persistent memory to preserve both lab-specific protocols and published knowledge, while maintaining a modular, instrument-agnostic architecture that can evolve as experimental needs change across diverse analytical platforms beyond mass spectrometry.
+
+---
+
+## ✨ Key Features
+
+### 🤖 **AI-Powered Agents**
+- **QC Agent** - Automated real-time quality control
+- **Worklist Agent** - Intelligent sample worklist generation
+- **Parse Agent** - Automated data extraction and organization
+- **Visualization Agent** - Automated data visualization
+- **Helper Agent** - Retrival Augmented Generation (RAG) for scientific literature and persistent memory for knowledge retention
+
+---
+
+## 🚀 Quick Start
+
+### 1. **Environment Setup**
+
+```bash
+# Using conda (recommended)
+conda env create -f docs/environment/environment.yml
+conda activate QTRAP_Agents
+
+# Or using pip
+pip install -r docs/environment/requirements.txt
 ```
 
-<img src="images/logo.png" alt="SciBORG Banner Image" width="" height="150">
+### 2. **Install LangGraph Project**
 
-SciBORG is an innovative framework designed for building agents that can rapidly automate scientific discovery. It’s built to be modular, extensible, and easy to integrate with new components and agents, making it suitable for diverse research domains. 
-
-This framework allows for smooth integration of various AI agents, each customizable to specific tasks, making it ideal for research labs, academic institutions, and organizations focusing on scientific discovery. By leveraging SciBORG, teams can automate complex workflows, empowering researchers to focus on innovative thinking and problem-solving.
-
-Task:(some tracking tags go here)
-
-<h3>Key Features</h3>
-
-- Modular Design: Easily add, replace, or upgrade agents as per project needs.
-- Extensible Framework: Integrate new components effortlessly.
-- Agent Library: Ready-to-use agents like the RAG agent, which supports retrieval-augmented generation for scientific Q&A tasks.
-- Benchmarking and Testing: Built-in benchmarking tools to ensure reliability and effectiveness of each agent.
-
-## Quick Start Guide
-
-### Pre-requisites
-For compatibility, it’s recommended to use a virtual environment with Python 3.10. Follow these steps to set it up:
-```shell
-python3.10 -m venv sciborg-env
-source sciborg-env/bin/activate
+```bash
+cd UI_qtrap/react-agent
+pip install -e .
 ```
 
-### Installation
-To install the SciBORG agent, clone the repository and install the dependencies using the following commands:
-```shell
-git clone https://github.com/chopralab/sciborg_dev.git
-cd sciborg_dev
-pip install -r requirements.txt
+### 3. **Configure Environment**
+
+Create a `.env` file in `UI_qtrap/react-agent/`:
+```bash
+OPENAI_API_KEY=your_key_here
+TAVILY_API_KEY=your_key_here
+LANGCHAIN_TRACING_V2=false  # Set to false for local dev
 ```
 
-### Testing the Installation
-Test the installation by running the following command:
-```python
-import os
-os.environ['OPENAI_API_KEY'] = "<YOUR_API_KEY_HERE>"
+### 4. **Start LangGraph UI**
 
-import sys
-sys.path.insert(1, "path to the parent of this folder") 
-
-from langchain_openai import ChatOpenAI
-from sciborg_dev.ai.agents.core import create_linqx_chat_agent
-from sciborg_dev.ai.chains.microservice import module_to_microservice
-from sciborg_dev.ai.chains.workflow import create_workflow_planner_chain, create_workflow_constructor_chain
-
-from sciborg_dev.testing.models.drivers import MicrowaveSynthesizer, MicrowaveSynthesizerObject, PubChemCaller
-from sciborg_dev.core.library.base import BaseDriverMicroservice
+```bash
+cd UI_qtrap/react-agent
+langgraph dev
 ```
-If the above command runs without any errors, the installation was successful and the SciBORG agent is ready to use.
 
-### Directory Structure
-If the installation was successful, the directory structure should look like this:
+Open browser to `http://localhost:8123` to access the LangGraph Studio UI.
+
+---
+
+## 📁 Repository Structure
+
 ```
 sciborg_dev/
-  ai/
-  core/
-  embeddings/
-  LCU/
-  lcu-remote-client/
-  microservices/
-  notebooks/
-  testing/
-  utils/
-  README.md
-  requirements.txt
+├── README.md                    # This file
+├── .gitignore                   # Git configuration
+│
+├── UI_qtrap/                    # Main QTRAP workflow
+│   └── react-agent/            # LangGraph agents
+│       ├── src/react_agent/    # Core scripts
+│       │   ├── Q_QC.py         # QC analysis (main)
+│       │   ├── Q_worklist.py   # Worklist generation
+│       │   ├── Q_parse.py      # Data parsing
+│       │   ├── Q_helper.py     # RAG helper
+│       │   └── Q_viz_*.py      # Visualization scripts
+│       └── langgraph.json      # Agent configuration
+│
+├── notebooks/                   # Papers & supplemental info
+│   ├── papers/                 # Scientific literature
+│   └── SI/                     # Supplemental information
+│
+└── docs/                        # Documentation
+    ├── README.md               # Documentation index
+    ├── environment/            # Setup files
+    ├── guides/                 # User guides
+    ├── CLEANUP_SUMMARY.md      # Repo maintenance
+    └── GIT_LARGE_FILES_REPORT.md
 ```
 
-#### Directory Structure Explanation:
+---
 
-- `ai/`: Contains implementations of various AI agents that drive SciBORG’s functionality, including the RAG agent and other pre-built agents.
-- `core/`: The core logic and infrastructure that powers SciBORG, including utilities for agent management, execution, and task orchestration.
-- `embeddings/`: Stores models and logic for generating and managing document embeddings. This folder is essential for supporting tasks like document similarity and context retrieval.
-- `microservices/`: Houses microservices that enable SciBORG to interact with other applications, databases, and APIs, facilitating the broader applicability of the agents.
-- `notebooks/`: Jupyter notebooks providing tutorials, demos, and examples for using SciBORG agents. This folder is highly recommended for new users to understand SciBORG’s capabilities.
-- `testing/`: Test cases and scripts to verify the accuracy, reliability, and performance of each component and agent within SciBORG.
-- `utils/`: Utility scripts and helper functions that support various tasks across SciBORG, like benchmarking.
+## 🤖 LangGraph Agents
 
-## Creating Agents
+### **agent_QC** - Quality Control
+- Monitors MS data quality in real-time
+- Detects failed samples automatically
+- Generates TIC plots and QC metrics
+- Triggers reprocessing workflows
 
-### Making the microservice for the agents
-#### Microwave Synthesizer microservice
+### **agent_worklist** - Worklist Generation
+- Creates optimized sample worklists
+- Integrates failed sample reprocessing
+- Organizes by lipid class and project
+
+### **agent_parse** - Data Parsing
+- Extracts data from raw MS files
+- Converts to structured CSV format
+- Organizes by date and project
+
+### **agent_helper** - Literature Assistant
+- RAG-based Q&A on scientific papers
+- FAISS vector database integration
+- Answers questions about MS methods
+
+---
+
+## 📚 Documentation
+
+### **User Guides**
+- [Interval Monitoring Guide](docs/guides/INTERVAL_MONITORING_GUIDE.md)
+- [Minute Monitoring Guide](docs/guides/QC_MINUTE_MONITORING_GUIDE.md)
+- [Advanced Visualization](docs/guides/ADVANCED_VIZ_INTEGRATION_GUIDE.md)
+- [Faceted Panel Plots](docs/guides/FACETED_PANEL_PLOT_ADDED.md)
+
+### **Technical Documentation**
+- [Implementation Summary](docs/guides/IMPLEMENTATION_SUMMARY.md)
+- [Cleanup Summary](docs/CLEANUP_SUMMARY.md)
+- [Git Analysis](docs/GIT_LARGE_FILES_REPORT.md)
+
+**Full documentation:** See [`docs/README.md`](docs/README.md)
+
+---
+
+## 🔧 Core Scripts
+
+### **Quality Control**
+- `Q_QC.py` (98 KB) - Main QC workflow with monitoring
+- `Q_QC_TIC.py` (17 KB) - TIC extraction and plotting
+- `Q_viz_QC.py` (29 KB) - QC visualization
+
+### **Data Processing**
+- `Q_parse.py` (15 KB) - Data parsing and extraction
+- `Q_worklist.py` (22 KB) - Worklist generation
+- `Q_convert.py` (5 KB) - MSConvert integration
+
+### **Visualization**
+- `Q_viz_intensity.py` (90 KB) - Intensity visualization
+- `Q_viz_intensity_advanced.py` (16 KB) - Advanced plots
+- `Q_viz_intensity_advanced_part2.py` (18 KB) - Statistical plots
+
+### **AI Helper**
+- `Q_helper.py` (5 KB) - RAG-based literature assistant
+
+---
+
+## 🎯 Workflow Examples
+
+### **Continuous QC Monitoring**
 ```python
-file_path = 'path_to_json/driver_MicroSynth.json'
-
-driver_command_microservice = module_to_microservice(MicrowaveSynthesizer)
-
-with open(file_path, 'w') as outfile:
-    outfile.write(driver_command_microservice.model_dump_json(indent=2))
+# Monitors data directory continuously
+# Automatically detects and flags failed samples
+# Generates TIC plots and QC metrics
+# Triggers reprocessing workflows
 ```
-#### PubChem microservice
+
+### **Automated Worklist Generation**
 ```python
-file_path = 'path_to_json/driver_pubchem.json'
-
-pubchem_command_microservice = module_to_microservice(PubChemCaller)
-
-with open(file_path, 'w') as outfile:
-    outfile.write(pubchem_command_microservice.model_dump_json(indent=2))
+# Scans QC results for failed samples
+# Creates optimized reprocessing worklists
+# Organizes by lipid class and project
+# Integrates with MS instrument software
 ```
 
-### RAG Agent
-
-The RAG Agent (Retrieval-Augmented Generation) is used for answering scientific questions based on provided context. To use the RAG agent, run the following command:
-
+### **Intelligent Data Parsing**
 ```python
-rag_agent = create_linqx_chat_agent(
-    microservice=driver_command_microservice,
-    rag_vectordb_path = '<path>/embeddings/NIH_docs_embeddings',
-    llm=ChatOpenAI(model='gpt-4'),
-    human_interaction=False,
-    verbose=True
-)
+# Extracts data from raw MS files
+# Converts to structured CSV format
+# Organizes by date and project structure
+# Handles multiple file formats
 ```
 
-### Pubchem Agent
-```python
-pubchem_agent = create_linqx_chat_agent(
-    microservice=pubchem_command_microservice,
-    llm=ChatOpenAI(model='gpt-4'),
-    human_interaction=False,
-    verbose=True
-)
+---
+
+## 📊 Key Technologies
+
+- **LangGraph** - Agent orchestration and workflow management
+- **LangChain** - LLM integration and tool calling
+- **OpenAI GPT** - Language model for agent reasoning
+- **FAISS** - Vector database for literature search
+- **Pandas** - Data manipulation and analysis
+- **Matplotlib/Seaborn** - Scientific visualization
+- **NumPy/SciPy** - Statistical analysis
+
+---
+
+## 🎓 Citation
+
+If you use this workflow in your research, please cite:
+
+```
+QTRAP: AI-Powered Mass Spectrometry Quality Control Workflow
+Presented at ACS Analytical Chemistry, 2025
 ```
 
-### PubChem and RAG Agent
-```python
-pubchem_and_rag_agent = create_linqx_chat_agent(
-    microservice=pubchem_command_microservice,
-    rag_vectordb_path = '<path>/embeddings/NIH_docs_embeddings',
-    llm=ChatOpenAI(model='gpt-4'),
-    human_interaction=False,
-    verbose=True
-)
-```
+---
 
-What do these paramaters mean?
-- `microservice`: The microservice that the agent will use to interact with external services or APIs.
-- `rag_vectordb_path`: The path to the document embeddings used by the RAG agent for context retrieval.
-- `llm`: The language model used by the agent for generating responses. In this case, it’s the GPT-4 model.
-- `human_interaction`: A boolean flag to enable or disable human interaction with the agent.
+## 📝 License
 
-For detailed demonstrations and examples, refer to the Jupyter notebooks `notebooks/SI/SI_traces_01.ipynb` and `notebooks/SI/SI_traces_02.ipynb` in the repository.
-Task: link the folder to the notebooks
+[Add your license here]
 
-## Benchmarking the Agents
+---
 
-SciBORG includes benchmarking scripts to evaluate the performance of each agent. There are three ways to benchmark the agents:
-- State Based Benchmarking
-- Path Based Benchmarking
-- RegEx Based Benchmarking
+## 👥 Contributors
 
-For additional details on benchmarking and usage, refer to the `notebooks/SI/SI_benchmarks_01.ipynb`, `notebooks/SI/SI_benchmarks_02.ipynb` and `notebooks/SI/SI_benchmarks_03.ipynb` notebooks.
-Task: link the folder to the notebooks
+[Add contributors here]
 
-## Additional Resources (adding soon...)
-Explore additional details on extending SciBORG’s functionality with custom integrations:
-- Creating Custom Integrations: Learn how to add new agents to SciBORG, configure workflows, and customize agents for specific needs. (add in readme file to help do this)
-- Adding Custom Document Embeddings: Understand how to integrate different embeddings for specialized document types or formats. (add in a readme file and a code file to help do this)
+---
+
+## 📧 Contact
+
+For questions or collaboration:
+- [Add contact information]
+
+---
+
+## 🌟 Acknowledgments
+
+This project uses:
+- LangGraph by LangChain
+- OpenAI API
+- Scientific Python ecosystem
+
+---
+
+**Status:** ✅ Presentation Ready  
+**Last Updated:** October 22, 2025

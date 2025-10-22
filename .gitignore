@@ -1,0 +1,170 @@
+# ============================================
+# QTRAP Project .gitignore
+# ============================================
+
+# ============================================
+# Top-Level Directories (Keep only notebooks/, UI_qtrap/, and docs/)
+# ============================================
+# Ignore all top-level directories except notebooks/, UI_qtrap/, and docs/
+ai/
+archive/
+core/
+embeddings/
+faiss_index_*/
+server_data/
+utils/
+
+# ============================================
+# QTRAP Data Directories (Generated Output)
+# ============================================
+# NOTE: Data files are ignored by file extension patterns below
+# solventmatrix project is explicitly whitelisted
+notebooks/testing/
+
+# ============================================
+# Python
+# ============================================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# IPython
+profile_default/
+ipython_config.py
+
+# Environments
+.env
+.env.local
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# ============================================
+# IDE and Editor
+# ============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# ============================================
+# LangGraph / LangChain
+# ============================================
+.langgraph_api/
+.langsmith/
+
+# ============================================
+# Data Files (MS/MS Data)
+# ============================================
+# Ignore all data files by default
+*.txt
+*.csv
+*.wiff
+*.wiff.scan
+*.dam.csv
+*.dam.txt
+
+# IMPORTANT: Keep solventmatrix project data (for presentation)
+!**/solventmatrix/**/*.txt
+!**/solventmatrix/**/*.csv
+!**/solventmatrix/**/*.dam.txt
+!**/solventmatrix/**/*.dam.csv
+
+# Keep example/demo files for presentation
+!**/examples/**/*.txt
+!**/examples/**/*.csv
+!**/demo/**/*.txt
+!**/demo/**/*.csv
+!**/sample_data/**/*.txt
+!**/sample_data/**/*.csv
+
+# Keep documentation files
+!README.txt
+!**/README.txt
+!docs/**/*.txt
+!docs/**/*.csv
+
+# ============================================
+# Logs and Databases
+# ============================================
+*.log
+*.sqlite
+*.sqlite3
+*.db
+
+# ============================================
+# OS Files
+# ============================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ============================================
+# Temporary Files
+# ============================================
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+
+# ============================================
+# Keep Important Files
+# ============================================
+# Don't ignore these important config files
+!environment.yml
+!requirements.txt
+!pyproject.toml
+!langgraph.json

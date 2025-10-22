@@ -1,3 +1,0 @@
-2025-09-18 16:59:36,039 [INFO] Logging to /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/logs/worklist/worklist_20250918.log
-2025-09-19 12:55:16,100 [INFO] Generated aggregated worklist: /home/qtrap/sciborg_dev/UI_qtrap/react-agent/src/react_agent/data/worklist/generated/solventmatrix/worklist_20250919_1255pm_solventmatrix.csv
-2025-09-19 12:55:17,146 [INFO] Copied to server output: /mnt/d_drive/Analyst Data/Projects/API Instrument/Batch/QTRAP_worklist/solventmatrix

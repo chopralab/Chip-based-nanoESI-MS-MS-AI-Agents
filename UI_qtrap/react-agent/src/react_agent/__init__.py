@@ -1,9 +1,7 @@
 """React Agent.
 
-This module defines a custom reasoning and action agent graph.
-It invokes tools in a simple loop.
+This module defines custom QTRAP workflow agents.
+Each agent (Q_worklist, Q_parse, Q_QC, Q_helper) has its own graph.
 """
 
-from react_agent.graph import graph
-
-__all__ = ["graph"]
+__all__ = []
