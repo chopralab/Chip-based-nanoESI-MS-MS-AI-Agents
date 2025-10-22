@@ -163,3 +163,10 @@ cython_debug/
 #.idea/
 
 .langgraph_api
+
+# QTRAP-specific ignores
+archive/
+convert/
+Q_convert.py
+Q_viz_intensity_advanced.py
+Q_viz_intensity_advanced_part2.py
