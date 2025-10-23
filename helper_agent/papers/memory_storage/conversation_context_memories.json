@@ -1,0 +1,10 @@
+{
+  "solvent_matrix_for_lipids_nanoESI": {
+    "memory_id": "65bc424c-e0d0-466d-98e7-4c42b27813f8",
+    "memory_key": "solvent_matrix_for_lipids_nanoESI",
+    "memory_data": "The user has asked multiple times for the recommended solvent matrix for lipids for nanoESI. Searches in all knowledge bases have not produced any results.",
+    "memory_type": "conversation_context",
+    "timestamp": "2025-09-10T19:37:16.765008",
+    "last_accessed": "2025-09-10T19:37:16.765008"
+  }
+}

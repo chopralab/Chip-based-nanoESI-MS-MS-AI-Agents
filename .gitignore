@@ -168,5 +168,13 @@ desktop.ini
 !requirements.txt
 !pyproject.toml
 !langgraph.json
+
+# ============================================
+# Helper Agent - Ignore large files
+# ============================================
+helper_agent/archive/
+helper_agent/papers/archive/
+
+# Generic archive pattern
 archive/
 **/archive/

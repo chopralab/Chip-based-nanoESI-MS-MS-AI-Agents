@@ -1,0 +1,51 @@
+{
+  "timestamp": "2025-10-22T21:47:18.115946",
+  "question": "What solvent matrix should I use for lipids with chip-based nanoESI-MS/MS with the Advion Nanomate?",
+  "top_k": 8,
+  "method": "rag",
+  "answer": "For chip-based nanoESI-MS/MS with the Advion NanoMate, the recommended solvent matrix for lipids is 5 mM ammonium acetate in a chloroform/methanol mixture with a 1:2 volume ratio. This setup is used for routine lipidomics experiments and is infused using the TriVersa NanoMate with a 4.1 µm ESI Chip. The ion spray voltage and back pressure parameters are set at ±1.2 kV and 0.2 psi, respectively [1-s2.0-S1570023209001342-main.pdf — 1-s2.0-S1570023209001342-main.pdf#p2#ca7bd1d8f449].\n\nSources: nprot.2016.156.pdf, 1-s2.0-S1570023209001342-main.pdf, 1-s2.0-S1570023209001342-main.pdf, 1-s2.0-S1570023209001342-main.pdf, 1-s2.0-S1570023209001342-main.pdf, 1-s2.0-S1570023209001342-main.pdf, nprot.2016.156.pdf, 1-s2.0-S1570023209001342-main.pdf.",
+  "memory_used": false,
+  "memory_count": 0,
+  "citations": [
+    {
+      "id": "nprot.2016.156.pdf#p3#1e75107339cf",
+      "title": "nprot.2016.156.pdf",
+      "url": ""
+    },
+    {
+      "id": "1-s2.0-S1570023209001342-main.pdf#p2#ca7bd1d8f449",
+      "title": "1-s2.0-S1570023209001342-main.pdf",
+      "url": ""
+    },
+    {
+      "id": "1-s2.0-S1570023209001342-main.pdf#p2#aec56914dddd",
+      "title": "1-s2.0-S1570023209001342-main.pdf",
+      "url": ""
+    },
+    {
+      "id": "1-s2.0-S1570023209001342-main.pdf#p2#a879f1af030f",
+      "title": "1-s2.0-S1570023209001342-main.pdf",
+      "url": ""
+    },
+    {
+      "id": "1-s2.0-S1570023209001342-main.pdf#p3#c7daf905802e",
+      "title": "1-s2.0-S1570023209001342-main.pdf",
+      "url": ""
+    },
+    {
+      "id": "1-s2.0-S1570023209001342-main.pdf#p2#ab53053ccbca",
+      "title": "1-s2.0-S1570023209001342-main.pdf",
+      "url": ""
+    },
+    {
+      "id": "nprot.2016.156.pdf#p3#02d88aa433e3",
+      "title": "nprot.2016.156.pdf",
+      "url": ""
+    },
+    {
+      "id": "1-s2.0-S1570023209001342-main.pdf#p8#7864b503887c",
+      "title": "1-s2.0-S1570023209001342-main.pdf",
+      "url": ""
+    }
+  ]
+}

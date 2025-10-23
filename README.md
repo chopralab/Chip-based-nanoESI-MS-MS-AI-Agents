@@ -24,45 +24,77 @@ This repository implements the first LLM-driven AI agent framework for chip-base
 ### 1. **Environment Setup**
 
 ```bash
-# Using conda (recommended)
+# Create conda environment
+conda create --name qtrap_paper --clone sciborg_dev
+# Or create from scratch:
 conda env create -f docs/environment/environment.yml
-conda activate QTRAP_Agents
 
-# Or using pip
-pip install -r docs/environment/requirements.txt
+# Activate environment
+conda activate qtrap_paper
+
+# Install additional dependencies
+pip install python-dotenv  # For secure API key loading
 ```
 
-### 2. **Install LangGraph Project**
+### 2. **Configure API Keys** (Secure Method)
 
 ```bash
+# Create .env file for Helper Agent
+cd helper_agent
+cp .env.example .env
+nano .env  # Add your OPENAI_API_KEY
+```
+
+See [`helper_agent/API_KEY_SETUP.md`](helper_agent/API_KEY_SETUP.md) for detailed security setup.
+
+### 3. **Using Helper Agent (Standalone)**
+
+```python
+import sys
+sys.path.insert(0, "helper_agent/drivers")
+
+from config_loader import setup_environment
+from qtrap_utils import setup_helper, ask_agent, tell_agent
+
+# Load API key securely
+setup_environment()
+
+# Setup agent
+helper = setup_helper(model="gpt-4o", temperature=0)
+
+# Ask questions (searches literature)
+answer = ask_agent("What solvent for lipidomics?")
+
+# Store your experimental findings
+tell_agent("Project SolventMatrix: 2:1 MeOH/ACN is best...")
+
+# Ask again (now uses YOUR data!)
+answer = ask_agent("What solvent for lipidomics?")
+```
+
+### 4. **Using LangGraph Agents** (Optional)
+
+```bash
+# Install LangGraph
 cd UI_qtrap/react-agent
 pip install -e .
-```
 
-### 3. **Configure Environment**
+# Configure .env
+cp .env.example .env
+# Add: OPENAI_API_KEY, TAVILY_API_KEY
 
-Create a `.env` file in `UI_qtrap/react-agent/`:
-```bash
-OPENAI_API_KEY=your_key_here
-TAVILY_API_KEY=your_key_here
-LANGCHAIN_TRACING_V2=false  # Set to false for local dev
-```
-
-### 4. **Start LangGraph UI**
-
-```bash
-cd UI_qtrap/react-agent
+# Start LangGraph UI
 langgraph dev
 ```
 
-Open browser to `http://localhost:8123` to access the LangGraph Studio UI.
+Open browser to `http://localhost:8123` to access LangGraph Studio.
 
 ---
 
 ## 📁 Repository Structure
 
 ```
-sciborg_dev/
+Chip-based-nanoESI-MS-MS-AI-Agents/
 ├── README.md                    # This file
 ├── .gitignore                   # Git configuration
 │
@@ -76,9 +108,29 @@ sciborg_dev/
 │       │   └── Q_viz_*.py      # Visualization scripts
 │       └── langgraph.json      # Agent configuration
 │
-├── notebooks/                   # Papers & supplemental info
-│   ├── papers/                 # Scientific literature
-│   └── SI/                     # Supplemental information
+├── helper_agent/                # 🆕 Standalone Helper AI Agent
+│   ├── drivers/                # Core modules
+│   │   ├── qtrap_utils.py      # Main API (use this!)
+│   │   ├── helper_agent_core.py # Agent implementation
+│   │   ├── config_loader.py    # Secure API key loading
+│   │   ├── archive/            # Old/unused files
+│   │   └── README.md           # Module documentation
+│   │
+│   ├── logs/                   # Organized log files
+│   │   ├── ask_agent/          # Memory-first queries
+│   │   ├── tell_agent/         # Memory storage
+│   │   ├── query/              # Full RAG queries
+│   │   └── README.md           # Log documentation
+│   │
+│   ├── papers/                 # Scientific literature corpus
+│   │   └── recentlipids7/      # Lipidomics papers
+│   │       └── faiss_index/    # Vector embeddings
+│   │
+│   ├── helper_agent_notebooks/ # Example notebooks
+│   ├── .env                    # API keys (gitignored)
+│   ├── .env.example            # API key template
+│   ├── API_KEY_SETUP.md        # Security guide
+│   └── ORGANIZATION_SUMMARY.md # Complete organization guide
 │
 └── docs/                        # Documentation
     ├── README.md               # Documentation index
@@ -111,6 +163,9 @@ sciborg_dev/
 ### **agent_helper** - Literature Assistant
 - RAG-based Q&A on scientific papers
 - Persistent memory for knowledge retention
+- Memory-first queries (checks stored data before searching literature)
+- Automatic logging of all interactions
+- Secure API key management
 
 ---
 
@@ -139,19 +194,31 @@ sciborg_dev/
 - `Q_viz_intensity_advanced_part2.py` - Statistical plots
 
 ### **AI Helper**
-- `Q_helper.py` - RAG-based literature assistant and persistent memory for knowledge retention
+- `Q_helper.py` - RAG-based literature assistant (LangGraph integration)
+- `helper_agent/` - Standalone Helper AI Agent system:
+  - `qtrap_utils.py` - Main API for agent operations
+  - `helper_agent_core.py` - Core RAG and memory implementation
+  - `config_loader.py` - Secure API key management
+  - Organized logging system (ask/tell/query logs)
+  - Example notebooks with Project SolventMatrix demo
 
 ---
 
 ## 📊 Key Dependencies
 
+### **Core AI Framework**
 - **LangGraph** - Agent orchestration and workflow management
 - **LangChain** - LLM integration and tool calling
-- **OpenAI GPT** - Language model for agent reasoning
-- **FAISS** - Vector database for literature search
+- **OpenAI GPT-4o** - Language model for agent reasoning
+- **FAISS** - Vector database for RAG and literature search
+
+### **Data Processing**
 - **Pandas** - Data manipulation and analysis
-- **Matplotlib/Seaborn** - Scientific visualization
 - **NumPy/SciPy** - Statistical analysis
+- **python-dotenv** - Secure environment variable management
+
+### **Visualization**
+- **Matplotlib/Seaborn** - Scientific visualization
 
 ---
 

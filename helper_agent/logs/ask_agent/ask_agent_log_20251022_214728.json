@@ -1,0 +1,10 @@
+{
+  "timestamp": "2025-10-22T21:47:22.509692",
+  "question": "What solvent matrix should I use for lipids with chip-based nanoESI-MS/MS with the Advion Nanomate?",
+  "top_k": 8,
+  "method": "memory",
+  "answer": "Based on the validated experimental results from Project SolventMatrix, you should use the 2:1 MeOH/ACN solvent matrix for lipids with chip-based nanoESI-MS/MS with the Advion Nanomate. This recommendation is based on the finding that this solvent matrix yielded the highest average and maximum total ion chromatogram (TIC) intensities for PC, PE, and TG lipid classes. Furthermore, it was observed that human-validated matrices, such as 2:1 MeOH/ACN, consistently outperformed those derived from literature recommendations. Therefore, the 2:1 MeOH/ACN solvent matrix is recommended as it provides the strongest and most reproducible ionization performance across multiple lipid classes.",
+  "memory_used": true,
+  "memory_count": 1,
+  "citations": []
+}
