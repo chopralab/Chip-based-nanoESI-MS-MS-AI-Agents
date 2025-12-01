@@ -237,6 +237,7 @@ Memory-Based AI Agents Integrated with Real-Time Quality Control Automates Chip-
 
 For questions or collaboration:
 - iyer95@purdue.edu
+- choprait@purdue.edu
 
 ---
 
